@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Trang Bài Học</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+<link rel="stylesheet" href="style.css">
+<link rel="icon" type="image/png" href="images/logo.png">
+</head>
+<body>
+<div class="container-chinh">
+
+    <nav class="menu-chinh">
+        <button id="hamburger-btn">
+            <i class="fas fa-bars"></i>
+        </button>
+        <ul>
+            <li><a href="index.html">Trang Chủ</a></li>
+            <li><a href="bai-hoc.html">Bài Học</a></li>
+            <li><a href="bai-tap.html">Bài Tập</a></li>
+            <li><a href="thi-thu.html">Thi Thử</a></li>
+            <li><a href="lien-he.html">Liên Hệ</a></li>
+        </ul>
+    </nav>
+
+    <div class="container-2-cot">
+        
+        <aside class="sidebar">
+            <h2>Các cấp độ</h2>
+            <ul class="menu-cap-1">
+                <li class="menu-item">
+                    <a href="#" class="link-cap-1" data-level="N5">N5 <i class="fas fa-chevron-down"></i></a>
+                    <ul class="menu-cap-2">
+                        <li><a href="#" class="link-cap-2" data-loai="bai-hoc-TuVung" data-capdo="N5">Từ vựng</a></li>
+                        <li><a href="#" class="link-cap-2" data-loai="bai-hoc-NguPhap" data-capdo="N5">Ngữ pháp</a></li>
+                    </ul>
+                </li>
+                <li class="menu-item">
+                    <a href="#" class="link-cap-1" data-level="N4">N4 <i class="fas fa-chevron-down"></i></a>
+                    <ul class="menu-cap-2">
+                        <li><a href="#" class="link-cap-2" data-loai="bai-hoc-TuVung" data-capdo="N4">Từ vựng</a></li>
+                        <li><a href="#" class="link-cap-2" data-loai="bai-hoc-NguPhap" data-capdo="N4">Ngữ pháp</a></li>
+                    </ul>
+                </li> <li class="menu-item">
+                    <a href="#" class="link-cap-1" data-level="N3">N3 <i class="fas fa-chevron-down"></i></a>
+                    <ul class="menu-cap-2">
+                        <li><a href="#" class="link-cap-2" data-loai="bai-hoc-TuVung" data-capdo="N3">Từ vựng</a></li>
+                        <li><a href="#" class="link-cap-2" data-loai="bai-hoc-NguPhap" data-capdo="N3">Ngữ pháp</a></li>
+                    </ul>
+                </li>
+                </ul>
+        </aside>
+
+        <main class="content">
+            <h1>Bài học</h1>
+            <p>Vui lòng chọn một cấp độ từ menu bên trái để bắt đầu!</p>
+        </main>
+
+    </div>
+
+</div> 
+
+<button id="btn-len-dau-trang" title="Lên đầu trang"><i class="fas fa-arrow-up"></i></button>
+
+<script src="data.js"></script>
+<script src="app.js"></script>
+    
+</body>
+</html>

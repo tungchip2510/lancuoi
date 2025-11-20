@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Trang Chủ - Học Tiếng Nhật</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+<link rel="stylesheet" href="style.css">
+<link rel="icon" type="image/png" href="images/logo.png">
+
+<style>
+    /* CSS riêng cho phần Chào mừng (chỉ dùng ở trang chủ) */
+    #khung-chao-mung {
+        display: none; text-align: center; background-color: #e8f5e9;
+        padding: 30px; border-radius: 12px; border: 2px solid #4CAF50;
+        margin-top: 30px; box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    }
+    #khung-chao-mung h2 { color: #2E7D32; margin: 0 0 15px 0; font-size: 24px; }
+    #khung-chao-mung p { font-size: 18px; color: #555; }
+    #nut-dang-xuat {
+        background-color: #f44336; color: white; border: none;
+        padding: 10px 20px; border-radius: 30px; cursor: pointer;
+        font-weight: bold; margin-top: 15px; transition: background 0.3s;
+    }
+    #nut-dang-xuat:hover { background-color: #d32f2f; }
+</style>
+
+</head>
+<body>
+
+    <nav class="menu-chinh">
+        <button id="hamburger-btn">
+            <i class="fas fa-bars"></i>
+        </button>
+        <ul>
+            <li><a href="index.html">Trang Chủ</a></li>
+            <li><a href="bai-hoc.html">Bài Học</a></li>
+            <li><a href="bai-tap.html">Bài Tập</a></li>
+            <li><a href="thi-thu.html">Thi Thử</a></li>
+            <li><a href="lien-he.html">Liên Hệ</a></li>
+        </ul>
+    </nav>
+
+    <div class="hero-section">
+        <div class="hero-content">
+            <h1>Chinh Phục Tiếng Nhật <br> Mỗi Ngày 30 Phút</h1>
+            <p>Hệ thống học tập thông minh, bài tập trắc nghiệm và thi thử miễn phí.</p>
+            <a href="bai-hoc.html" class="btn-bat-dau">Bắt đầu học ngay <i class="fas fa-arrow-right"></i></a>
+        </div>
+    </div>
+
+    <div class="container-chinh">
+
+        <form class="form-tim-kiem" action="#" method="get">
+            <input type="text" placeholder="Nhập để tìm kiếm bài học...">
+            <button type="submit"><i class="fas fa-search"></i></button>
+        </form>
+
+        <h2 id="gioi-thieu" style="text-align: center; margin-top: 40px;">Giới thiệu chương trình</h2>
+        <p style="text-align: center; max-width: 700px; margin: 0 auto;">
+            Đây là chương trình học được thiết kế đặc biệt dành cho những người bận rộn.
+            Chương trình tập trung vào các kỹ năng thực tế, giúp bạn tự tin giao tiếp chỉ sau 3 tháng.
+        </p>
+
+        <h2 style="text-align: center; margin-top: 40px;">Bảng giá khóa học</h2>
+        <table>
+            <tr><th>Khóa học</th><th>Thời lượng</th><th>Học phí (VND)</th></tr>
+            <tr><td>Tiếng Nhật N5</td><td>3 tháng</td><td>0</td></tr>
+            <tr><td>Tiếng Nhật N4</td><td>5 tháng</td><td>0</td></tr>
+        </table>
+
+        <hr style="margin: 50px 0; border: 0; border-top: 1px solid #eee;">
+
+        <div id="khung-dang-ky" style="max-width: 500px; margin: 0 auto;">
+            <h2 id="dang-ky" style="text-align: center;">Đăng ký thành viên</h2>
+            <p style="text-align: center; margin-bottom: 20px;">Nhập tên của bạn để lưu quá trình học tập!</p>
+            <form id="form-dang-ky">
+                <div>
+                    <label for="ten">Tên của bạn:</label>
+                    <input type="text" id="ten" name="ho_ten" required placeholder="Ví dụ: Nguyen Van A">
+                </div>
+                <div>
+                    <label for="email">Email (Tùy chọn):</label>
+                    <input type="email" id="email" name="email_cua_ban" placeholder="email@example.com">
+                </div>
+                <div>
+                    <button type="submit" id="nut-gui" style="width: 100%;">Gửi Đăng Ký</button>
+                </div>
+            </form>
+        </div>
+
+        <div id="khung-chao-mung">
+            <h2>Xin chào, <span id="ten-nguoi-dung"></span>! 👋</h2>
+            <p>Chào mừng bạn quay trở lại học tập.</p>
+            <p>Hãy vào mục <b>Bài Học</b> hoặc <b>Thi Thử</b> để tiếp tục nhé!</p>
+            <button id="nut-dang-xuat"><i class="fas fa-sign-out-alt"></i> Đăng xuất</button>
+        </div>
+
+    </div> <footer>
+        <div class="footer-content">
+            <p>&copy; 2024 Tiếng Nhật Online. Xây dựng bởi Tùng Anh.</p>
+            <div class="socials">
+                <a href="#"><i class="fab fa-facebook"></i></a>
+                <a href="#"><i class="fab fa-youtube"></i></a>
+                <a href="#"><i class="fab fa-tiktok"></i></a>
+            </div>
+        </div>
+    </footer>
+
+<button id="btn-len-dau-trang" title="Lên đầu trang"><i class="fas fa-arrow-up"></i></button>
+
+<script src="data.js"></script>
+<script src="app.js"></script>
+
+<script>
+    // 1. Bắt các phần tử cần thiết
+    const khungDangKy = document.getElementById("khung-dang-ky");
+    const khungChaoMung = document.getElementById("khung-chao-mung");
+    const spanTenNguoiDung = document.getElementById("ten-nguoi-dung");
+    const formDangKy = document.getElementById("form-dang-ky");
+    const inputTen = document.getElementById("ten");
+    const nutDangXuat = document.getElementById("nut-dang-xuat");
+
+    // 2. Hàm kiểm tra xem đã đăng nhập chưa
+    function kiemTraDangNhap() {
+        let tenDaLuu = localStorage.getItem("hocvien_ten");
+        if (tenDaLuu) {
+            if(khungDangKy) khungDangKy.style.display = "none";
+            if(khungChaoMung) {
+                khungChaoMung.style.display = "block";
+                spanTenNguoiDung.textContent = tenDaLuu;
+            }
+        } else {
+            if(khungDangKy) khungDangKy.style.display = "block";
+            if(khungChaoMung) khungChaoMung.style.display = "none";
+        }
+    }
+
+    // 3. Xử lý khi nhấn nút Gửi Đăng Ký
+    if (formDangKy) {
+        formDangKy.addEventListener("submit", function(event) {
+            event.preventDefault(); 
+            let tenMoi = inputTen.value;
+            if (tenMoi) {
+                localStorage.setItem("hocvien_ten", tenMoi);
+                alert("Đăng ký thành công! Chào mừng " + tenMoi);
+                kiemTraDangNhap();
+            }
+        });
+    }
+
+    // 4. Xử lý khi nhấn Đăng xuất
+    if (nutDangXuat) {
+        nutDangXuat.addEventListener("click", function() {
+            localStorage.removeItem("hocvien_ten");
+            alert("Đã đăng xuất!");
+            kiemTraDangNhap();
+        });
+    }
+
+    // 5. Chạy kiểm tra ngay khi vào trang
+    kiemTraDangNhap();
+    
+    // (Lưu ý: Logic "Lên đầu trang" và "Tìm kiếm" đã nằm trong app.js nên không cần lặp lại ở đây)
+</script>
+
+</body>
+</html>

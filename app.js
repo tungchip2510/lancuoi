@@ -1,7 +1,7 @@
 document.addEventListener("DOMContentLoaded", function() {
 
     // ... (Giữ nguyên phần Cấu hình & Biến chung cũ) ...
-    const SO_ITEM_MOI_TRANG = 6;
+    const SO_ITEM_MOI_TRANG = 9;
     const SO_CAU_MOI_BO = 5;
 
     let trangHienTai = 1;

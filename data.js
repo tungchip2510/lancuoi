@@ -605,6 +605,187 @@ const KHO_BAI_HOC = [
                     <tr><td>4. N の V</td><td>Mục đích của Danh từ.</td><td>これは わたし の カメラ です。</td></tr>
                 </tbody>
             </table>` 
+    },
+
+    // --- MÔ-ĐUN 4: THỂ TE VÀ MỆNH LỆNH ---
+
+    // BÀI 16: CHIA ĐỘNG TỪ SANG THỂ TE (V-て)
+    { 
+        id: "n5_tv_16", cap_do: "N5", loai: "TuVung", tieu_de: "BÀI 16: THỂ TE - Từ vựng", 
+        noi_dung: `
+            <h3 class="tieu-de-phu">Từ vựng (Vocabulary)</h3>
+            <table class="bang-tu-vung">
+                <thead><tr><th>Hán tự/Kana</th><th>Romaji</th><th>Nghĩa Việt</th><th>Loại ĐT</th></tr></thead>
+                <tbody>
+                    <tr><td>おしえます</td><td>oshiemasu</td><td>Dạy, chỉ bảo</td><td>Nhóm II</td></tr>
+                    <tr><td>もちます</td><td>mochimasu</td><td>Mang, cầm</td><td>Nhóm I</td></tr>
+                    <tr><td>とります</td><td>torimasu</td><td>Lấy, chuyền</td><td>Nhóm I</td></tr>
+                    <tr><td>けします</td><td>keshimasu</td><td>Tắt (điện, máy)</td><td>Nhóm I</td></tr>
+                    <tr><td>あけます</td><td>akemasu</td><td>Mở</td><td>Nhóm II</td></tr>
+                    <tr><td>まど</td><td>mado</td><td>Cửa sổ</td><td></td></tr>
+                    <tr><td>でんき</td><td>denki</td><td>Điện</td><td></td></tr>
+                    <tr><td>としをとります</td><td>toshi o torimasu</td><td>Thêm tuổi, già đi</td><td>Đặc biệt</td></tr>
+                    <tr><td>しお</td><td>shio</td><td>Muối</td><td></td></tr>
+                    <tr><td>しょうゆ</td><td>shōyu</td><td>Nước tương</td><td></td></tr>
+                </tbody>
+            </table>` 
+    },
+    { 
+        id: "n5_np_16", cap_do: "N5", loai: "NguPhap", tieu_de: "BÀI 16: THỂ TE - Ngữ pháp", 
+        noi_dung: `
+            <h3 class="tieu-de-phu">Ngữ pháp (Grammar)</h3>
+            <table class="bang-tu-vung">
+                <thead><tr><th>Cấu trúc</th><th>Giải thích & Cách dùng</th><th>Ví dụ Thực hành</th></tr></thead>
+                <tbody>
+                    <tr><td>1. Chia Động từ Thể TE</td><td>Nhóm I (biến âm), Nhóm II (thêm te), Nhóm III (bất quy tắc).</td><td>かいます → かって, たべます → たべて</td></tr>
+                    <tr><td>2. V-て ください</td><td>Yêu cầu/Nhờ vả lịch sự.</td><td>しおを とって ください。</td></tr>
+                    <tr><td>3. V-て いますか</td><td>Trạng thái & Nghề nghiệp.</td><td>どこに 住んで いますか。</td></tr>
+                    <tr><td>4. V-て もいいですか</td><td>Xin phép.</td><td>たばこを 吸っても いいですか。</td></tr>
+                </tbody>
+            </table>` 
+    },
+
+    // BÀI 17: CHO PHÉP VÀ CẤM ĐOÁN
+    { 
+        id: "n5_tv_17", cap_do: "N5", loai: "TuVung", tieu_de: "BÀI 17: CHO PHÉP & CẤM - Từ vựng", 
+        noi_dung: `
+            <h3 class="tieu-de-phu">Từ vựng (Vocabulary)</h3>
+            <table class="bang-tu-vung">
+                <thead><tr><th>Hán tự/Kana</th><th>Romaji</th><th>Nghĩa Việt</th><th>Ghi chú</th></tr></thead>
+                <tbody>
+                    <tr><td>すいます</td><td>suimasu</td><td>Hút (thuốc lá)</td><td>Nhóm I</td></tr>
+                    <tr><td>つかいます</td><td>tsukaimasu</td><td>Sử dụng</td><td>Nhóm I</td></tr>
+                    <tr><td>およぎます</td><td>oyogimasu</td><td>Bơi</td><td>Nhóm I</td></tr>
+                    <tr><td>おかねをだします</td><td>okane o dashimasu</td><td>Rút tiền, đưa tiền</td><td>Nhóm I</td></tr>
+                    <tr><td>はいります</td><td>hairimasu</td><td>Vào</td><td>Nhóm I</td></tr>
+                    <tr><td>でます</td><td>demasu</td><td>Ra, rời khỏi</td><td>Nhóm II</td></tr>
+                    <tr><td>きょか</td><td>kyoka</td><td>Sự cho phép</td><td></td></tr>
+                    <tr><td>きんし</td><td>kinshi</td><td>Sự cấm đoán</td><td></td></tr>
+                    <tr><td>プール</td><td>pūru</td><td>Hồ bơi</td><td></td></tr>
+                    <tr><td>ちゅうしゃじょう</td><td>chūshajō</td><td>Bãi đậu xe</td><td></td></tr>
+                </tbody>
+            </table>` 
+    },
+    { 
+        id: "n5_np_17", cap_do: "N5", loai: "NguPhap", tieu_de: "BÀI 17: CHO PHÉP & CẤM - Ngữ pháp", 
+        noi_dung: `
+            <h3 class="tieu-de-phu">Ngữ pháp (Grammar)</h3>
+            <table class="bang-tu-vung">
+                <thead><tr><th>Cấu trúc</th><th>Giải thích & Cách dùng</th><th>Ví dụ Thực hành</th></tr></thead>
+                <tbody>
+                    <tr><td>1. V-て もいいです</td><td>Cho phép làm V.</td><td>ここで 写真を とって もいいです。</td></tr>
+                    <tr><td>2. V-て は いけません</td><td>Cấm đoán tuyệt đối.</td><td>ここ で たばこを 吸って はいけません。</td></tr>
+                    <tr><td>3. N1 から V</td><td>Lý do & Nguyên nhân.</td><td>今日は 雨 です から、出かけません。</td></tr>
+                    <tr><td>4. V-て、V2</td><td>Nối tiếp hành động theo thứ tự.</td><td>家へ 帰って、ごはんを たべます。</td></tr>
+                </tbody>
+            </table>` 
+    },
+
+    // BÀI 18: KINH NGHIỆM ĐÃ TỪNG
+    { 
+        id: "n5_tv_18", cap_do: "N5", loai: "TuVung", tieu_de: "BÀI 18: KINH NGHIỆM - Từ vựng", 
+        noi_dung: `
+            <h3 class="tieu-de-phu">Từ vựng (Vocabulary)</h3>
+            <table class="bang-tu-vung">
+                <thead><tr><th>Hán tự/Kana</th><th>Romaji</th><th>Nghĩa Việt</th><th>Ghi chú</th></tr></thead>
+                <tbody>
+                    <tr><td>のぼります</td><td>noborimasu</td><td>Leo, Trèo</td><td>Nhóm I</td></tr>
+                    <tr><td>とまります</td><td>tomarimasu</td><td>Trọ, Ở lại</td><td>Nhóm I</td></tr>
+                    <tr><td>うたいます</td><td>utaimasu</td><td>Hát</td><td>Nhóm I</td></tr>
+                    <tr><td>わすれます</td><td>wasuremasu</td><td>Quên</td><td>Nhóm II</td></tr>
+                    <tr><td>たいせつ</td><td>taisetsu</td><td>Quan trọng</td><td></td></tr>
+                    <tr><td>おまつり</td><td>omatsuri</td><td>Lễ hội</td><td></td></tr>
+                    <tr><td>かいがい</td><td>kaigai</td><td>Nước ngoài</td><td></td></tr>
+                    <tr><td>ふじさん</td><td>Fuji-san</td><td>Núi Phú Sĩ</td><td></td></tr>
+                    <tr><td>まだ</td><td>mada</td><td>Vẫn (chưa)</td><td></td></tr>
+                    <tr><td>ぜひ</td><td>zehi</td><td>Nhất định, Bằng mọi giá</td><td>Phó từ</td></tr>
+                </tbody>
+            </table>` 
+    },
+    { 
+        id: "n5_np_18", cap_do: "N5", loai: "NguPhap", tieu_de: "BÀI 18: KINH NGHIỆM - Ngữ pháp", 
+        noi_dung: `
+            <h3 class="tieu-de-phu">Ngữ pháp (Grammar)</h3>
+            <table class="bang-tu-vung">
+                <thead><tr><th>Cấu trúc</th><th>Giải thích & Cách dùng</th><th>Ví dụ Thực hành</th></tr></thead>
+                <tbody>
+                    <tr><td>1. V-た ことがあります</td><td>Kinh nghiệm đã từng làm trong quá khứ.</td><td>わたしは 富士山 に 登った ことが あります。</td></tr>
+                    <tr><td>2. N1 や N2 など</td><td>Liệt kê ví dụ (ôn tập).</td><td>お寿司 や ラーメン など を 食べました。</td></tr>
+                    <tr><td>3. V-たり V-たり します</td><td>Liệt kê hành động không theo thứ tự.</td><td>本 を 読んだり、音楽 を 聞いたり します。</td></tr>
+                    <tr><td>4. TT(i)/TT(na) な</td><td>Nối tính từ.</td><td>このカメラは 小さくて、安いです。</td></tr>
+                </tbody>
+            </table>` 
+    },
+
+    // BÀI 19: KẾT NỐI TÍNH TỪ VÀ TRẠNG THÁI
+    { 
+        id: "n5_tv_19", cap_do: "N5", loai: "TuVung", tieu_de: "BÀI 19: KẾT NỐI - Từ vựng", 
+        noi_dung: `
+            <h3 class="tieu-de-phu">Từ vựng (Vocabulary)</h3>
+            <table class="bang-tu-vung">
+                <thead><tr><th>Hán tự/Kana</th><th>Romaji</th><th>Nghĩa Việt</th><th>Ghi chú</th></tr></thead>
+                <tbody>
+                    <tr><td>いそがしい</td><td>isogashii</td><td>Bận rộn</td><td>TT(i)</td></tr>
+                    <tr><td>さびしい</td><td>sabishii</td><td>Buồn, cô đơn</td><td>TT(i)</td></tr>
+                    <tr><td>たいへん (な)</td><td>taihen (na)</td><td>Vất vả, Khổ sở</td><td>TT(na)</td></tr>
+                    <tr><td>かぜ</td><td>kaze</td><td>Gió, Cảm lạnh</td><td></td></tr>
+                    <tr><td>からだ</td><td>karada</td><td>Cơ thể</td><td></td></tr>
+                    <tr><td>きぶん</td><td>kibun</td><td>Tâm trạng, Cảm xúc</td><td></td></tr>
+                    <tr><td>ふく</td><td>fuku</td><td>Quần áo</td><td></td></tr>
+                    <tr><td>かいしゃ</td><td>kaisha</td><td>Công ty</td><td></td></tr>
+                    <tr><td>むかし</td><td>mukashi</td><td>Ngày xưa, Xưa kia</td><td></td></tr>
+                </tbody>
+            </table>` 
+    },
+    { 
+        id: "n5_np_19", cap_do: "N5", loai: "NguPhap", tieu_de: "BÀI 19: KẾT NỐI - Ngữ pháp", 
+        noi_dung: `
+            <h3 class="tieu-de-phu">Ngữ pháp (Grammar)</h3>
+            <table class="bang-tu-vung">
+                <thead><tr><th>Cấu trúc</th><th>Giải thích & Cách dùng</th><th>Ví dụ Thực hành</th></tr></thead>
+                <tbody>
+                    <tr><td>1. TT(i) (bỏ い) くて</td><td>Nối Tính từ I (liên kết/nguyên nhân).</td><td>北海道は 涼しくて、きれいです。</td></tr>
+                    <tr><td>2. TT(na) で / N で</td><td>Nối Tính từ NA và Danh từ.</td><td>彼女は 優しくて、親切です。</td></tr>
+                    <tr><td>3. どうやって V-ますか</td><td>Hỏi Cách thức.</td><td>どうやって この言葉 を 覚えましたか。</td></tr>
+                    <tr><td>4. N に なります</td><td>Trở nên/Trở thành N.</td><td>わたしは 先生 に なりました。</td></tr>
+                </tbody>
+            </table>` 
+    },
+
+    // BÀI 20: CHUẨN BỊ & HOÀN TẤT
+    { 
+        id: "n5_tv_20", cap_do: "N5", loai: "TuVung", tieu_de: "BÀI 20: HOÀN TẤT - Từ vựng", 
+        noi_dung: `
+            <h3 class="tieu-de-phu">Từ vựng (Vocabulary)</h3>
+            <table class="bang-tu-vung">
+                <thead><tr><th>Hán tự/Kana</th><th>Romaji</th><th>Nghĩa Việt</th><th>Ghi chú</th></tr></thead>
+                <tbody>
+                    <tr><td>つかれます</td><td>tsukaremasu</td><td>Mệt</td><td>Nhóm II</td></tr>
+                    <tr><td>かたづけます</td><td>katazukemasu</td><td>Dọn dẹp</td><td>Nhóm II</td></tr>
+                    <tr><td>ごみ</td><td>gomi</td><td>Rác</td><td></td></tr>
+                    <tr><td>ようい</td><td>yōi</td><td>Chuẩn bị</td><td></td></tr>
+                    <tr><td>りょこう</td><td>ryokō</td><td>Du lịch</td><td></td></tr>
+                    <tr><td>チケット</td><td>chiketto</td><td>Vé</td><td>(Từ mượn)</td></tr>
+                    <tr><td>えいご</td><td>eigo</td><td>Tiếng Anh</td><td></td></tr>
+                    <tr><td>おさら</td><td>osara</td><td>Cái đĩa</td><td></td></tr>
+                    <tr><td>まだ</td><td>mada</td><td>Vẫn (giữ nguyên)</td><td></td></tr>
+                    <tr><td>そのまま</td><td>sono mama</td><td>Cứ để như thế</td><td></td></tr>
+                </tbody>
+            </table>` 
+    },
+    { 
+        id: "n5_np_20", cap_do: "N5", loai: "NguPhap", tieu_de: "BÀI 20: HOÀN TẤT - Ngữ pháp", 
+        noi_dung: `
+            <h3 class="tieu-de-phu">Ngữ pháp (Grammar)</h3>
+            <table class="bang-tu-vung">
+                <thead><tr><th>Cấu trúc</th><th>Giải thích & Cách dùng</th><th>Ví dụ Thực hành</th></tr></thead>
+                <tbody>
+                    <tr><td>1. V-て おきます</td><td>Chuẩn bị/Để sẵn/Giữ nguyên trạng thái.</td><td>旅行の前に、チケット を 買っておきます。</td></tr>
+                    <tr><td>2. V-て しまいます</td><td>Hoàn thành (xong xuôi) / Hối tiếc.</td><td>もう 宿題 を して しまいました。</td></tr>
+                    <tr><td>3. V-て から</td><td>Sau khi V (theo thứ tự).</td><td>歯 を 磨いて から、寝ます。</td></tr>
+                    <tr><td>4. TT(na) / N + に なります</td><td>Trở nên/Trở thành (ôn tập).</td><td>部屋が きれいに なりました。</td></tr>
+                </tbody>
+            </table>` 
     }
 ];
 

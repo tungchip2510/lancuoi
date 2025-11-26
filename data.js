@@ -28,7 +28,8 @@ const KHO_BAI_HOC = [
         id: "n5_np_1", cap_do: "N5", loai: "NguPhap", tieu_de: "BÀI 1: TÔI LÀ... - Ngữ pháp", 
         noi_dung: `<h3 class="tieu-de-phu">Ngữ pháp (Grammar)</h3><table class="bang-tu-vung"><thead><tr><th>Cấu trúc</th><th>Giải thích & Cách dùng</th><th>Ví dụ Thực hành</th></tr></thead><tbody><tr><td>1. N1 は N2 です</td><td>Khẳng định: N1 là N2. は (wa) là trợ từ chủ đề.</td><td>わたし は ホアン です。</td></tr><tr><td>2. N1 は N2 じゃありません</td><td>Phủ định: N1 không phải là N2.</td><td>わたし は せんせい じゃありません。</td></tr><tr><td>3. N1 は N2 ですか</td><td>Nghi vấn: N1 có phải là N2 không? Thêm か.</td><td>あなた は ベトナム人 ですか。</td></tr><tr><td>4. N1 も N2 です</td><td>Cũng là: Dùng も thay cho は.</td><td>リーさん も がくせい です。</td></tr><tr><td>5. N1 の N2</td><td>Sở hữu: N2 của N1.</td><td>FPT の しゃいん。</td></tr></tbody></table>` 
     },
-    // ... (Đã lược bớt các bài 2-25 để tiết kiệm không gian hiển thị, nhưng trong thực tế bạn nên giữ nguyên code bài học cũ của bạn)
+    // (Các bài học từ 2 đến 25 đã được lược bớt ở đây để code gọn gàng, 
+    // nhưng bạn hãy giữ nguyên nội dung bài học cũ của bạn trong file thực tế)
 ];
 
 // ======================================================
@@ -93,6 +94,80 @@ const KHO_BAI_TAP = [
     { id: "n1_2010_33", cap_do: "N1", loai: "NguPhap", tieu_de: "N1 - Ngữ pháp (7/2010)", cau_hoi: "「3歳までの育児は母親がすべきだ」と言う人もいるが、子育てをするのが母親で（　　）、必ずしもそうではないと思う。", lua_chon: ["なくてはならないからといって", "なくてはならないかというと", "あるわけにはいかないからといって", "あるわけにはいかないかというと"], dap_an_dung: "なくてはならないかというと" },
     { id: "n1_2010_34", cap_do: "N1", loai: "NguPhap", tieu_de: "N1 - Ngữ pháp (7/2010)", cau_hoi: "もう二度と恋（　　）と固く心に誓ったはずだったが、知らず知らずのうちに彼女のことが好きになっていた。", lua_chon: ["こそするものか", "などするものか", "こそするものなのか", "などするものなのか"], dap_an_dung: "などするものか" },
     { id: "n1_2010_35", cap_do: "N1", loai: "NguPhap", tieu_de: "N1 - Ngữ pháp (7/2010)", cau_hoi: "私の意見書は、プロセスの問題点を指摘（　　）、決定そのものに反対するものではありません。", lua_chon: ["しそうになったにすぎず", "しそうになったほどで", "しようとしたにすぎず", "しようとしたほどで"], dap_an_dung: "しようとしたにすぎず" },
+
+    // --- MONDAI 6: BÀI TẬP DẤU SAO (MỚI THÊM) ---
+    { 
+        id: "n1_2010_36", cap_do: "N1", loai: "NguPhap", tieu_de: "N1 - Dấu sao (7/2010)", 
+        cau_hoi: "このレストランは、＿＿　＿＿　★　＿＿　と評判だ。", 
+        lua_chon: ["だけあって", "主人が", "魚屋も経営している", "魚料理がおいしい"], 
+        dap_an_dung: "だけあって" 
+    },
+    { 
+        id: "n1_2010_37", cap_do: "N1", loai: "NguPhap", tieu_de: "N1 - Dấu sao (7/2010)", 
+        cau_hoi: "A 「申し訳ない。僕が＿＿　＿＿　★　＿＿　ことになってしまって。」", 
+        lua_chon: ["残業してもらう", "ばかりに", "ミスをした", "君にまで"], 
+        dap_an_dung: "君にまで" 
+    },
+    { 
+        id: "n1_2010_38", cap_do: "N1", loai: "NguPhap", tieu_de: "N1 - Dấu sao (7/2010)", 
+        cau_hoi: "そもそもこの情報が、責任者である彼に＿＿　＿＿　★　＿＿　と思う。", 
+        lua_chon: ["伝わっていない", "のが", "こと", "おかしい"], 
+        dap_an_dung: "おかしい" 
+    },
+    { 
+        id: "n1_2010_39", cap_do: "N1", loai: "NguPhap", tieu_de: "N1 - Dấu sao (7/2010)", 
+        cau_hoi: "アルバイト先の仲間は、みんな＿＿　＿＿　★　＿＿　話でいつも盛り上がっています。", 
+        lua_chon: ["こともあって", "ならではの", "同世代", "年が近い"], 
+        dap_an_dung: "同世代" 
+    },
+    { 
+        id: "n1_2010_40", cap_do: "N1", loai: "NguPhap", tieu_de: "N1 - Dấu sao (7/2010)", 
+        cau_hoi: "ジョン 「この『りかい』という言葉はどういう意味ですか。」<br>アリ「ああ、確か『わかる』＿＿　＿＿　★　＿＿　んですけど。」", 
+        lua_chon: ["ような", "と思う", "という", "意味だった"], 
+        dap_an_dung: "意味だった" 
+    },
+
+    // --- MONDAI 7: BÀI ĐỤC LỖ (CÂU 41-45) ---
+    { 
+        id: "n1_2010_41", cap_do: "N1", loai: "DocHieu", tieu_de: "N1 - Đục lỗ (Mondai 7)", 
+        cau_hoi: `<div style='text-align:justify; background:#f9f9f9; padding:10px; border-radius:5px; margin-bottom:10px;'>
+        父が父でなくなっている。家族を統合し、理念を掲げ、文化を伝え、社会のルールを教えるという父の役割が消えかけている。<b>（ 41 ）</b>家族はバラバラになって、善悪の感覚のない人間が成長し、全体的視点のない人間や無気力な人間が増えている。<br>（中略）</div>
+        <b>41. （　　）に入る最もよいものはどれか。</b>`, 
+        lua_chon: ["ところで", "とはいえ", "その結果", "それでも"], 
+        dap_an_dung: "その結果" 
+    },
+    { 
+        id: "n1_2010_42", cap_do: "N1", loai: "DocHieu", tieu_de: "N1 - Đục lỗ (Mondai 7)", 
+        cau_hoi: `<div style='text-align:justify; background:#f9f9f9; padding:10px; border-radius:5px; margin-bottom:10px;'>
+        （前略）立派な父が必要とされているのに、その立派な父が育ちにくいのが現代社会である。そもそも「立派」などというものが流行らない世の中なのだ。全体の将来を考えてリーダーシップをとり、取りまとめ、ルールを教えるという「立派な」人格は、尊敬の対象にはなりにくい。あまり立派でない、むしろだらしのないくらいの父親のほうが<b>（ 42 ）</b>。</div>
+        <b>42. （　　）に入る最もよいものはどれか。</b>`, 
+        lua_chon: ["親しまれることになる", "親しみやすくさえあった", "親しくなるだけのことだ", "親しめるのではなかったか"], 
+        dap_an_dung: "親しまれることになる" 
+    },
+    { 
+        id: "n1_2010_43", cap_do: "N1", loai: "DocHieu", tieu_de: "N1 - Đục lỗ (Mondai 7)", 
+        cau_hoi: `<div style='text-align:justify; background:#f9f9f9; padding:10px; border-radius:5px; margin-bottom:10px;'>
+        父でなくなった父の典型が「友だちのような父親」である。彼らは上下の関係を意識的に捨ててしまった。価値観を押しつけることは絶対にしない。何をするのも自由放任である。しかし<b>（ 43 ）</b>は「自由な意志」を持つようにはなるが、「よい意志」を持つようにはならない。</div>
+        <b>43. （　　）に入る最もよいものはどれか。</b>`, 
+        lua_chon: ["子どもの父", "父の子ども", "このような子どもの父親", "そういう父親の子ども"], 
+        dap_an_dung: "そういう父親の子ども" 
+    },
+    { 
+        id: "n1_2010_44", cap_do: "N1", loai: "DocHieu", tieu_de: "N1 - Đục lỗ (Mondai 7)", 
+        cau_hoi: `<div style='text-align:justify; background:#f9f9f9; padding:10px; border-radius:5px; margin-bottom:10px;'>
+        「友だちのような父親」 はじつは<b>（ 44 ）</b>。父とは子どもに文化を伝える者である。伝えるとはある意味では価値観を押しつけることである。上下の関係があり、権威を持っていて初めてそれができる。</div>
+        <b>44. （　　）に入る最もよいものはどれか。</b>`, 
+        lua_chon: ["父である", "父ではない", "父だったのだ", "父ではないのか"], 
+        dap_an_dung: "父ではない" 
+    },
+    { 
+        id: "n1_2010_45", cap_do: "N1", loai: "DocHieu", tieu_de: "N1 - Đục hiểu (Mondai 7)", 
+        cau_hoi: `<div style='text-align:justify; background:#f9f9f9; padding:10px; border-radius:5px; margin-bottom:10px;'>
+        （前略）しかし<b>（ 45 ）</b>の関係では、文化を伝えることも、生活規則、社会規範を教えることもできない。「もの分かりのいい父親」は父の役割を果たすことのできなくなった父と言うべきである。</div>
+        <b>45. （　　）に入る最もよいものはどれか。</b>`, 
+        lua_chon: ["対等", "上下", "他人", "家族"], 
+        dap_an_dung: "対等" 
+    },
 
     // --- MONDAI 8 (Đọc hiểu ngắn) ---
     { 
@@ -277,7 +352,11 @@ const KHO_BAI_TAP = [
     { 
         id: "n1_2010_71", cap_do: "N1", loai: "DocHieu", tieu_de: "N1 - Đọc hiểu (Mondai 13)", 
         cau_hoi: `
-         <b>71. 入賞したかどうかを知るには、高木さんはどうしたらよいか。</b>`, 
+        <div style='text-align:center; margin-bottom:15px;'>
+            <img src="images/doc-hieu-2010-7-2.jpg" alt="Đề bài Mondai 13 - Câu hỏi 2" style="max-width:100%; border:1px solid #ddd; border-radius:5px;">
+             <br><i>(Ảnh minh họa đề bài: doc-hieu-2010-7-2)</i>
+        </div>
+        <b>71. 入賞したかどうかを知るには、高木さんはどうしたらよいか。</b>`, 
         lua_chon: ["1月中旬に清森市のホームページを見る。", "1月中旬に直接、観光係に電話して聞く。", "2月下旬に市役所の窓口に問い合わせる。", "2月下旬に届く予定の通知を待つ。"], 
         dap_an_dung: "1月中旬に清森市のホームページを見る。" 
     }
@@ -312,6 +391,8 @@ const KHO_DE_THI = [
             "n1_2010_20", "n1_2010_21", "n1_2010_22", "n1_2010_23", "n1_2010_24", "n1_2010_25",
             // Mondai 5
             "n1_2010_26", "n1_2010_27", "n1_2010_28", "n1_2010_29", "n1_2010_30", "n1_2010_31", "n1_2010_32", "n1_2010_33", "n1_2010_34", "n1_2010_35",
+            // Mondai 6 (Mới thêm)
+            "n1_2010_36", "n1_2010_37", "n1_2010_38", "n1_2010_39", "n1_2010_40",
             // Mondai 8
             "n1_2010_46", "n1_2010_47", "n1_2010_48", "n1_2010_49",
             // Mondai 9

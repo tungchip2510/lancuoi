@@ -277,11 +277,7 @@ const KHO_BAI_TAP = [
     { 
         id: "n1_2010_71", cap_do: "N1", loai: "DocHieu", tieu_de: "N1 - Đọc hiểu (Mondai 13)", 
         cau_hoi: `
-        <div style='text-align:center; margin-bottom:15px;'>
-            <img src="images/doc-hieu-2010-7-2.jpg" alt="Đề bài Mondai 13 - Câu hỏi 2" style="max-width:100%; border:1px solid #ddd; border-radius:5px;">
-             <br><i>(Ảnh minh họa đề bài: doc-hieu-2010-7-2)</i>
-        </div>
-        <b>71. 入賞したかどうかを知るには、高木さんはどうしたらよいか。</b>`, 
+         <b>71. 入賞したかどうかを知るには、高木さんはどうしたらよいか。</b>`, 
         lua_chon: ["1月中旬に清森市のホームページを見る。", "1月中旬に直接、観光係に電話して聞く。", "2月下旬に市役所の窓口に問い合わせる。", "2月下旬に届く予定の通知を待つ。"], 
         dap_an_dung: "1月中旬に清森市のホームページを見る。" 
     }

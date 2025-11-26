@@ -557,7 +557,8 @@ const KHO_BAI_TAP = [
     { id: "n5_bt_9", cap_do: "N5", loai: "NguPhap", tieu_de: "Ngữ pháp N5 - Bộ 1", cau_hoi: "日曜日 ___ 行きます。", lua_chon: ["に", "で", "を", "は"], dap_an_dung: "に" },
     { id: "n5_bt_10", cap_do: "N5", loai: "NguPhap", tieu_de: "Ngữ pháp N5 - Bộ 1", cau_hoi: "バス ___ 帰ります。", lua_chon: ["で", "に", "を", "と"], dap_an_dung: "で" },
 
-    // --- BÀI TẬP N1 (CHUYỂN TỪ KHO ĐỀ THI SANG ĐÂY) ---
+    // --- BÀI TẬP N1 (MONDAI 1-5 & 8-9) ---
+    
     // Mondai 1: Cách đọc Kanji
     { id: "n1_2010_1", cap_do: "N1", loai: "TuVung", tieu_de: "N1 - Kanji (7/2010)", cau_hoi: "駅前の店はどこも<u>繁盛</u>している。", lua_chon: ["びんしょう", "びんじょう", "はんしょう", "はんじょう"], dap_an_dung: "はんじょう" },
     { id: "n1_2010_2", cap_do: "N1", loai: "TuVung", tieu_de: "N1 - Kanji (7/2010)", cau_hoi: "<u>契約</u>の内容については、こちらの書類をご覧ください。", lua_chon: ["せいやく", "けいやく", "こうやく", "ようやく"], dap_an_dung: "けいやく" },
@@ -601,8 +602,9 @@ const KHO_BAI_TAP = [
     { id: "n1_2010_32", cap_do: "N1", loai: "NguPhap", tieu_de: "N1 - Ngữ pháp (7/2010)", cau_hoi: "今回の事件で山田氏の政治的影響力が完全に失われる（　　）、弱まることは間違いないだろう。", lua_chon: ["ことはないにしても", "ことはないにもかかわらず", "ほかはないにしても", "ほかはないにもかかわらず"], dap_an_dung: "ことはないにしても" },
     { id: "n1_2010_33", cap_do: "N1", loai: "NguPhap", tieu_de: "N1 - Ngữ pháp (7/2010)", cau_hoi: "「3歳までの育児は母親がすべきだ」と言う人もいるが、子育てをするのが母親で（　　）、必ずしもそうではないと思う。", lua_chon: ["なくてはならないからといって", "なくてはならないかというと", "あるわけにはいかないからといって", "あるわけにはいかないかというと"], dap_an_dung: "なくてはならないかというと" },
     { id: "n1_2010_34", cap_do: "N1", loai: "NguPhap", tieu_de: "N1 - Ngữ pháp (7/2010)", cau_hoi: "もう二度と恋（　　）と固く心に誓ったはずだったが、知らず知らずのうちに彼女のことが好きになっていた。", lua_chon: ["こそするものか", "などするものか", "こそするものなのか", "などするものなのか"], dap_an_dung: "などするものか" },
-    { id: "n1_2010_35", cap_do: "N1", loai: "NguPhap", tieu_de: "N1 - Ngữ pháp (7/2010)", cau_hoi: "私の意見書は、プロセスの問題点を指摘（　　）、決定そのものに反対するものではありません。", lua_chon: ["しそうになったにすぎず", "しそうになったほどで", "しようとしたにすぎず", "しようとしたほどで"], dap_an_dung: "しようとしたにすぎず" }
-   // --- MONDAI 8 (Đọc hiểu ngắn) ---
+    { id: "n1_2010_35", cap_do: "N1", loai: "NguPhap", tieu_de: "N1 - Ngữ pháp (7/2010)", cau_hoi: "私の意見書は、プロセスの問題点を指摘（　　）、決定そのものに反対するものではありません。", lua_chon: ["しそうになったにすぎず", "しそうになったほどで", "しようとしたにすぎず", "しようとしたほどで"], dap_an_dung: "しようとしたにすぎず" },
+
+    // --- MONDAI 8 (Đọc hiểu ngắn) ---
     { 
         id: "n1_2010_46", cap_do: "N1", loai: "DocHieu", tieu_de: "N1 - Đọc hiểu (Mondai 8-1)", 
         cau_hoi: `<div style='text-align:justify; background:#f9f9f9; padding:10px; border-radius:5px; margin-bottom:10px;'>「コミュニケーション」という言葉はふつう、双方がメッセージを伝え合うこと、あるいは意思を疎通させること、といった意味合いで用いられているが、これはじっさいのコミュニケーションの全体像をとらえてはいない。たとえば、黙して何も語らないこともコミュニケーションの行為であり、また視線の動きやちょっとした仕草だけでも、十分にコミュニケーションは成立する。</div><b>46. コミュニケーションの全体像に最も近いものはどれか。</b>`, 

@@ -127,51 +127,192 @@ const KHO_BAI_HOC = [
     // BÀI 11: TÍNH TỪ ĐUÔI I
     { 
         id: "n5_tv_11", cap_do: "N5", loai: "TuVung", tieu_de: "BÀI 11: TÍNH TỪ ĐUÔI I - Từ vựng", 
-        noi_dung: `<h3 class="tieu-de-phu">Từ vựng (Vocabulary)</h3><table class="bang-tu-vung"><thead><tr><th>Hán tự/Kana</th><th>Romaji</th><th>Nghĩa Việt</th><th>Loại TT</th></tr></thead><tbody><tr><td>たかい</td><td>takai</td><td>Cao (giá/chiều cao)</td><td>I</td></tr><tr><td>やすい</td><td>yasui</td><td>Rẻ</td><td>I</td></tr><tr><td>おおきい</td><td>ōkii</td><td>Lớn, To</td><td>I</td></tr><tr><td>ちいさい</td><td>chiisai</td><td>Nhỏ, Bé</td><td>I</td></tr><tr><td>あたらしい</td><td>atarashii</td><td>Mới</td><td>I</td></tr><tr><td>ふるい</td><td>furui</td><td>Cũ</td><td>I</td></tr><tr><td>あつい</td><td>atsui</td><td>Nóng (thời tiết/đồ vật)</td><td>I</td></tr><tr><td>さむい</td><td>samui</td><td>Lạnh (thời tiết)</td><td>I</td></tr><tr><td>おいしい</td><td>oishii</td><td>Ngon</td><td>I</td></tr><tr><td>むずかしい</td><td>muzukashii</td><td>Khó</td><td>I</td></tr><tr><td>やさしい</td><td>yasashii</td><td>Dễ, Hiền lành</td><td>I</td></tr><tr><td>いい / よい</td><td>ii / yoi</td><td>Tốt</td><td>I</td></tr><tr><td>きせつ</td><td>kisetsu</td><td>Mùa</td><td>-</td></tr><tr><td>はる</td><td>haru</td><td>Mùa xuân</td><td>-</td></tr><tr><td>なつ</td><td>natsu</td><td>Mùa hè</td><td>-</td></tr></tbody></table>` 
+        noi_dung: `
+            <h3 class="tieu-de-phu">Từ vựng (Vocabulary)</h3>
+            <table class="bang-tu-vung">
+                <thead><tr><th>Hán tự/Kana</th><th>Romaji</th><th>Nghĩa Việt</th><th>Loại TT</th></tr></thead>
+                <tbody>
+                    <tr><td>たかい</td><td>takai</td><td>Cao (giá/chiều cao)</td><td>I</td></tr>
+                    <tr><td>やすい</td><td>yasui</td><td>Rẻ</td><td>I</td></tr>
+                    <tr><td>おおきい</td><td>ōkii</td><td>Lớn, To</td><td>I</td></tr>
+                    <tr><td>ちいさい</td><td>chiisai</td><td>Nhỏ, Bé</td><td>I</td></tr>
+                    <tr><td>あたらしい</td><td>atarashii</td><td>Mới</td><td>I</td></tr>
+                    <tr><td>ふるい</td><td>furui</td><td>Cũ</td><td>I</td></tr>
+                    <tr><td>あつい</td><td>atsui</td><td>Nóng (thời tiết/đồ vật)</td><td>I</td></tr>
+                    <tr><td>さむい</td><td>samui</td><td>Lạnh (thời tiết)</td><td>I</td></tr>
+                    <tr><td>おいしい</td><td>oishii</td><td>Ngon</td><td>I</td></tr>
+                    <tr><td>むずかしい</td><td>muzukashii</td><td>Khó</td><td>I</td></tr>
+                    <tr><td>やさしい</td><td>yasashii</td><td>Dễ, Hiền lành</td><td>I</td></tr>
+                    <tr><td>いい / よい</td><td>ii / yoi</td><td>Tốt</td><td>I</td></tr>
+                    <tr><td>きせつ</td><td>kisetsu</td><td>Mùa</td><td>-</td></tr>
+                    <tr><td>はる</td><td>haru</td><td>Mùa xuân</td><td>-</td></tr>
+                    <tr><td>なつ</td><td>natsu</td><td>Mùa hè</td><td>-</td></tr>
+                </tbody>
+            </table>` 
     },
     { 
         id: "n5_np_11", cap_do: "N5", loai: "NguPhap", tieu_de: "BÀI 11: TÍNH TỪ ĐUÔI I - Ngữ pháp", 
-        noi_dung: `<h3 class="tieu-de-phu">Ngữ pháp (Grammar)</h3><table class="bang-tu-vung"><thead><tr><th>Cấu trúc</th><th>Giải thích & Cách dùng</th><th>Ví dụ Thực hành</th></tr></thead><tbody><tr><td>1. TT(i) です</td><td>Khẳng định: Giữ nguyên đuôi い.</td><td>このかばんは たかい です。</td></tr><tr><td>2. TT(i) + N</td><td>Bổ nghĩa cho Danh từ.</td><td>おおきい かばん を 買いました。</td></tr><tr><td>3. TT(i) (bỏ い) くないです</td><td>Phủ định: Bỏ い thêm くないです.</td><td>この食べ物 は おいしくない です。</td></tr><tr><td>4. TT(i) (bỏ い) かったです</td><td>Quá khứ: Bỏ い thêm かったです.</td><td>きのう、天気 は よかったです。</td></tr><tr><td>5. N は どうですか</td><td>Hỏi về ấn tượng/tính chất.</td><td>日本の生活 は どうですか。</td></tr></tbody></table>` 
+        noi_dung: `
+            <h3 class="tieu-de-phu">Ngữ pháp (Grammar)</h3>
+            <table class="bang-tu-vung">
+                <thead><tr><th>Cấu trúc</th><th>Giải thích & Cách dùng</th><th>Ví dụ Thực hành</th></tr></thead>
+                <tbody>
+                    <tr><td>1. TT(i) です</td><td>Khẳng định: Giữ nguyên đuôi い.</td><td>このかばんは たかい です。</td></tr>
+                    <tr><td>2. TT(i) + N</td><td>Bổ nghĩa cho Danh từ.</td><td>おおきい かばん を 買いました。</td></tr>
+                    <tr><td>3. TT(i) (bỏ い) くないです</td><td>Phủ định: Bỏ い thêm くないです.</td><td>この食べ物 は おいしくない です。</td></tr>
+                    <tr><td>4. TT(i) (bỏ い) かったです</td><td>Quá khứ: Bỏ い thêm かったです.</td><td>きのう、天気 は よかったです。</td></tr>
+                    <tr><td>5. N は どうですか</td><td>Hỏi về ấn tượng/tính chất.</td><td>日本の生活 は どうですか。</td></tr>
+                </tbody>
+            </table>` 
     },
 
     // BÀI 12: TÍNH TỪ ĐUÔI NA
     { 
         id: "n5_tv_12", cap_do: "N5", loai: "TuVung", tieu_de: "BÀI 12: TÍNH TỪ ĐUÔI NA - Từ vựng", 
-        noi_dung: `<h3 class="tieu-de-phu">Từ vựng (Vocabulary)</h3><table class="bang-tu-vung"><thead><tr><th>Hán tự/Kana</th><th>Romaji</th><th>Nghĩa Việt</th><th>Loại TT</th></tr></thead><tbody><tr><td>しんせつ (な)</td><td>shinsetsu (na)</td><td>Tốt bụng, Tử tế</td><td>NA</td></tr><tr><td>げんき (な)</td><td>genki (na)</td><td>Khỏe mạnh</td><td>NA</td></tr><tr><td>べんり (な)</td><td>benri (na)</td><td>Tiện lợi</td><td>NA</td></tr><tr><td>ふべん (な)</td><td>fuben (na)</td><td>Bất tiện</td><td>NA</td></tr><tr><td>ゆうめい (な)</td><td>yūmei (na)</td><td>Nổi tiếng</td><td>NA</td></tr><tr><td>きれい (な)</td><td>kirei (na)</td><td>Đẹp, Sạch sẽ</td><td>NA</td></tr><tr><td>ハンサム (な)</td><td>hansamu (na)</td><td>Đẹp trai</td><td>NA</td></tr><tr><td>ひま (な)</td><td>hima (na)</td><td>Rảnh rỗi</td><td>NA</td></tr><tr><td>ざんねん (な)</td><td>zannen (na)</td><td>Đáng tiếc</td><td>NA</td></tr><tr><td>いろいろ (な)</td><td>iroiro (na)</td><td>Nhiều loại, Đa dạng</td><td>NA</td></tr><tr><td>まち</td><td>machi</td><td>Thị trấn, Phố phường</td><td>-</td></tr><tr><td>たてもの</td><td>tatemono</td><td>Tòa nhà</td><td>-</td></tr></tbody></table>` 
+        noi_dung: `
+            <h3 class="tieu-de-phu">Từ vựng (Vocabulary)</h3>
+            <table class="bang-tu-vung">
+                <thead><tr><th>Hán tự/Kana</th><th>Romaji</th><th>Nghĩa Việt</th><th>Loại TT</th></tr></thead>
+                <tbody>
+                    <tr><td>しんせつ (な)</td><td>shinsetsu (na)</td><td>Tốt bụng, Tử tế</td><td>NA</td></tr>
+                    <tr><td>げんき (な)</td><td>genki (na)</td><td>Khỏe mạnh</td><td>NA</td></tr>
+                    <tr><td>べんり (な)</td><td>benri (na)</td><td>Tiện lợi</td><td>NA</td></tr>
+                    <tr><td>ふべん (な)</td><td>fuben (na)</td><td>Bất tiện</td><td>NA</td></tr>
+                    <tr><td>ゆうめい (な)</td><td>yūmei (na)</td><td>Nổi tiếng</td><td>NA</td></tr>
+                    <tr><td>きれい (な)</td><td>kirei (na)</td><td>Đẹp, Sạch sẽ</td><td>NA</td></tr>
+                    <tr><td>ハンサム (な)</td><td>hansamu (na)</td><td>Đẹp trai</td><td>NA</td></tr>
+                    <tr><td>ひま (な)</td><td>hima (na)</td><td>Rảnh rỗi</td><td>NA</td></tr>
+                    <tr><td>ざんねん (な)</td><td>zannen (na)</td><td>Đáng tiếc</td><td>NA</td></tr>
+                    <tr><td>いろいろ (な)</td><td>iroiro (na)</td><td>Nhiều loại, Đa dạng</td><td>NA</td></tr>
+                    <tr><td>まち</td><td>machi</td><td>Thị trấn, Phố phường</td><td>-</td></tr>
+                    <tr><td>たてもの</td><td>tatemono</td><td>Tòa nhà</td><td>-</td></tr>
+                </tbody>
+            </table>` 
     },
     { 
         id: "n5_np_12", cap_do: "N5", loai: "NguPhap", tieu_de: "BÀI 12: TÍNH TỪ ĐUÔI NA - Ngữ pháp", 
-        noi_dung: `<h3 class="tieu-de-phu">Ngữ pháp (Grammar)</h3><table class="bang-tu-vung"><thead><tr><th>Cấu trúc</th><th>Giải thích & Cách dùng</th><th>Ví dụ Thực hành</th></tr></thead><tbody><tr><td>1. TT(na) です</td><td>Khẳng định: Bỏ な.</td><td>あの人は 親切 です。</td></tr><tr><td>2. TT(na) な N</td><td>Bổ nghĩa cho Danh từ: Giữ nguyên な.</td><td>きれいな 写真 を 見ました。</td></tr><tr><td>3. TT(na) じゃありません</td><td>Phủ định: Bỏ な thêm じゃありません.</td><td>この街は 静か じゃありません。</td></tr><tr><td>4. TT(na) じゃありませんでした</td><td>Phủ định Quá khứ.</td><td>きのう、ひま じゃありませんでした。</td></tr><tr><td>5. TT(na) で、S2</td><td>Nối hai tính từ (TT NA).</td><td>ホアンさんは ハンサムで、親切です。</td></tr></tbody></table>` 
+        noi_dung: `
+            <h3 class="tieu-de-phu">Ngữ pháp (Grammar)</h3>
+            <table class="bang-tu-vung">
+                <thead><tr><th>Cấu trúc</th><th>Giải thích & Cách dùng</th><th>Ví dụ Thực hành</th></tr></thead>
+                <tbody>
+                    <tr><td>1. TT(na) です</td><td>Khẳng định: Bỏ な.</td><td>あの人は 親切 です。</td></tr>
+                    <tr><td>2. TT(na) な N</td><td>Bổ nghĩa cho Danh từ: Giữ nguyên な.</td><td>きれいな 写真 を 見ました。</td></tr>
+                    <tr><td>3. TT(na) じゃありません</td><td>Phủ định: Bỏ な thêm じゃありません.</td><td>この街は 静か じゃありません。</td></tr>
+                    <tr><td>4. TT(na) じゃありませんでした</td><td>Phủ định Quá khứ.</td><td>きのう、ひま じゃありませんでした。</td></tr>
+                    <tr><td>5. TT(na) で、S2</td><td>Nối hai tính từ (TT NA).</td><td>ホアンさんは ハンサムで、親切です。</td></tr>
+                </tbody>
+            </table>` 
     },
 
     // BÀI 13: SO SÁNH & CỰC HÌNH
     { 
         id: "n5_tv_13", cap_do: "N5", loai: "TuVung", tieu_de: "BÀI 13: SO SÁNH - Từ vựng", 
-        noi_dung: `<h3 class="tieu-de-phu">Từ vựng (Vocabulary)</h3><table class="bang-tu-vung"><thead><tr><th>Hán tự/Kana</th><th>Romaji</th><th>Nghĩa Việt</th><th>Ghi chú</th></tr></thead><tbody><tr><td>どちら</td><td>dochira</td><td>Cái nào (trong hai)</td><td></td></tr><tr><td>もっと</td><td>motto</td><td>Hơn nữa</td><td></td></tr><tr><td>ずっと</td><td>zutto</td><td>Hơn hẳn, Hoàn toàn</td><td></td></tr><tr><td>いちばん</td><td>ichiban</td><td>Nhất, Số một</td><td></td></tr><tr><td>だんぜん</td><td>danzen</td><td>Tuyệt đối (nhất)</td><td></td></tr><tr><td>やきゅう</td><td>yakyū</td><td>Bóng chày</td><td></td></tr><tr><td>きゅうぎ</td><td>kyūgi</td><td>Môn thể thao dùng bóng</td><td></td></tr><tr><td>りょうり</td><td>ryōri</td><td>Món ăn</td><td></td></tr><tr><td>さむさ</td><td>samusa</td><td>Cái lạnh</td><td></td></tr><tr><td>くに</td><td>kuni</td><td>Đất nước</td><td></td></tr><tr><td>せかい</td><td>sekai</td><td>Thế giới</td><td></td></tr></tbody></table>` 
+        noi_dung: `
+            <h3 class="tieu-de-phu">Từ vựng (Vocabulary)</h3>
+            <table class="bang-tu-vung">
+                <thead><tr><th>Hán tự/Kana</th><th>Romaji</th><th>Nghĩa Việt</th><th>Ghi chú</th></tr></thead>
+                <tbody>
+                    <tr><td>どちら</td><td>dochira</td><td>Cái nào (trong hai)</td><td></td></tr>
+                    <tr><td>もっと</td><td>motto</td><td>Hơn nữa</td><td></td></tr>
+                    <tr><td>ずっと</td><td>zutto</td><td>Hơn hẳn, Hoàn toàn</td><td></td></tr>
+                    <tr><td>いちばん</td><td>ichiban</td><td>Nhất, Số một</td><td></td></tr>
+                    <tr><td>だんぜん</td><td>danzen</td><td>Tuyệt đối (nhất)</td><td></td></tr>
+                    <tr><td>やきゅう</td><td>yakyū</td><td>Bóng chày</td><td></td></tr>
+                    <tr><td>きゅうぎ</td><td>kyūgi</td><td>Môn thể thao dùng bóng</td><td></td></tr>
+                    <tr><td>りょうり</td><td>ryōri</td><td>Món ăn</td><td></td></tr>
+                    <tr><td>さむさ</td><td>samusa</td><td>Cái lạnh</td><td></td></tr>
+                    <tr><td>くに</td><td>kuni</td><td>Đất nước</td><td></td></tr>
+                    <tr><td>せかい</td><td>sekai</td><td>Thế giới</td><td></td></tr>
+                </tbody>
+            </table>` 
     },
     { 
         id: "n5_np_13", cap_do: "N5", loai: "NguPhap", tieu_de: "BÀI 13: SO SÁNH - Ngữ pháp", 
-        noi_dung: `<h3 class="tieu-de-phu">Ngữ pháp (Grammar)</h3><table class="bang-tu-vung"><thead><tr><th>Cấu trúc</th><th>Giải thích & Cách dùng</th><th>Ví dụ Thực hành</th></tr></thead><tbody><tr><td>1. A は B より TT です</td><td>So sánh hơn: A hơn B.</td><td>新幹線 は バス より はやい です。</td></tr><tr><td>2. A と B と、どちらが...</td><td>Hỏi chọn lựa giữa hai vật.</td><td>サッカー と 野球 と、どちらが 好きですか。</td></tr><tr><td>3. N の中で S が いちばん...</td><td>So sánh nhất: S là nhất trong N.</td><td>寿司が いちばん おいしいです。</td></tr><tr><td>4. ずっと/もっと</td><td>Phó từ bổ nghĩa: Hơn hẳn / Hơn nữa.</td><td>わたしのカメラ は あなたのより ずっと いい です。</td></tr></tbody></table>` 
+        noi_dung: `
+            <h3 class="tieu-de-phu">Ngữ pháp (Grammar)</h3>
+            <table class="bang-tu-vung">
+                <thead><tr><th>Cấu trúc</th><th>Giải thích & Cách dùng</th><th>Ví dụ Thực hành</th></tr></thead>
+                <tbody>
+                    <tr><td>1. A は B より TT です</td><td>So sánh hơn: A hơn B.</td><td>新幹線 は バス より はやい です。</td></tr>
+                    <tr><td>2. A と B と、どちらが...</td><td>Hỏi chọn lựa giữa hai vật.</td><td>サッカー と 野球 と、どちらが 好きですか。</td></tr>
+                    <tr><td>3. N の中で S が いちばん...</td><td>So sánh nhất: S là nhất trong N.</td><td>寿司が いちばん おいしいです。</td></tr>
+                    <tr><td>4. ずっと/もっと</td><td>Phó từ bổ nghĩa: Hơn hẳn / Hơn nữa.</td><td>わたしのカメラ は あなたのより ずっと いい です。</td></tr>
+                </tbody>
+            </table>` 
     },
 
     // BÀI 14: CHO VÀ NHẬN
     { 
         id: "n5_tv_14", cap_do: "N5", loai: "TuVung", tieu_de: "BÀI 14: CHO VÀ NHẬN - Từ vựng", 
-        noi_dung: `<h3 class="tieu-de-phu">Từ vựng (Vocabulary)</h3><table class="bang-tu-vung"><thead><tr><th>Hán tự/Kana</th><th>Romaji</th><th>Nghĩa Việt</th><th>Ghi chú</th></tr></thead><tbody><tr><td>あげます</td><td>agemasu</td><td>Cho, Tặng</td><td>Nhóm II</td></tr><tr><td>もらいます</td><td>moraimasu</td><td>Nhận</td><td>Nhóm I</td></tr><tr><td>くれます</td><td>kuremasu</td><td>Cho (ai đó cho mình)</td><td>Nhóm II</td></tr><tr><td>おくりもの</td><td>okurimono</td><td>Quà tặng</td><td></td></tr><tr><td>メッセージ</td><td>messēji</td><td>Tin nhắn</td><td></td></tr><tr><td>かぞく</td><td>kazoku</td><td>Gia đình</td><td></td></tr><tr><td>おみやげ</td><td>omiyage</td><td>Quà lưu niệm</td><td></td></tr><tr><td>プレゼント</td><td>purezento</td><td>Quà</td><td></td></tr><tr><td>クリスマス</td><td>kurisumasu</td><td>Giáng sinh</td><td></td></tr><tr><td>だれ</td><td>dare</td><td>Ai</td><td></td></tr><tr><td>なに</td><td>nani</td><td>Cái gì</td><td></td></tr></tbody></table>` 
+        noi_dung: `
+            <h3 class="tieu-de-phu">Từ vựng (Vocabulary)</h3>
+            <table class="bang-tu-vung">
+                <thead><tr><th>Hán tự/Kana</th><th>Romaji</th><th>Nghĩa Việt</th><th>Ghi chú</th></tr></thead>
+                <tbody>
+                    <tr><td>あげます</td><td>agemasu</td><td>Cho, Tặng</td><td>Nhóm II</td></tr>
+                    <tr><td>もらいます</td><td>moraimasu</td><td>Nhận</td><td>Nhóm I</td></tr>
+                    <tr><td>くれます</td><td>kuremasu</td><td>Cho (ai đó cho mình)</td><td>Nhóm II</td></tr>
+                    <tr><td>おくりもの</td><td>okurimono</td><td>Quà tặng</td><td></td></tr>
+                    <tr><td>メッセージ</td><td>messēji</td><td>Tin nhắn</td><td></td></tr>
+                    <tr><td>かぞく</td><td>kazoku</td><td>Gia đình</td><td></td></tr>
+                    <tr><td>おみやげ</td><td>omiyage</td><td>Quà lưu niệm</td><td></td></tr>
+                    <tr><td>プレゼント</td><td>purezento</td><td>Quà</td><td></td></tr>
+                    <tr><td>クリスマス</td><td>kurisumasu</td><td>Giáng sinh</td><td></td></tr>
+                    <tr><td>だれ</td><td>dare</td><td>Ai</td><td></td></tr>
+                    <tr><td>なに</td><td>nani</td><td>Cái gì</td><td></td></tr>
+                </tbody>
+            </table>` 
     },
     { 
         id: "n5_np_14", cap_do: "N5", loai: "NguPhap", tieu_de: "BÀI 14: CHO VÀ NHẬN - Ngữ pháp", 
-        noi_dung: `<h3 class="tieu-de-phu">Ngữ pháp (Grammar)</h3><table class="bang-tu-vung"><thead><tr><th>Cấu trúc</th><th>Giải thích & Cách dùng</th><th>Ví dụ Thực hành</th></tr></thead><tbody><tr><td>1. A は B に N を あげます</td><td>A Cho B.</td><td>わたし は 友達 に 本 を あげます。</td></tr><tr><td>2. B は A に N を もらいます</td><td>B Nhận từ A.</td><td>わたし は 先生 に 花 を もらいました。</td></tr><tr><td>3. A は わたし に N を くれます</td><td>A Cho Tôi (hoặc người nhà mình).</td><td>友達 は わたしに おみやげ を くれました。</td></tr><tr><td>4. なに を もらいましたか</td><td>Hỏi về vật được nhận.</td><td>誰に、なにを もらいましたか。</td></tr></tbody></table>` 
+        noi_dung: `
+            <h3 class="tieu-de-phu">Ngữ pháp (Grammar)</h3>
+            <table class="bang-tu-vung">
+                <thead><tr><th>Cấu trúc</th><th>Giải thích & Cách dùng</th><th>Ví dụ Thực hành</th></tr></thead>
+                <tbody>
+                    <tr><td>1. A は B に N を あげます</td><td>A Cho B.</td><td>わたし は 友達 に 本 を あげます。</td></tr>
+                    <tr><td>2. B は A に N を もらいます</td><td>B Nhận từ A.</td><td>わたし は 先生 に 花 を もらいました。</td></tr>
+                    <tr><td>3. A は わたし に N を くれます</td><td>A Cho Tôi (hoặc người nhà mình).</td><td>友達 は わたしに おみやげ を くれました。</td></tr>
+                    <tr><td>4. なに を もらいましたか</td><td>Hỏi về vật được nhận.</td><td>誰に、なにを もらいましたか。</td></tr>
+                </tbody>
+            </table>` 
     },
 
     // BÀI 15: TRẠNG THÁI ĐANG DIỄN RA
     { 
         id: "n5_tv_15", cap_do: "N5", loai: "TuVung", tieu_de: "BÀI 15: TRẠNG THÁI - Từ vựng", 
-        noi_dung: `<h3 class="tieu-de-phu">Từ vựng (Vocabulary)</h3><table class="bang-tu-vung"><thead><tr><th>Hán tự/Kana</th><th>Romaji</th><th>Nghĩa Việt</th><th>Ghi chú</th></tr></thead><tbody><tr><td>しります</td><td>shirimasu</td><td>Biết</td><td>Nhóm I</td></tr><tr><td>けっこんします</td><td>kekkon shimasu</td><td>Kết hôn</td><td>Nhóm III</td></tr><tr><td>すみます</td><td>sumimasu</td><td>Sống, sinh sống</td><td>Nhóm I</td></tr><tr><td>もちます</td><td>mochimasu</td><td>Mang, có (sở hữu)</td><td>Nhóm I</td></tr><tr><td>もう</td><td>mō</td><td>Đã (rồi)</td><td></td></tr><tr><td>まだ</td><td>mada</td><td>Vẫn (chưa)</td><td></td></tr><tr><td>まいにち</td><td>mainichi</td><td>Hàng ngày</td><td></td></tr><tr><td>せんもん</td><td>senmon</td><td>Chuyên môn</td><td></td></tr><tr><td>でんわ</td><td>denwa</td><td>Điện thoại</td><td></td></tr><tr><td>どこ</td><td>doko</td><td>Ở đâu</td><td></td></tr></tbody></table>` 
+        noi_dung: `
+            <h3 class="tieu-de-phu">Từ vựng (Vocabulary)</h3>
+            <table class="bang-tu-vung">
+                <thead><tr><th>Hán tự/Kana</th><th>Romaji</th><th>Nghĩa Việt</th><th>Ghi chú</th></tr></thead>
+                <tbody>
+                    <tr><td>しります</td><td>shirimasu</td><td>Biết</td><td>Nhóm I</td></tr>
+                    <tr><td>けっこんします</td><td>kekkon shimasu</td><td>Kết hôn</td><td>Nhóm III</td></tr>
+                    <tr><td>すみます</td><td>sumimasu</td><td>Sống, sinh sống</td><td>Nhóm I</td></tr>
+                    <tr><td>もちます</td><td>mochimasu</td><td>Mang, có (sở hữu)</td><td>Nhóm I</td></tr>
+                    <tr><td>もう</td><td>mō</td><td>Đã (rồi)</td><td></td></tr>
+                    <tr><td>まだ</td><td>mada</td><td>Vẫn (chưa)</td><td></td></tr>
+                    <tr><td>まいにち</td><td>mainichi</td><td>Hàng ngày</td><td></td></tr>
+                    <tr><td>せんもん</td><td>senmon</td><td>Chuyên môn</td><td></td></tr>
+                    <tr><td>でんわ</td><td>denwa</td><td>Điện thoại</td><td></td></tr>
+                    <tr><td>どこ</td><td>doko</td><td>Ở đâu</td><td></td></tr>
+                </tbody>
+            </table>` 
     },
     { 
         id: "n5_np_15", cap_do: "N5", loai: "NguPhap", tieu_de: "BÀI 15: TRẠNG THÁI - Ngữ pháp", 
-        noi_dung: `<h3 class="tieu-de-phu">Ngữ pháp (Grammar)</h3><table class="bang-tu-vung"><thead><tr><th>Cấu trúc</th><th>Giải thích & Cách dùng</th><th>Ví dụ Thực hành</th></tr></thead><tbody><tr><td>1. V-て います (Tiếp diễn)</td><td>Hành động đang diễn ra.</td><td>今、テレビ を 見て います。</td></tr><tr><td>2. V-て います (Kết quả)</td><td>Trạng thái kéo dài sau hành động.</td><td>わたしは 結婚 して います。</td></tr><tr><td>3. もう V-ましたか</td><td>Hỏi đã làm xong chưa.</td><td>もう 宿題を し ましたか。</td></tr><tr><td>4. N の V</td><td>Mục đích của Danh từ.</td><td>これは わたし の カメラ です。</td></tr></tbody></table>` 
+        noi_dung: `
+            <h3 class="tieu-de-phu">Ngữ pháp (Grammar)</h3>
+            <table class="bang-tu-vung">
+                <thead><tr><th>Cấu trúc</th><th>Giải thích & Cách dùng</th><th>Ví dụ Thực hành</th></tr></thead>
+                <tbody>
+                    <tr><td>1. V-て います (Tiếp diễn)</td><td>Hành động đang diễn ra.</td><td>今、テレビ を 見て います。</td></tr>
+                    <tr><td>2. V-て います (Kết quả)</td><td>Trạng thái kéo dài sau hành động.</td><td>わたしは 結婚 して います。</td></tr>
+                    <tr><td>3. もう V-ましたか</td><td>Hỏi đã làm xong chưa.</td><td>もう 宿題を し ましたか。</td></tr>
+                    <tr><td>4. N の V</td><td>Mục đích của Danh từ.</td><td>これは わたし の カメラ です。</td></tr>
+                </tbody>
+            </table>` 
     },
 
     // --- MÔ-ĐUN 4: THỂ TE VÀ MỆNH LỆNH ---

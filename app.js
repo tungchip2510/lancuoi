@@ -341,9 +341,57 @@ document.addEventListener("DOMContentLoaded", function() {
     }
 
     // --- LOGIC THI THỬ (FIX LỖI KHÔNG HIỆN CÂU HỎI & THÊM HƯỚNG DẪN) ---
-    function batDauThi(id) {
-        deThiHienTai = KHO_DE_THI.find(dt => dt.id == id);
-        if(!deThiHienTai) return alert("Không tìm thấy đề thi này!");
+// ... bên trong hàm batDauThi ...
+
+        let htmlCauHoi = "";
+        
+        deThiHienTai.danh_sach_cau_hoi.forEach((idCau, index) => {
+            let bai = KHO_BAI_TAP.find(b => b.id == idCau);
+            if(!bai) return;
+            
+            // 1. NẾU LÀ DẠNG BÀI ĐỌC HIỂU NHÓM (GOM CÂU HỎI)
+            if (bai.loai === "DocHieu_Nhom") {
+                htmlCauHoi += `
+                    <div class="nhom-cau-hoi-container">
+                        <div class="bai-doc-dai">
+                            <h3 style="color:#e65100; margin-top:0;">${bai.tieu_de}</h3>
+                            ${bai.bai_doc}
+                        </div>
+                        <div class="danh-sach-cau-hoi-con">
+                `;
+                
+                // Lặp qua các câu hỏi con trong nhóm
+                bai.ds_cau_hoi_con.forEach((cauCon, idxCon) => {
+                    htmlCauHoi += `
+                        <div class="khoi-cau-hoi" data-id="${cauCon.id}">
+                            <p class="cau-hoi">${cauCon.cau_hoi}</p>
+                            <div class="dap-an">
+                                ${cauCon.lua_chon.map(lc => `<button class="lua-chon-thi" data-dung="${lc == cauCon.dap_an_dung}">${lc}</button>`).join('')}
+                            </div>
+                        </div>
+                    `;
+                });
+
+                htmlCauHoi += `</div></div>`; // Đóng thẻ nhóm
+            } 
+            // 2. NẾU LÀ CÂU HỎI ĐƠN LẺ BÌNH THƯỜNG
+            else {
+                if (bai.huong_dan) {
+                    htmlCauHoi += `<div class="huong-dan-mondai">${bai.huong_dan}</div>`;
+                }
+                htmlCauHoi += `
+                    <div class="khoi-cau-hoi" data-id="${bai.id}">
+                        <h3>Câu hỏi</h3>
+                        <p class="cau-hoi">${bai.cau_hoi}</p>
+                        <div class="dap-an">
+                            ${bai.lua_chon.map(lc => `<button class="lua-chon-thi" data-dung="${lc == bai.dap_an_dung}">${lc}</button>`).join('')}
+                        </div>
+                    </div>
+                `;
+            }
+        });
+        
+        // ...
 
         thoiGianConLai = 3600; // 60 phút
         cotNoiDungThi.innerHTML = `

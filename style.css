@@ -444,3 +444,53 @@ footer { background-color: #333; color: #fff; padding-top: 40px; margin-top: 60p
     font-weight: bold;
     font-size: 1.1em;
 }
+
+
+/* --- Style cho Bài Đọc Hiểu Nhóm --- */
+.nhom-cau-hoi-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* Chia đôi màn hình: 50% văn bản - 50% câu hỏi */
+    gap: 20px;
+    margin-bottom: 30px;
+    align-items: start;
+    background: #f8f9fa;
+    padding: 20px;
+    border-radius: 12px;
+    border: 1px solid #ddd;
+}
+
+.bai-doc-dai {
+    position: sticky; /* Giữ bài đọc cố định khi cuộn câu hỏi */
+    top: 80px; 
+    background: white;
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+    max-height: 80vh; /* Giới hạn chiều cao */
+    overflow-y: auto; /* Cho phép cuộn nội bộ nếu văn bản quá dài */
+    font-size: 16px;
+    line-height: 1.8;
+}
+
+.danh-sach-cau-hoi-con {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.danh-sach-cau-hoi-con .khoi-cau-hoi {
+    margin-bottom: 0; /* Bỏ margin thừa */
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    border-left: 5px solid #FFA500; /* Viền cam để phân biệt */
+}
+
+/* Responsive trên điện thoại (Xếp chồng lên nhau) */
+@media (max-width: 768px) {
+    .nhom-cau-hoi-container {
+        grid-template-columns: 1fr; /* Một cột */
+    }
+    .bai-doc-dai {
+        position: static; /* Hủy chế độ dính */
+        max-height: 300px; /* Bài đọc ngắn lại */
+    }
+}

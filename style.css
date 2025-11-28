@@ -552,3 +552,67 @@ footer { background-color: #333; color: #fff; padding-top: 40px; margin-top: 60p
     font-weight: bold;
     font-size: 1.2em;
 }
+
+/* --- BỔ SUNG STYLE CHO BÀI ĐỌC HIỂU NHÓM (QUAN TRỌNG) --- */
+.nhom-cau-hoi-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* Chia đôi: 50% bài đọc - 50% câu hỏi */
+    gap: 25px;
+    margin-bottom: 40px;
+    align-items: start;
+    background-color: #f9f9f9;
+    padding: 20px;
+    border-radius: 12px;
+    border: 1px solid #ddd;
+}
+
+.bai-doc-dai {
+    position: sticky; /* Giữ bài đọc cố định khi cuộn */
+    top: 80px; 
+    background: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+    max-height: 80vh; /* Giới hạn chiều cao */
+    overflow-y: auto; /* Hiện thanh cuộn nếu bài quá dài */
+    font-size: 16px;
+    line-height: 1.8;
+    color: #333;
+    border: 1px solid #eee;
+}
+
+.danh-sach-cau-hoi-con {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.danh-sach-cau-hoi-con .khoi-cau-hoi {
+    margin-bottom: 0;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    border-left: 5px solid #FFA500;
+}
+
+/* Style cho dòng hướng dẫn đầu bài */
+.huong-dan-mondai {
+    background-color: #e3f2fd;
+    color: #0d47a1;
+    padding: 15px;
+    margin-top: 30px;
+    margin-bottom: 15px;
+    border-left: 5px solid #2196f3;
+    border-radius: 4px;
+    font-weight: bold;
+    font-size: 1.1em;
+}
+
+/* Responsive trên điện thoại: Xếp chồng lên nhau thay vì chia đôi */
+@media (max-width: 768px) {
+    .nhom-cau-hoi-container {
+        grid-template-columns: 1fr;
+    }
+    .bai-doc-dai {
+        position: static;
+        max-height: 300px;
+    }
+}

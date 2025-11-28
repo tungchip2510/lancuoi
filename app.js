@@ -341,50 +341,7 @@ document.addEventListener("DOMContentLoaded", function() {
     }
 
     // --- LOGIC THI THỬ (FIX LỖI KHÔNG HIỆN CÂU HỎI & THÊM HƯỚNG DẪN) ---
-    function batDauThi(id) {
-        deThiHienTai = KHO_DE_THI.find(dt => dt.id == id);
-        if(!deThiHienTai) return alert("Không tìm thấy đề thi này!");
-
-        thoiGianConLai = 3600; // 60 phút
-        cotNoiDungThi.innerHTML = `
-            <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:20px;">
-                <button id="nut-thoat-thi" class="btn-back" style="background-color:#888; margin:0;">&larr; Thoát</button>
-                <div class="dong-ho" id="dong-ho" style="float:none; margin:0;">60:00</div>
-            </div>
-            <h2>${deThiHienTai.tieu_de}</h2>
-            <div class="giao-dien-thi"></div>
-            <button id="nut-nop-bai" class="nut-dieu-khien-thi">Nộp Bài</button>
-        `;
-        
-        let noiVECauHoi = document.querySelector(".giao-dien-thi");
-        let htmlCauHoi = "";
-        
-        // Duyệt qua danh sách ID câu hỏi, tìm nội dung tương ứng trong KHO_BAI_TAP
-        deThiHienTai.danh_sach_cau_hoi.forEach((idCau, index) => {
-            let bai = KHO_BAI_TAP.find(b => b.id == idCau);
-            if(!bai) return; // Bỏ qua nếu không tìm thấy ID
-            
-            // --- THÊM HƯỚNG DẪN NẾU CÓ ---
-            if (bai.huong_dan) {
-                htmlCauHoi += `<div class="huong-dan-mondai">${bai.huong_dan}</div>`;
-            }
-
-            htmlCauHoi += `
-                <div class="khoi-cau-hoi" data-id="${bai.id}">
-                    <h3>Câu ${index + 1}</h3>
-                    <p class="cau-hoi">${bai.cau_hoi}</p>
-                    <div class="dap-an">
-                        ${bai.lua_chon.map(lc => `<button class="lua-chon-thi" data-dung="${lc == bai.dap_an_dung}">${lc}</button>`).join('')}
-                    </div>
-                </div>
-            `;
-        });
-        noiVECauHoi.innerHTML = htmlCauHoi;
-        clearInterval(boDemGio);
-        boDemGio = setInterval(capNhatDongHoThi, 1000);
-        window.scrollTo(0,0);
-    }
-
+    function batDauThi
     function ketThucThi() {
         clearInterval(boDemGio); 
         diemSo = 0; 

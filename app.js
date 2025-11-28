@@ -340,11 +340,12 @@ document.addEventListener("DOMContentLoaded", function() {
         }
     }
 
+    // --- LOGIC THI THỬ (FIX LỖI KHÔNG HIỆN CÂU HỎI & THÊM HƯỚNG DẪN) ---
     function batDauThi(id) {
         deThiHienTai = KHO_DE_THI.find(dt => dt.id == id);
-        if(!deThiHienTai) return alert("Không tìm thấy đề thi!");
+        if(!deThiHienTai) return alert("Không tìm thấy đề thi này!");
 
-        thoiGianConLai = 3600; 
+        thoiGianConLai = 3600; // 60 phút
         cotNoiDungThi.innerHTML = `
             <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:20px;">
                 <button id="nut-thoat-thi" class="btn-back" style="background-color:#888; margin:0;">&larr; Thoát</button>
@@ -358,10 +359,16 @@ document.addEventListener("DOMContentLoaded", function() {
         let noiVECauHoi = document.querySelector(".giao-dien-thi");
         let htmlCauHoi = "";
         
+        // Duyệt qua danh sách ID câu hỏi, tìm nội dung tương ứng trong KHO_BAI_TAP
         deThiHienTai.danh_sach_cau_hoi.forEach((idCau, index) => {
             let bai = KHO_BAI_TAP.find(b => b.id == idCau);
-            if(!bai) return;
+            if(!bai) return; // Bỏ qua nếu không tìm thấy ID
             
+            // --- THÊM HƯỚNG DẪN NẾU CÓ ---
+            if (bai.huong_dan) {
+                htmlCauHoi += `<div class="huong-dan-mondai">${bai.huong_dan}</div>`;
+            }
+
             htmlCauHoi += `
                 <div class="khoi-cau-hoi" data-id="${bai.id}">
                     <h3>Câu ${index + 1}</h3>

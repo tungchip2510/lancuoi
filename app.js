@@ -24,7 +24,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
     // Tô màu Menu hiện tại
     let trangHienTaiURL = window.location.pathname.split("/").pop() || "index.html";
-    document.querySelectorAll(".menu-chinh a").(link => {
+    document.querySelectorAll(".menu-chinh a").forEach(link => { // ✅ Thêm forEach
         if (link.getAttribute("href") === trangHienTaiURL) {
             link.style.backgroundColor = "#e69500"; link.style.color = "white"; link.style.borderBottom = "none";
         }
@@ -101,7 +101,7 @@ document.addEventListener("DOMContentLoaded", function() {
     }
 
     function resetMenuState() {
-        document.querySelectorAll(".link-cap-1, .link-cap-2").(l => l.classList.remove("active-sub"));
+        document.querySelectorAll(".link-cap-1, .link-cap-2").forEach(l => l.classList.remove("active-sub"));
     }
 
     function scrollOnMobile(element) {
@@ -155,7 +155,7 @@ document.addEventListener("DOMContentLoaded", function() {
             html += `<p>Chưa có dữ liệu cho mục này.</p>`;
         } else {
             html += `<div class="grid-container">`;
-            dataTrangNay.(item => {
+           dataTrangNay.forEach(item => { // ✅ Đúng
                 html += `<a href="#" class="${classLink} card-item" data-id="${item.id}">${item.tieu_de}</a>`;
             });
             html += `</div>`;
@@ -216,7 +216,7 @@ document.addEventListener("DOMContentLoaded", function() {
             <div class="kana-grid">
         `;
 
-        KANA_DATA.(item => {
+        KANA_DATA.forEach(item => { // ✅ Đúng
             const char = modeBangChuCai === 'hiragana' ? item.h : item.k;
             if (!char) {
                 html += `<div class="kana-spacer"></div>`;
@@ -332,7 +332,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
     function xuLyChamDiemBaiTap(nut) {
         let pPhanHoi = nut.closest(".khoi-cau-hoi").querySelector(".phan-hoi");
-        nut.parentElement.querySelectorAll(".lua-chon").(n => n.classList.remove("dung", "sai"));
+        nut.parentElement.querySelectorAll(".lua-chon").forEach(n => n.classList.remove("dung", "sai"));
         if (nut.dataset.dung == "true") {
             nut.classList.add("dung"); pPhanHoi.textContent = "Chính xác! 👏"; pPhanHoi.className = "phan-hoi dung";
         } else {
@@ -438,7 +438,7 @@ document.addEventListener("DOMContentLoaded", function() {
         clearInterval(boDemGio); 
         diemSo = 0; 
         let tatCaCauHoi = document.querySelectorAll(".giao-dien-thi .khoi-cau-hoi");
-        tatCaCauHoi.(khoi => {
+        tatCaCauHoi.forEach(khoi => { // ✅ Đúng
             let nutDaChon = khoi.querySelector(".lua-chon-thi.selected");
             if (nutDaChon && nutDaChon.dataset.dung == "true") diemSo++;
             let dapAnDung = khoi.querySelector(`.lua-chon-thi[data-dung="true"]`);
@@ -460,7 +460,7 @@ document.addEventListener("DOMContentLoaded", function() {
     }
 
     function chonDapAnThi(nut) {
-        nut.closest(".dap-an").querySelectorAll(".lua-chon-thi").(n => n.classList.remove("selected"));
+       nut.closest(".dap-an").querySelectorAll(".lua-chon-thi").forEach(n => n.classList.remove("selected"));
         nut.classList.add("selected");
     }
 
@@ -556,7 +556,7 @@ document.addEventListener("DOMContentLoaded", function() {
     if (btnClose) btnClose.onclick = () => modal.style.display = "none";
     window.onclick = (e) => { if (e.target == modal) modal.style.display = "none"; };
     
-    document.querySelectorAll(".form-tim-kiem").(form => {
+   document.querySelectorAll(".form-tim-kiem").forEach(form => { ... // Thêm forEach
         form.addEventListener("submit", (e) => {
             e.preventDefault();
             let kw = form.querySelector("input").value.toLowerCase().trim();
@@ -565,13 +565,13 @@ document.addEventListener("DOMContentLoaded", function() {
             let kq = [];
             // Tìm trong Bài Học
             if(typeof KHO_BAI_HOC !== 'undefined') {
-                KHO_BAI_HOC.(i => { 
+               KHO_BAI_HOC.forEach(i => { ... // Thêm forEach
                     if(i.tieu_de.toLowerCase().includes(kw)) kq.push({...i, type: 'Bài Học', link: 'bai-hoc.html'}); 
                 });
             }
             // Tìm trong Bài Tập
             if(typeof KHO_BAI_TAP !== 'undefined') {
-                KHO_BAI_TAP.(i => { 
+               KHO_BAI_TAP.forEach(i => { ... // Thêm forEach
                     if(i.tieu_de.toLowerCase().includes(kw) || i.cau_hoi.toLowerCase().includes(kw)) kq.push({...i, type: 'Bài Tập', link: 'bai-tap.html'}); 
                 });
             }

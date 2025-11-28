@@ -24,7 +24,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
     // Tô màu Menu hiện tại
     let trangHienTaiURL = window.location.pathname.split("/").pop() || "index.html";
-    document.querySelectorAll(".menu-chinh a").forEach(link => {
+    document.querySelectorAll(".menu-chinh a").(link => {
         if (link.getAttribute("href") === trangHienTaiURL) {
             link.style.backgroundColor = "#e69500"; link.style.color = "white"; link.style.borderBottom = "none";
         }
@@ -76,7 +76,7 @@ document.addEventListener("DOMContentLoaded", function() {
                 }
 
                 let menuItem = link.closest(".menu-item");
-                document.querySelectorAll(".menu-item").forEach(item => {
+                document.querySelectorAll(".menu-item").(item => {
                     if (item !== menuItem) item.classList.remove("active");
                 });
                 menuItem.classList.toggle("active");
@@ -101,7 +101,7 @@ document.addEventListener("DOMContentLoaded", function() {
     }
 
     function resetMenuState() {
-        document.querySelectorAll(".link-cap-1, .link-cap-2").forEach(l => l.classList.remove("active-sub"));
+        document.querySelectorAll(".link-cap-1, .link-cap-2").(l => l.classList.remove("active-sub"));
     }
 
     function scrollOnMobile(element) {
@@ -155,7 +155,7 @@ document.addEventListener("DOMContentLoaded", function() {
             html += `<p>Chưa có dữ liệu cho mục này.</p>`;
         } else {
             html += `<div class="grid-container">`;
-            dataTrangNay.forEach(item => {
+            dataTrangNay.(item => {
                 html += `<a href="#" class="${classLink} card-item" data-id="${item.id}">${item.tieu_de}</a>`;
             });
             html += `</div>`;
@@ -216,7 +216,7 @@ document.addEventListener("DOMContentLoaded", function() {
             <div class="kana-grid">
         `;
 
-        KANA_DATA.forEach(item => {
+        KANA_DATA.(item => {
             const char = modeBangChuCai === 'hiragana' ? item.h : item.k;
             if (!char) {
                 html += `<div class="kana-spacer"></div>`;
@@ -321,7 +321,7 @@ document.addEventListener("DOMContentLoaded", function() {
         let data = all.slice(trangSo*SO_CAU_MOI_BO, (trangSo+1)*SO_CAU_MOI_BO);
         
         let html = `<button id="nut-quay-lai-bo" class="btn-back">&larr; Quay lại danh sách bộ</button> <h1>Làm bài tập (Bộ ${trangSo+1})</h1>`;
-        data.forEach((bai, idx) => {
+        data.((bai, idx) => {
              html += `<div class="khoi-cau-hoi"><h3>Câu ${trangSo*SO_CAU_MOI_BO + idx + 1}</h3><p class="cau-hoi">${bai.cau_hoi}</p>
              <div class="dap-an">${bai.lua_chon.map(c => `<button class="lua-chon" data-dung="${c==bai.dap_an_dung}">${c}</button>`).join('')}</div>
              <p class="phan-hoi"></p></div>`;
@@ -332,7 +332,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
     function xuLyChamDiemBaiTap(nut) {
         let pPhanHoi = nut.closest(".khoi-cau-hoi").querySelector(".phan-hoi");
-        nut.parentElement.querySelectorAll(".lua-chon").forEach(n => n.classList.remove("dung", "sai"));
+        nut.parentElement.querySelectorAll(".lua-chon").(n => n.classList.remove("dung", "sai"));
         if (nut.dataset.dung == "true") {
             nut.classList.add("dung"); pPhanHoi.textContent = "Chính xác! 👏"; pPhanHoi.className = "phan-hoi dung";
         } else {
@@ -360,24 +360,73 @@ document.addEventListener("DOMContentLoaded", function() {
         let htmlCauHoi = "";
         
         // Duyệt qua danh sách ID câu hỏi, tìm nội dung tương ứng trong KHO_BAI_TAP
-        deThiHienTai.danh_sach_cau_hoi.forEach((idCau, index) => {
-            let bai = KHO_BAI_TAP.find(b => b.id == idCau);
-            if(!bai) return; // Bỏ qua nếu không tìm thấy ID
-            
-            // --- THÊM HƯỚNG DẪN NẾU CÓ ---
-            if (bai.huong_dan) {
-                htmlCauHoi += `<div class="huong-dan-mondai">${bai.huong_dan}</div>`;
-            }
+                
+        let noiVECauHoi = document.querySelector(".giao-dien-thi");
+        let htmlCauHoi = "";
+        let cauSo = 1; // Biến đếm số thứ tự câu hỏi (để số câu tăng liên tục)
 
-            htmlCauHoi += `
-                <div class="khoi-cau-hoi" data-id="${bai.id}">
-                    <h3>Câu ${index + 1}</h3>
-                    <p class="cau-hoi">${bai.cau_hoi}</p>
-                    <div class="dap-an">
-                        ${bai.lua_chon.map(lc => `<button class="lua-chon-thi" data-dung="${lc == bai.dap_an_dung}">${lc}</button>`).join('')}
+        // BẮT ĐẦU VÒNG LẶP CẬP NHẬT
+        deThiHienTai.danh_sach_cau_hoi.forEach((idCau) => {
+            let bai = KHO_BAI_TAP.find(b => b.id == idCau);
+            if(!bai) return; 
+            
+            // --- TRƯỜNG HỢP 1: BÀI ĐỌC HIỂU NHÓM (Mới thêm) ---
+            if (bai.loai === "DocHieu_Nhom") {
+                // 1.1. Hiện hướng dẫn chung (nếu có)
+                if (bai.huong_dan) {
+                    htmlCauHoi += `<div class="huong-dan-mondai">${bai.huong_dan}</div>`;
+                }
+
+                // 1.2. Vẽ khung chia đôi: Bài đọc (trái) - Câu hỏi con (phải)
+                htmlCauHoi += `
+                    <div class="nhom-cau-hoi-container">
+                        <div class="bai-doc-dai">
+                            <h3 style="color:#e65100; margin-top:0; border-bottom:2px solid #eee; padding-bottom:10px;">${bai.tieu_de}</h3>
+                            ${bai.bai_doc}
+                        </div>
+                        <div class="danh-sach-cau-hoi-con">
+                `;
+                
+                // 1.3. Lặp qua các câu hỏi con trong nhóm
+                bai.ds_cau_hoi_con.forEach((cauCon) => {
+                    // Lấy text để đọc loa (xóa thẻ html)
+                    let textDoc = cauCon.cau_hoi.replace(/<[^>]*>?/gm, ''); 
+                    
+                    htmlCauHoi += `
+                        <div class="khoi-cau-hoi" data-id="${cauCon.id}" style="margin-bottom:0;">
+                            <p class="cau-hoi">
+                                <b>Câu ${cauSo}:</b> ${cauCon.cau_hoi}
+                                <i class="fas fa-volume-up" onclick="playSound('${textDoc}', this)" style="cursor:pointer; color:#ccc; margin-left:10px;"></i>
+                            </p>
+                            <div class="dap-an">
+                                ${cauCon.lua_chon.map(lc => `<button class="lua-chon-thi" data-dung="${lc == cauCon.dap_an_dung}">${lc}</button>`).join('')}
+                            </div>
+                        </div>
+                    `;
+                    cauSo++; // Tăng số câu
+                });
+                htmlCauHoi += `</div></div>`; // Đóng thẻ nhóm
+            } 
+            
+            // --- TRƯỜNG HỢP 2: CÂU HỎI ĐƠN LẺ (Cũ) ---
+            else {
+                if (bai.huong_dan) {
+                    htmlCauHoi += `<div class="huong-dan-mondai">${bai.huong_dan}</div>`;
+                }
+                
+                let textDoc = bai.cau_hoi.replace(/<[^>]*>?/gm, '');
+                
+                htmlCauHoi += `
+                    <div class="khoi-cau-hoi" data-id="${bai.id}">
+                        <h3>Câu ${cauSo} <i class="fas fa-volume-up" onclick="playSound('${textDoc}', this)" style="cursor:pointer; color:#ccc; font-size:0.8em;"></i></h3>
+                        <p class="cau-hoi">${bai.cau_hoi}</p>
+                        <div class="dap-an">
+                            ${bai.lua_chon.map(lc => `<button class="lua-chon-thi" data-dung="${lc == bai.dap_an_dung}">${lc}</button>`).join('')}
+                        </div>
                     </div>
-                </div>
-            `;
+                `;
+                cauSo++; // Tăng số câu
+            }
         });
         noiVECauHoi.innerHTML = htmlCauHoi;
         clearInterval(boDemGio);
@@ -389,7 +438,7 @@ document.addEventListener("DOMContentLoaded", function() {
         clearInterval(boDemGio); 
         diemSo = 0; 
         let tatCaCauHoi = document.querySelectorAll(".giao-dien-thi .khoi-cau-hoi");
-        tatCaCauHoi.forEach(khoi => {
+        tatCaCauHoi.(khoi => {
             let nutDaChon = khoi.querySelector(".lua-chon-thi.selected");
             if (nutDaChon && nutDaChon.dataset.dung == "true") diemSo++;
             let dapAnDung = khoi.querySelector(`.lua-chon-thi[data-dung="true"]`);
@@ -411,7 +460,7 @@ document.addEventListener("DOMContentLoaded", function() {
     }
 
     function chonDapAnThi(nut) {
-        nut.closest(".dap-an").querySelectorAll(".lua-chon-thi").forEach(n => n.classList.remove("selected"));
+        nut.closest(".dap-an").querySelectorAll(".lua-chon-thi").(n => n.classList.remove("selected"));
         nut.classList.add("selected");
     }
 
@@ -507,7 +556,7 @@ document.addEventListener("DOMContentLoaded", function() {
     if (btnClose) btnClose.onclick = () => modal.style.display = "none";
     window.onclick = (e) => { if (e.target == modal) modal.style.display = "none"; };
     
-    document.querySelectorAll(".form-tim-kiem").forEach(form => {
+    document.querySelectorAll(".form-tim-kiem").(form => {
         form.addEventListener("submit", (e) => {
             e.preventDefault();
             let kw = form.querySelector("input").value.toLowerCase().trim();
@@ -516,13 +565,13 @@ document.addEventListener("DOMContentLoaded", function() {
             let kq = [];
             // Tìm trong Bài Học
             if(typeof KHO_BAI_HOC !== 'undefined') {
-                KHO_BAI_HOC.forEach(i => { 
+                KHO_BAI_HOC.(i => { 
                     if(i.tieu_de.toLowerCase().includes(kw)) kq.push({...i, type: 'Bài Học', link: 'bai-hoc.html'}); 
                 });
             }
             // Tìm trong Bài Tập
             if(typeof KHO_BAI_TAP !== 'undefined') {
-                KHO_BAI_TAP.forEach(i => { 
+                KHO_BAI_TAP.(i => { 
                     if(i.tieu_de.toLowerCase().includes(kw) || i.cau_hoi.toLowerCase().includes(kw)) kq.push({...i, type: 'Bài Tập', link: 'bai-tap.html'}); 
                 });
             }

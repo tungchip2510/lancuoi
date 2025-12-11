@@ -715,3 +715,101 @@ body.dang-thi .danh-sach-cau-hoi-con {
     z-index: 1000;
     box-shadow: 0 4px 15px rgba(0,0,0,0.3);
 }
+
+/* =========================================
+   9. CHẾ ĐỘ TẬP TRUNG (FOCUS MODE)
+   ========================================= */
+
+/* Khi body có class 'dang-thi', ẩn các phần rườm rà */
+body.dang-thi .menu-chinh,
+body.dang-thi .hero-section,
+body.dang-thi .sidebar,
+body.dang-thi footer,
+body.dang-thi .form-tim-kiem,
+body.dang-thi #khung-dem-nguoc,
+body.dang-thi #btn-len-dau-trang {
+    display: none !important;
+}
+
+/* Cấu hình lại container khi thi */
+body.dang-thi .container-2-cot {
+    display: block; /* Bỏ flex để content bung ra */
+    margin-top: 0;
+    width: 100%;
+    max-width: 100%;
+    padding: 0;
+}
+
+body.dang-thi .content-thi {
+    width: 100%;
+    min-height: 100vh;
+    border-radius: 0;
+    border: none;
+    background-color: #fff;
+    padding: 20px;
+}
+
+/* --- GIAO DIỆN CHIA ĐÔI ĐỘC LẬP (Split Pane) --- */
+body.dang-thi .nhom-cau-hoi-container {
+    display: grid;
+    /* Chia cột: Văn bản 45% - Câu hỏi 55% (hoặc tùy chỉnh 50% 50%) */
+    grid-template-columns: 45% 1fr; 
+    gap: 30px;
+    /* Chiều cao cố định bằng màn hình trừ đi phần Header thi */
+    height: calc(100vh - 140px); 
+    overflow: hidden; /* Ẩn thanh cuộn ngoài */
+    background-color: #fff;
+    border: 1px solid #ddd;
+    padding: 0; /* Bỏ padding ngoài để viền đẹp hơn */
+}
+
+/* Cột Bài đọc (Trái) */
+body.dang-thi .bai-doc-dai {
+    position: static; /* Không cần sticky nữa vì khung đã cố định */
+    height: 100%; /* Chiều cao full khung */
+    overflow-y: auto; /* Cho phép cuộn riêng */
+    padding: 25px;
+    background-color: #f8f9fa;
+    border-right: 1px solid #ddd;
+    border-radius: 0;
+    box-shadow: none;
+    font-size: 1.1em; /* Tăng cỡ chữ cho dễ đọc */
+    line-height: 2;
+}
+
+/* Cột Câu hỏi (Phải) */
+body.dang-thi .danh-sach-cau-hoi-con {
+    height: 100%; /* Chiều cao full khung */
+    overflow-y: auto; /* Cho phép cuộn riêng */
+    padding: 25px;
+    background-color: #fff;
+}
+
+/* Thanh cuộn đẹp hơn cho 2 cột */
+.bai-doc-dai::-webkit-scrollbar,
+.danh-sach-cau-hoi-con::-webkit-scrollbar {
+    width: 8px;
+}
+.bai-doc-dai::-webkit-scrollbar-track { background: #f1f1f1; }
+.bai-doc-dai::-webkit-scrollbar-thumb { background: #ccc; border-radius: 4px; }
+.bai-doc-dai::-webkit-scrollbar-thumb:hover { background: #aaa; }
+
+/* Header bài thi cố định ở trên cùng */
+.thi-header-sticky {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: white;
+    padding-bottom: 15px;
+    border-bottom: 2px solid #eee;
+    margin-bottom: 20px;
+}
+
+/* Nút nộp bài nổi bật hơn */
+#nut-nop-bai {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 1000;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+}

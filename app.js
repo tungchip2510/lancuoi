@@ -152,7 +152,47 @@ function hienThiChiTietBaiHoc(id) {
         alert("Không tìm thấy dữ liệu bài học!");
         return;
     }
+function hienThiChiTietBaiHoc(id) {
+    const baiHoc = KHO_BAI_HOC.find(b => b.id == id);
+    if (!baiHoc) return;
 
+    // Kiểm tra xem bài này đã học chưa
+    let dsDaHoc = JSON.parse(localStorage.getItem("bai_da_hoc")) || [];
+    let isDone = dsDaHoc.includes(id);
+    let btnText = isDone ? "✅ Đã học xong" : "⭕ Đánh dấu đã học";
+    let btnClass = isDone ? "da-hoc" : "";
+
+    const html = `
+        <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:20px;">
+            <button id="nut-quay-lai" class="btn-back" style="margin:0;"><i class="fas fa-arrow-left"></i> Quay lại</button>
+            <button id="nut-danh-dau" class="btn-action ${btnClass}" onclick="toggleDaHoc('${id}')">${btnText}</button>
+        </div>
+        <h1 style="color: #e65100; border-bottom: 2px solid #eee; padding-bottom:10px;">${baiHoc.tieu_de}</h1>
+        <div class="noi-dung-bai-hoc">${baiHoc.noi_dung}</div>
+    `;
+    
+    cotNoiDung.innerHTML = html;
+    window.scrollTo(0, 0);
+}
+
+// Hàm xử lý lưu trạng thái
+window.toggleDaHoc = function(id) {
+    let dsDaHoc = JSON.parse(localStorage.getItem("bai_da_hoc")) || [];
+    const btn = document.getElementById("nut-danh-dau");
+
+    if (dsDaHoc.includes(id)) {
+        // Nếu đã học rồi thì bỏ đánh dấu
+        dsDaHoc = dsDaHoc.filter(i => i !== id);
+        btn.innerText = "⭕ Đánh dấu đã học";
+        btn.classList.remove("da-hoc");
+    } else {
+        // Chưa học thì thêm vào
+        dsDaHoc.push(id);
+        btn.innerText = "✅ Đã học xong";
+        btn.classList.add("da-hoc");
+    }
+    localStorage.setItem("bai_da_hoc", JSON.stringify(dsDaHoc));
+};
     // 2. Render giao diện chi tiết
     // Lưu ý: Thêm nút Quay lại có id="nut-quay-lai" để bắt sự kiện click bên dưới
     const html = `
@@ -408,6 +448,20 @@ window.kiemTraDapAn = function(btn, chon, dung) {
         e.preventDefault();
         window.open(`https://translate.google.com/?sl=ja&tl=vi&text=${encodeURIComponent(window.getSelection().toString())}`, '_blank');
     };
+// Trong hàm hienThiDanhSach, sửa đoạn loop:
+let dsDaHoc = JSON.parse(localStorage.getItem("bai_da_hoc")) || [];
+
+list.forEach(item => {
+    let cls = (type === "DE_THI") ? "link-de-thi card-item" : "link-bai-hoc card-item";
+    // Thêm icon nếu đã học
+    let checkIcon = dsDaHoc.includes(item.id) ? '<i class="fas fa-check-circle" style="color:green; position:absolute; top:10px; right:10px;"></i>' : '';
+    
+    html += `<a href="#" class="${cls}" data-id="${item.id}">
+                ${checkIcon}
+                <h3>${item.tieu_de}</h3>
+             </a>`;
+});
+    
 });
 
 

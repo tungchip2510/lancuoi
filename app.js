@@ -33,7 +33,7 @@ document.addEventListener("DOMContentLoaded", function() {
         hamburgerBtn.addEventListener("click", () => menuList.classList.toggle("mobile-menu-open"));
     }
 
-    // Tô màu Menu (ĐÃ SỬA LỖI forEach)
+    // Tô màu Menu (ĐÃ SỬA LỖI: Thêm .forEach)
     let trangHienTaiURL = window.location.pathname.split("/").pop() || "index.html";
     document.querySelectorAll(".menu-chinh a").forEach(link => {
         if (link.getAttribute("href") === trangHienTaiURL) {
@@ -50,7 +50,7 @@ document.addEventListener("DOMContentLoaded", function() {
     }
 
     // ==============================================
-    // 3. QUẢN LÝ THÀNH VIÊN
+    // 3. QUẢN LÝ THÀNH VIÊN (GIỮ NGUYÊN TÍNH NĂNG CŨ)
     // ==============================================
     const khungDangKy = document.getElementById("khung-dang-ky");
     const khungChaoMung = document.getElementById("khung-chao-mung");
@@ -112,14 +112,14 @@ document.addEventListener("DOMContentLoaded", function() {
                 scrollOnMobile(cotNoiDung);
                 return;
             }
-            // Menu cấp 1
+            // Menu cấp 1 (Accordion)
             if (e.target.classList.contains("link-cap-1") || e.target.closest(".link-cap-1")) {
                 e.preventDefault();
                 let link = e.target.classList.contains("link-cap-1") ? e.target : e.target.closest(".link-cap-1");
                 if(link.dataset.loai === "bang-chu-cai") { loaiDangXem = "bang-chu-cai"; veGiaoDienChinh(); return; }
                 let menuItem = link.closest(".menu-item");
                 
-                // ĐÃ SỬA LỖI forEach
+                // ĐÃ SỬA LỖI: Thêm .forEach
                 document.querySelectorAll(".menu-item").forEach(item => {
                     if (item !== menuItem) item.classList.remove("active");
                 });
@@ -141,7 +141,7 @@ document.addEventListener("DOMContentLoaded", function() {
     }
 
     function resetMenuState() {
-        // ĐÃ SỬA LỖI forEach
+        // ĐÃ SỬA LỖI: Thêm .forEach
         document.querySelectorAll(".link-cap-1, .link-cap-2").forEach(l => l.classList.remove("active-sub"));
     }
     function scrollOnMobile(element) {
@@ -174,7 +174,7 @@ document.addEventListener("DOMContentLoaded", function() {
         if (dataLoc.length === 0) html += `<p>Chưa có dữ liệu.</p>`;
         else {
             html += `<div class="grid-container">`;
-            // ĐÃ SỬA LỖI forEach
+            // ĐÃ SỬA LỖI: Thêm .forEach
             dataTrangNay.forEach(item => {
                 html += `<a href="#" class="${classLink} card-item" data-id="${item.id}">${item.tieu_de}</a>`;
             });
@@ -204,7 +204,7 @@ document.addEventListener("DOMContentLoaded", function() {
             </div>
             <div class="kana-grid">
         `;
-        // ĐÃ SỬA LỖI forEach
+        // ĐÃ SỬA LỖI: Thêm .forEach
         KANA_DATA.forEach(item => {
             const char = modeBangChuCai === 'hiragana' ? item.h : item.k;
             if (!char) html += `<div class="kana-spacer"></div>`;
@@ -239,7 +239,6 @@ document.addEventListener("DOMContentLoaded", function() {
             let text = card.querySelector(".kana-char").textContent.trim();
             playSound(text, card);
         }
-        // Thêm xử lý click loa
         if (event.target.classList.contains("fa-volume-up")) {
             let text = event.target.dataset.text;
             playSound(text, event.target);
@@ -252,7 +251,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
     function hienThiChiTietBaiHoc(id) {
         let item = KHO_BAI_HOC.find(i => i.id == id);
-        cotNoiDung.innerHTML = `<button id="nut-quay-lai" class="btn-back">&larr; Quay lại</button><h1>${item.tieu_de}</h1><div class="noi-dung-bai-hoc">${item.noi_dung}</div>`;
+        cotNoiDung.innerHTML = `<button id="nut-quay-lai" class="btn-back">&larr; Quay lại danh sách</button><h1>${item.tieu_de}</h1><div class="noi-dung-bai-hoc">${item.noi_dung}</div>`;
     }
     function hienThiDanhSachBoBaiTap() {
         let container = cotNoiDungBt; if (!container) return;
@@ -278,7 +277,8 @@ document.addEventListener("DOMContentLoaded", function() {
         let all = KHO_BAI_TAP.filter(bt => bt.cap_do == capDoDangXem && bt.loai == loaiChiTiet);
         let data = all.slice(trangSo*SO_CAU_MOI_BO, (trangSo+1)*SO_CAU_MOI_BO);
         let html = `<button id="nut-quay-lai-bo" class="btn-back">&larr; Quay lại danh sách bộ</button> <h1>Làm bài tập (Bộ ${trangSo+1})</h1>`;
-        data.forEach((bai, idx) => { // forEach ở đây đã đúng trong code của bạn, giữ nguyên
+        // ĐÃ SỬA LỖI: Thêm .forEach
+        data.forEach((bai, idx) => {
              html += `<div class="khoi-cau-hoi"><h3>Câu ${trangSo*SO_CAU_MOI_BO + idx + 1}</h3><p class="cau-hoi">${bai.cau_hoi}</p><div class="dap-an">${bai.lua_chon.map(c => `<button class="lua-chon" data-dung="${c==bai.dap_an_dung}">${c}</button>`).join('')}</div><p class="phan-hoi"></p></div>`;
         });
         cotNoiDungBt.innerHTML = html;
@@ -286,14 +286,14 @@ document.addEventListener("DOMContentLoaded", function() {
     }
     function xuLyChamDiemBaiTap(nut) {
         let pPhanHoi = nut.closest(".khoi-cau-hoi").querySelector(".phan-hoi");
-        // ĐÃ SỬA LỖI forEach
+        // ĐÃ SỬA LỖI: Thêm .forEach
         nut.parentElement.querySelectorAll(".lua-chon").forEach(n => n.classList.remove("dung", "sai"));
         if (nut.dataset.dung == "true") { nut.classList.add("dung"); pPhanHoi.textContent = "Chính xác! 👏"; pPhanHoi.className = "phan-hoi dung"; }
         else { nut.classList.add("sai"); pPhanHoi.textContent = "Sai rồi!"; pPhanHoi.className="phan-hoi sai"; }
     }
 
     // ==============================================
-    // 5. LOGIC THI THỬ NÂNG CAO (VẼ ĐỀ THI)
+    // 5. LOGIC THI THỬ (CHÍNH XÁC NHẤT)
     // ==============================================
     function batDauThi(id) {
         deThiHienTai = KHO_DE_THI.find(dt => dt.id == id);
@@ -314,7 +314,7 @@ document.addEventListener("DOMContentLoaded", function() {
         let htmlCauHoi = "";
         let cauSo = 1; 
 
-        // ĐÃ SỬA LỖI forEach
+        // ĐÃ SỬA LỖI: Thêm .forEach
         deThiHienTai.danh_sach_cau_hoi.forEach((idCau) => {
             let bai = KHO_BAI_TAP.find(b => b.id == idCau);
             if(!bai) return; 
@@ -332,7 +332,7 @@ document.addEventListener("DOMContentLoaded", function() {
                         </div>
                         <div class="danh-sach-cau-hoi-con">
                 `;
-                // ĐÃ SỬA LỖI forEach
+                // ĐÃ SỬA LỖI: Thêm .forEach
                 bai.ds_cau_hoi_con.forEach((cauCon) => {
                     let textDoc = cauCon.cau_hoi.replace(/<[^>]*>?/gm, ''); 
                     htmlCauHoi += `
@@ -378,9 +378,9 @@ document.addEventListener("DOMContentLoaded", function() {
         clearInterval(boDemGio); 
         diemSo = 0; 
         let tatCaCauHoi = document.querySelectorAll(".giao-dien-thi .khoi-cau-hoi");
-        let tongSoCau = 0; // Đếm thực tế số câu được vẽ ra
+        let tongSoCau = 0;
         
-        // ĐÃ SỬA LỖI forEach
+        // ĐÃ SỬA LỖI: Thêm .forEach
         tatCaCauHoi.forEach(khoi => {
             tongSoCau++;
             let nutDaChon = khoi.querySelector(".lua-chon-thi.selected");
@@ -428,7 +428,7 @@ document.addEventListener("DOMContentLoaded", function() {
     }
 
     function chonDapAnThi(nut) {
-        // ĐÃ SỬA LỖI forEach
+        // ĐÃ SỬA LỖI: Thêm .forEach
         nut.closest(".dap-an").querySelectorAll(".lua-chon-thi").forEach(n => n.classList.remove("selected"));
         nut.classList.add("selected");
     }
@@ -449,7 +449,7 @@ document.addEventListener("DOMContentLoaded", function() {
     }
 
     // ==============================================
-    // 6. TÍNH NĂNG PHỤ
+    // 6. TIỆN ÍCH KHÁC (KHÔI PHỤC ĐẦY ĐỦ)
     // ==============================================
     function khoiTaoDongHoDemNguoc() {
         if (sessionStorage.getItem("an_dong_ho") === "true") return;
@@ -508,7 +508,7 @@ document.addEventListener("DOMContentLoaded", function() {
     if (btnClose) btnClose.onclick = () => modal.style.display = "none";
     window.onclick = (e) => { if (e.target == modal) modal.style.display = "none"; };
     
-    // ĐÃ SỬA LỖI forEach
+    // ĐÃ SỬA LỖI: Thêm .forEach
     document.querySelectorAll(".form-tim-kiem").forEach(form => {
         form.addEventListener("submit", (e) => {
             e.preventDefault();

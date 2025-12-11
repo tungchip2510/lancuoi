@@ -308,8 +308,6 @@ footer { background-color: #333; color: #fff; padding-top: 40px; margin-top: 60p
     .dap-an { grid-template-columns: 1fr; }
 }
 
-
-
 /* =========================================
    9. ĐỒNG HỒ ĐẾM NGƯỢC (COUNTDOWN) - PHIÊN BẢN CUTE
    ========================================= */
@@ -445,11 +443,11 @@ footer { background-color: #333; color: #fff; padding-top: 40px; margin-top: 60p
     font-size: 1.1em;
 }
 
-
-/* --- Style cho Bài Đọc Hiểu Nhóm --- */
+/* --- Style cho Bài Đọc Hiểu Nhóm (ĐÃ SỬA TÊN CLASS CHO KHỚP APP.JS) --- */
 .nhom-cau-hoi-container {
     display: grid;
-    grid-template-columns: 1fr 1fr; /* Chia đôi màn hình: 50% văn bản - 50% câu hỏi */
+    /* Bên trái 45%, Bên phải Tự động */
+    grid-template-columns: 45% 1fr;
     gap: 20px;
     margin-bottom: 30px;
     align-items: start;
@@ -459,19 +457,22 @@ footer { background-color: #333; color: #fff; padding-top: 40px; margin-top: 60p
     border: 1px solid #ddd;
 }
 
+/* --- SỬA LOGIC CUỘN ĐỘC LẬP CHO BÀI DÀI --- */
+/* Cột Bài đọc (Trái) - Chỉ cuộn khi nội dung quá dài */
 .bai-doc-dai {
-    position: sticky; /* Giữ bài đọc cố định khi cuộn câu hỏi */
+    position: sticky;
     top: 80px; 
     background: white;
-    padding: 15px;
+    padding: 20px;
     border-radius: 8px;
     box-shadow: 0 2px 5px rgba(0,0,0,0.05);
     max-height: 80vh; /* Giới hạn chiều cao */
-    overflow-y: auto; /* Cho phép cuộn nội bộ nếu văn bản quá dài */
-    font-size: 16px;
-    line-height: 1.8;
+    overflow-y: auto; /* Cho phép cuộn */
+    font-size: 1.1em; /* Tăng cỡ chữ */
+    line-height: 2; /* Dãn dòng */
 }
 
+/* Cột Câu hỏi (Phải) */
 .danh-sach-cau-hoi-con {
     display: flex;
     flex-direction: column;
@@ -479,20 +480,63 @@ footer { background-color: #333; color: #fff; padding-top: 40px; margin-top: 60p
 }
 
 .danh-sach-cau-hoi-con .khoi-cau-hoi {
-    margin-bottom: 0; /* Bỏ margin thừa */
+    margin-bottom: 0; 
     box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-    border-left: 5px solid #FFA500; /* Viền cam để phân biệt */
+    border-left: 5px solid #FFA500;
 }
 
-/* Responsive trên điện thoại (Xếp chồng lên nhau) */
-@media (max-width: 768px) {
-    .nhom-cau-hoi-container {
-        grid-template-columns: 1fr; /* Một cột */
-    }
-    .bai-doc-dai {
-        position: static; /* Hủy chế độ dính */
-        max-height: 300px; /* Bài đọc ngắn lại */
-    }
+
+/* =========================================
+   10. CHẾ ĐỘ TẬP TRUNG (FOCUS MODE) - CẬP NHẬT TÊN CLASS
+   ========================================= */
+
+/* Khi body có class 'che-do-tap-trung' (Khớp với app.js), ẩn các phần rườm rà */
+body.che-do-tap-trung .menu-chinh,
+body.che-do-tap-trung .hero-section,
+body.che-do-tap-trung .sidebar,
+body.che-do-tap-trung footer,
+body.che-do-tap-trung .form-tim-kiem,
+body.che-do-tap-trung #khung-dem-nguoc,
+body.che-do-tap-trung #btn-len-dau-trang {
+    display: none !important;
+}
+
+/* Cấu hình lại container khi thi */
+body.che-do-tap-trung .container-2-cot {
+    display: block; 
+    margin-top: 0;
+    width: 100%;
+    max-width: 100%;
+    padding: 0;
+}
+
+body.che-do-tap-trung .content-thi {
+    width: 100%;
+    min-height: 100vh;
+    border-radius: 0;
+    border: none;
+    background-color: #fff;
+    padding: 20px;
+}
+
+/* Header bài thi cố định ở trên cùng */
+.thi-header-sticky {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: white;
+    padding-bottom: 15px;
+    border-bottom: 2px solid #eee;
+    margin-bottom: 20px;
+}
+
+/* Nút nộp bài nổi bật hơn */
+#nut-nop-bai {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 1000;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.3);
 }
 
 /* Container của lưới thẻ */
@@ -553,263 +597,13 @@ footer { background-color: #333; color: #fff; padding-top: 40px; margin-top: 60p
     font-size: 1.2em;
 }
 
-/* --- BỔ SUNG STYLE CHO BÀI ĐỌC HIỂU NHÓM (QUAN TRỌNG) --- */
-.nhom-cau-hoi-container {
-    display: grid;
-    grid-template-columns: 1fr 1fr; /* Chia đôi: 50% bài đọc - 50% câu hỏi */
-    gap: 25px;
-    margin-bottom: 40px;
-    align-items: start;
-    background-color: #f9f9f9;
-    padding: 20px;
-    border-radius: 12px;
-    border: 1px solid #ddd;
-}
-
-.bai-doc-dai {
-    position: sticky; /* Giữ bài đọc cố định khi cuộn */
-    top: 80px; 
-    background: white;
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
-    max-height: 80vh; /* Giới hạn chiều cao */
-    overflow-y: auto; /* Hiện thanh cuộn nếu bài quá dài */
-    font-size: 16px;
-    line-height: 1.8;
-    color: #333;
-    border: 1px solid #eee;
-}
-
-.danh-sach-cau-hoi-con {
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-}
-
-.danh-sach-cau-hoi-con .khoi-cau-hoi {
-    margin-bottom: 0;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-    border-left: 5px solid #FFA500;
-}
-
-/* Style cho dòng hướng dẫn đầu bài */
-.huong-dan-mondai {
-    background-color: #e3f2fd;
-    color: #0d47a1;
-    padding: 15px;
-    margin-top: 30px;
-    margin-bottom: 15px;
-    border-left: 5px solid #2196f3;
-    border-radius: 4px;
-    font-weight: bold;
-    font-size: 1.1em;
-}
-
-/* Responsive trên điện thoại: Xếp chồng lên nhau thay vì chia đôi */
+/* Responsive trên điện thoại (Xếp chồng lên nhau) */
 @media (max-width: 768px) {
     .nhom-cau-hoi-container {
-        grid-template-columns: 1fr;
+        grid-template-columns: 1fr; /* Một cột */
     }
     .bai-doc-dai {
-        position: static;
-        max-height: 300px;
+        position: static; /* Hủy chế độ dính */
+        max-height: 300px; /* Bài đọc ngắn lại */
     }
-}
-
-
-/* =========================================
-   9. CHẾ ĐỘ TẬP TRUNG (FOCUS MODE)
-   ========================================= */
-
-/* Khi body có class 'dang-thi', ẩn các phần rườm rà */
-body.dang-thi .menu-chinh,
-body.dang-thi .hero-section,
-body.dang-thi .sidebar,
-body.dang-thi footer,
-body.dang-thi .form-tim-kiem,
-body.dang-thi #khung-dem-nguoc,
-body.dang-thi #btn-len-dau-trang {
-    display: none !important;
-}
-
-/* Cấu hình lại container khi thi */
-body.dang-thi .container-2-cot {
-    display: block; /* Bỏ flex để content bung ra */
-    margin-top: 0;
-    width: 100%;
-    max-width: 100%;
-    padding: 0;
-}
-
-body.dang-thi .content-thi {
-    width: 100%;
-    min-height: 100vh;
-    border-radius: 0;
-    border: none;
-    background-color: #fff;
-    padding: 20px;
-}
-
-/* --- GIAO DIỆN CHIA ĐÔI ĐỘC LẬP (Split Pane) --- */
-body.dang-thi .nhom-cau-hoi-container {
-    display: grid;
-    /* Chia cột: Văn bản 45% - Câu hỏi 55% (hoặc tùy chỉnh 50% 50%) */
-    grid-template-columns: 45% 1fr; 
-    gap: 30px;
-    /* Chiều cao cố định bằng màn hình trừ đi phần Header thi */
-    height: calc(100vh - 140px); 
-    overflow: hidden; /* Ẩn thanh cuộn ngoài */
-    background-color: #fff;
-    border: 1px solid #ddd;
-    padding: 0; /* Bỏ padding ngoài để viền đẹp hơn */
-}
-
-/* Cột Bài đọc (Trái) */
-body.dang-thi .bai-doc-dai {
-    position: static; /* Không cần sticky nữa vì khung đã cố định */
-    height: 100%; /* Chiều cao full khung */
-    overflow-y: auto; /* Cho phép cuộn riêng */
-    padding: 25px;
-    background-color: #f8f9fa;
-    border-right: 1px solid #ddd;
-    border-radius: 0;
-    box-shadow: none;
-    font-size: 1.1em; /* Tăng cỡ chữ cho dễ đọc */
-    line-height: 2;
-}
-
-/* Cột Câu hỏi (Phải) */
-body.dang-thi .danh-sach-cau-hoi-con {
-    height: 100%; /* Chiều cao full khung */
-    overflow-y: auto; /* Cho phép cuộn riêng */
-    padding: 25px;
-    background-color: #fff;
-}
-
-/* Thanh cuộn đẹp hơn cho 2 cột */
-.bai-doc-dai::-webkit-scrollbar,
-.danh-sach-cau-hoi-con::-webkit-scrollbar {
-    width: 8px;
-}
-.bai-doc-dai::-webkit-scrollbar-track { background: #f1f1f1; }
-.bai-doc-dai::-webkit-scrollbar-thumb { background: #ccc; border-radius: 4px; }
-.bai-doc-dai::-webkit-scrollbar-thumb:hover { background: #aaa; }
-
-/* Header bài thi cố định ở trên cùng */
-.thi-header-sticky {
-    position: sticky;
-    top: 0;
-    z-index: 100;
-    background: white;
-    padding-bottom: 15px;
-    border-bottom: 2px solid #eee;
-    margin-bottom: 20px;
-}
-
-/* Nút nộp bài nổi bật hơn */
-#nut-nop-bai {
-    position: fixed;
-    bottom: 20px;
-    right: 20px;
-    z-index: 1000;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.3);
-}
-
-/* =========================================
-   9. CHẾ ĐỘ TẬP TRUNG (FOCUS MODE)
-   ========================================= */
-
-/* Khi body có class 'dang-thi', ẩn các phần rườm rà */
-body.dang-thi .menu-chinh,
-body.dang-thi .hero-section,
-body.dang-thi .sidebar,
-body.dang-thi footer,
-body.dang-thi .form-tim-kiem,
-body.dang-thi #khung-dem-nguoc,
-body.dang-thi #btn-len-dau-trang {
-    display: none !important;
-}
-
-/* Cấu hình lại container khi thi */
-body.dang-thi .container-2-cot {
-    display: block; /* Bỏ flex để content bung ra */
-    margin-top: 0;
-    width: 100%;
-    max-width: 100%;
-    padding: 0;
-}
-
-body.dang-thi .content-thi {
-    width: 100%;
-    min-height: 100vh;
-    border-radius: 0;
-    border: none;
-    background-color: #fff;
-    padding: 20px;
-}
-
-/* --- GIAO DIỆN CHIA ĐÔI ĐỘC LẬP (Split Pane) --- */
-body.dang-thi .nhom-cau-hoi-container {
-    display: grid;
-    /* Chia cột: Văn bản 45% - Câu hỏi 55% (hoặc tùy chỉnh 50% 50%) */
-    grid-template-columns: 45% 1fr; 
-    gap: 30px;
-    /* Chiều cao cố định bằng màn hình trừ đi phần Header thi */
-    height: calc(100vh - 140px); 
-    overflow: hidden; /* Ẩn thanh cuộn ngoài */
-    background-color: #fff;
-    border: 1px solid #ddd;
-    padding: 0; /* Bỏ padding ngoài để viền đẹp hơn */
-}
-
-/* Cột Bài đọc (Trái) */
-body.dang-thi .bai-doc-dai {
-    position: static; /* Không cần sticky nữa vì khung đã cố định */
-    height: 100%; /* Chiều cao full khung */
-    overflow-y: auto; /* Cho phép cuộn riêng */
-    padding: 25px;
-    background-color: #f8f9fa;
-    border-right: 1px solid #ddd;
-    border-radius: 0;
-    box-shadow: none;
-    font-size: 1.1em; /* Tăng cỡ chữ cho dễ đọc */
-    line-height: 2;
-}
-
-/* Cột Câu hỏi (Phải) */
-body.dang-thi .danh-sach-cau-hoi-con {
-    height: 100%; /* Chiều cao full khung */
-    overflow-y: auto; /* Cho phép cuộn riêng */
-    padding: 25px;
-    background-color: #fff;
-}
-
-/* Thanh cuộn đẹp hơn cho 2 cột */
-.bai-doc-dai::-webkit-scrollbar,
-.danh-sach-cau-hoi-con::-webkit-scrollbar {
-    width: 8px;
-}
-.bai-doc-dai::-webkit-scrollbar-track { background: #f1f1f1; }
-.bai-doc-dai::-webkit-scrollbar-thumb { background: #ccc; border-radius: 4px; }
-.bai-doc-dai::-webkit-scrollbar-thumb:hover { background: #aaa; }
-
-/* Header bài thi cố định ở trên cùng */
-.thi-header-sticky {
-    position: sticky;
-    top: 0;
-    z-index: 100;
-    background: white;
-    padding-bottom: 15px;
-    border-bottom: 2px solid #eee;
-    margin-bottom: 20px;
-}
-
-/* Nút nộp bài nổi bật hơn */
-#nut-nop-bai {
-    position: fixed;
-    bottom: 20px;
-    right: 20px;
-    z-index: 1000;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.3);
 }

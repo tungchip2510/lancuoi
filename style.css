@@ -621,3 +621,29 @@ body.che-do-tap-trung .content-thi {
     color: #ff5722;
     transform: scale(1.2);
 }
+
+/* Nút đánh dấu đã học */
+#nut-danh-dau {
+    background-color: #fff;
+    color: #555;
+    border: 2px solid #ccc;
+    transition: all 0.3s;
+}
+#nut-danh-dau.da-hoc {
+    background-color: #4CAF50;
+    color: white;
+    border-color: #4CAF50;
+    box-shadow: 0 4px 10px rgba(76, 175, 80, 0.4);
+}
+
+/* Hiệu ứng rung khi trả lời sai (Bài tập) */
+@keyframes shake {
+  0% { transform: translateX(0); }
+  25% { transform: translateX(-5px); }
+  50% { transform: translateX(5px); }
+  75% { transform: translateX(-5px); }
+  100% { transform: translateX(0); }
+}
+.lua-chon.sai {
+    animation: shake 0.3s ease-in-out;
+}

@@ -86,7 +86,9 @@ document.addEventListener("DOMContentLoaded", function() {
         let data = (type === "BAI_HOC") ? KHO_BAI_HOC : KHO_DE_THI;
         let container = (type === "BAI_HOC") ? cotNoiDung : cotNoiDungThi;
         let list = data.filter(i => i.cap_do == capDoDangXem);
-        if(type === "BAI_HOC") list = list.filter(i => i.loai == loaiDangXem.split('-')[1]);
+        if(type === "BAI_HOC") let loaiCanTim = loaiDangXem.split('-').pop(); 
+    list = list.filter(i => i.loai == loaiCanTim);
+}
 
         let html = `<h1>Danh sách ${capDoDangXem}</h1><div class="grid-container">`;
         list.forEach(item => {
@@ -107,6 +109,96 @@ document.addEventListener("DOMContentLoaded", function() {
         cotNoiDung.innerHTML = html;
     }
     window.switchMode = (m) => { modeBangChuCai = m; hienThiBangChuCai(); };
+
+function hienThiChiTietBaiHoc(id) {
+    // 1. Tìm bài học trong kho dữ liệu
+    const baiHoc = KHO_BAI_HOC.find(b => b.id == id);
+    
+    if (!baiHoc) {
+        alert("Không tìm thấy dữ liệu bài học!");
+        return;
+    }
+
+    // 2. Render giao diện chi tiết
+    // Lưu ý: Thêm nút Quay lại có id="nut-quay-lai" để bắt sự kiện click bên dưới
+    const html = `
+        <button id="nut-quay-lai" class="btn-back" style="margin-bottom: 20px;">
+            <i class="fas fa-arrow-left"></i> Quay lại danh sách
+        </button>
+        <h1 style="color: #e65100; border-bottom: 2px solid #eee; padding-bottom:10px;">
+            ${baiHoc.tieu_de}
+        </h1>
+        <div class="noi-dung-bai-hoc">
+            ${baiHoc.noi_dung}
+        </div>
+        <div class="cau-truc-ngu-phap" style="margin-top:30px; text-align:center;">
+            <p><i>Chúc bạn học tốt! Hãy ghi chép lại nhé.</i></p>
+        </div>
+    `;
+
+    // 3. Đẩy vào container và cuộn lên đầu
+    cotNoiDung.innerHTML = html;
+    window.scrollTo(0, 0);
+}
+
+function hienThiDanhSachBoBaiTap() {
+    if (!cotNoiDungBt) return; // Nếu không phải trang bài tập thì thoát
+
+    // Lọc bài tập theo cấp độ và loại (TuVung/NguPhap)
+    // data-loai="bai-tap-TuVung" -> lấy chữ "TuVung"
+    let loaiCanTim = loaiDangXem.split('-').pop(); 
+    
+    let listBaiTap = KHO_BAI_TAP.filter(bt => 
+        bt.cap_do == capDoDangXem && bt.loai == loaiCanTim
+    );
+
+    if (listBaiTap.length === 0) {
+        cotNoiDungBt.innerHTML = `<h3>Chưa có bài tập nào cho mục này (${capDoDangXem} - ${loaiCanTim})</h3>`;
+        return;
+    }
+
+    // Render danh sách câu hỏi để luyện tập
+    let html = `<h1>Luyện tập ${capDoDangXem} - ${loaiCanTim}</h1>`;
+    
+    listBaiTap.forEach((bai, index) => {
+        html += `
+            <div class="khoi-cau-hoi">
+                <p class="cau-hoi"><b>Câu ${index + 1}:</b> ${bai.cau_hoi}</p>
+                <div class="dap-an">
+                    ${bai.lua_chon.map(dapAn => 
+                        `<button class="lua-chon" onclick="kiemTraDapAn(this, '${dapAn}', '${bai.dap_an_dung}')">${dapAn}</button>`
+                    ).join('')}
+                </div>
+                <p class="phan-hoi"></p>
+            </div>
+        `;
+    });
+
+    cotNoiDungBt.innerHTML = html;
+}
+
+// Hàm phụ trợ để kiểm tra đúng sai ngay lập tức (Interactive)
+window.kiemTraDapAn = function(btn, chon, dung) {
+    let parent = btn.parentElement;
+    let phanHoi = parent.nextElementSibling; // thẻ p.phan-hoi
+
+    // Reset màu các nút cũ
+    let siblings = parent.querySelectorAll(".lua-chon");
+    siblings.forEach(b => {
+        b.disabled = true; // Khóa không cho chọn lại
+        if(b.innerText == dung) b.classList.add("dung"); // Hiện đáp án đúng
+    });
+
+    if (chon === dung) {
+        btn.classList.add("dung");
+        phanHoi.innerText = "Chính xác! 🎉";
+        phanHoi.className = "phan-hoi dung";
+    } else {
+        btn.classList.add("sai");
+        phanHoi.innerText = `Sai rồi! Đáp án đúng là: ${dung}`;
+        phanHoi.className = "phan-hoi sai";
+    }
+}
 
     // --- 6. LOGIC THI THỬ (FOCUS MODE) ---
     function batDauThi(id) {

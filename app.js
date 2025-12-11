@@ -82,13 +82,22 @@ document.addEventListener("DOMContentLoaded", function() {
     }
 
     // 5. HIỂN THỊ NỘI DUNG
+
     function hienThiDanhSach(type) {
         let data = (type === "BAI_HOC") ? KHO_BAI_HOC : KHO_DE_THI;
         let container = (type === "BAI_HOC") ? cotNoiDung : cotNoiDungThi;
+        
+        // Lọc theo cấp độ trước (ví dụ N5)
         let list = data.filter(i => i.cap_do == capDoDangXem);
-        if(type === "BAI_HOC") let loaiCanTim = loaiDangXem.split('-').pop(); 
-    list = list.filter(i => i.loai == loaiCanTim);
-}
+
+        // --- SỬA LỖI TẠI ĐÂY ---
+        // Nếu là BÀI HỌC thì phải lọc tiếp theo loại (Từ vựng hay Ngữ pháp)
+        if (type === "BAI_HOC") { 
+            // Phải có dấu ngoặc nhọn { } bao quanh khối lệnh này
+            let loaiCanTim = loaiDangXem.split('-').pop(); 
+            list = list.filter(i => i.loai == loaiCanTim);
+        }
+        // ------------------------
 
         let html = `<h1>Danh sách ${capDoDangXem}</h1><div class="grid-container">`;
         list.forEach(item => {
@@ -96,9 +105,34 @@ document.addEventListener("DOMContentLoaded", function() {
             html += `<a href="#" class="${cls}" data-id="${item.id}"><h3>${item.tieu_de}</h3></a>`;
         });
         html += `</div>`;
-        container.innerHTML = html;
+        
+        if(container) container.innerHTML = html;
     }
+    function hienThiDanhSach(type) {
+        let data = (type === "BAI_HOC") ? KHO_BAI_HOC : KHO_DE_THI;
+        let container = (type === "BAI_HOC") ? cotNoiDung : cotNoiDungThi;
+        
+        // Lọc theo cấp độ trước (ví dụ N5)
+        let list = data.filter(i => i.cap_do == capDoDangXem);
 
+        // --- SỬA LỖI TẠI ĐÂY ---
+        // Nếu là BÀI HỌC thì phải lọc tiếp theo loại (Từ vựng hay Ngữ pháp)
+        if (type === "BAI_HOC") { 
+            // Phải có dấu ngoặc nhọn { } bao quanh khối lệnh này
+            let loaiCanTim = loaiDangXem.split('-').pop(); 
+            list = list.filter(i => i.loai == loaiCanTim);
+        }
+        // ------------------------
+
+        let html = `<h1>Danh sách ${capDoDangXem}</h1><div class="grid-container">`;
+        list.forEach(item => {
+            let cls = (type === "DE_THI") ? "link-de-thi card-item" : "link-bai-hoc card-item";
+            html += `<a href="#" class="${cls}" data-id="${item.id}"><h3>${item.tieu_de}</h3></a>`;
+        });
+        html += `</div>`;
+        
+        if(container) container.innerHTML = html;
+    }
     function hienThiBangChuCai() {
         let html = `<div class="alphabet-header"><h1>Bảng chữ cái</h1><div><button class="toggle-btn" onclick="switchMode('hiragana')">Hiragana</button> <button class="toggle-btn" onclick="switchMode('katakana')">Katakana</button></div></div><div class="kana-grid">`;
         KANA_DATA.forEach(k => {

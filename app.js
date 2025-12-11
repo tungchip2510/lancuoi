@@ -1,12 +1,60 @@
 document.addEventListener("DOMContentLoaded", function() {
 
+    // ======================================================
+    // 0. HÀM TIỆN ÍCH (Xáo trộn mảng & Chuyển đổi Flashcard)
+    // ======================================================
+    
+    // Hàm xáo trộn đáp án (Fisher-Yates Shuffle)
     function shuffleArray(array) {
-    for (let i = array.length - 1; i > 0; i--) {
-        const j = Math.floor(Math.random() * (i + 1));
-        [array[i], array[j]] = [array[j], array[i]];
+        // Tạo một bản sao để không làm hỏng dữ liệu gốc
+        let newArray = [...array]; 
+        for (let i = newArray.length - 1; i > 0; i--) {
+            const j = Math.floor(Math.random() * (i + 1));
+            [newArray[i], newArray[j]] = [newArray[j], newArray[i]];
+        }
+        return newArray;
     }
-    return array;
-}
+
+    // Hàm chuyển đổi bảng HTML sang giao diện Flashcard
+    function chuyenDoiBangSangFlashcard(htmlString) {
+        let div = document.createElement('div');
+        div.innerHTML = htmlString;
+
+        let table = div.querySelector('table');
+        if (!table) return htmlString; 
+
+        let rows = table.querySelectorAll('tbody tr');
+        if (rows.length === 0) return htmlString;
+
+        let cardHtml = `<h3 class="tieu-de-phu">Flashcard Từ Vựng (Bấm vào thẻ để lật)</h3><div class="flashcard-grid">`;
+
+        rows.forEach(row => {
+            let cols = row.querySelectorAll('td');
+            // Giả định: [0]Kana, [1]Romaji, [2]Nghĩa
+            if (cols.length >= 3) {
+                let nhat = cols[0].innerText;
+                let romaji = cols[1].innerText;
+                let viet = cols[2].innerText;
+                
+                cardHtml += `
+                    <div class="flashcard" onclick="this.classList.toggle('flipped')">
+                        <div class="flashcard-inner">
+                            <div class="flashcard-front">
+                                <div class="fc-main">${nhat}</div>
+                                <div class="fc-sub">${romaji}</div>
+                                <i class="fas fa-sync-alt" style="position:absolute; bottom:10px; color:#ccc; font-size:12px;"></i>
+                            </div>
+                            <div class="flashcard-back">
+                                ${viet}
+                            </div>
+                        </div>
+                    </div>
+                `;
+            }
+        });
+        cardHtml += `</div>`;
+        return htmlString.replace(/<table.*<\/table>/s, cardHtml); 
+    }
 
     // ======================================================
     // 1. CẤU HÌNH & KHỞI TẠO BIẾN
@@ -19,7 +67,7 @@ document.addEventListener("DOMContentLoaded", function() {
     let boDemGio, thoiGianConLai = 0, deThiHienTai = {}, diemSo = 0;
 
     // ======================================================
-    // 2. UI & EVENT (GIAO DIỆN & SỰ KIỆN)
+    // 2. UI & EVENT
     // ======================================================
     const cotNoiDung = document.querySelector(".content");
     const cotNoiDungBt = document.querySelector(".content-bt");
@@ -30,7 +78,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
     if (hamburgerBtn) hamburgerBtn.addEventListener("click", () => menuList.classList.toggle("mobile-menu-open"));
 
-    // Tô màu menu hiện tại
+    // Tô màu menu
     let currentUrl = window.location.pathname.split("/").pop() || "index.html";
     document.querySelectorAll(".menu-chinh a").forEach(link => {
         if(link.getAttribute("href") === currentUrl) {
@@ -39,7 +87,7 @@ document.addEventListener("DOMContentLoaded", function() {
     });
 
     // ======================================================
-    // 3. QUẢN LÝ THÀNH VIÊN (LOGIN/LOGOUT)
+    // 3. QUẢN LÝ THÀNH VIÊN
     // ======================================================
     const khungDangKy = document.getElementById("khung-dang-ky");
     const khungChaoMung = document.getElementById("khung-chao-mung");
@@ -71,7 +119,7 @@ document.addEventListener("DOMContentLoaded", function() {
     }
 
     // ======================================================
-    // 4. ĐIỀU HƯỚNG (SIDEBAR MENU)
+    // 4. ĐIỀU HƯỚNG
     // ======================================================
     if (sidebar) {
         sidebar.addEventListener("click", (e) => {
@@ -98,7 +146,7 @@ document.addEventListener("DOMContentLoaded", function() {
     }
 
     // ======================================================
-    // 5. HIỂN THỊ NỘI DUNG (CORE LOGIC)
+    // 5. HIỂN THỊ NỘI DUNG
     // ======================================================
 
     // A. HIỂN THỊ DANH SÁCH BÀI HỌC / ĐỀ THI
@@ -106,24 +154,18 @@ document.addEventListener("DOMContentLoaded", function() {
         let data = (type === "BAI_HOC") ? KHO_BAI_HOC : KHO_DE_THI;
         let container = (type === "BAI_HOC") ? cotNoiDung : cotNoiDungThi;
         
-        // 1. Lọc theo cấp độ (N5, N4...)
         let list = data.filter(i => i.cap_do == capDoDangXem);
 
-        // 2. Lọc theo loại (Nếu là bài học)
         if (type === "BAI_HOC") { 
             let loaiCanTim = loaiDangXem.split('-').pop(); 
             list = list.filter(i => i.loai == loaiCanTim);
         }
 
-        // 3. Lấy danh sách đã học từ LocalStorage
         let dsDaHoc = JSON.parse(localStorage.getItem("bai_da_hoc")) || [];
 
-        // 4. Render HTML
         let html = `<h1>Danh sách ${capDoDangXem}</h1><div class="grid-container">`;
         list.forEach(item => {
             let cls = (type === "DE_THI") ? "link-de-thi card-item" : "link-bai-hoc card-item";
-            
-            // Icon check xanh nếu đã học
             let checkIcon = (type === "BAI_HOC" && dsDaHoc.includes(item.id)) 
                 ? '<i class="fas fa-check-circle" style="color:green; position:absolute; top:10px; right:10px; font-size: 1.2em;"></i>' 
                 : '';
@@ -138,16 +180,21 @@ document.addEventListener("DOMContentLoaded", function() {
         if(container) container.innerHTML = html;
     }
 
-    // B. HIỂN THỊ CHI TIẾT BÀI HỌC (Có nút Đánh dấu đã học)
+    // B. HIỂN THỊ CHI TIẾT BÀI HỌC (Có Flashcard)
     function hienThiChiTietBaiHoc(id) {
         const baiHoc = KHO_BAI_HOC.find(b => b.id == id);
         if (!baiHoc) return;
 
-        // Kiểm tra trạng thái đã học
         let dsDaHoc = JSON.parse(localStorage.getItem("bai_da_hoc")) || [];
         let isDone = dsDaHoc.includes(id);
         let btnText = isDone ? "✅ Đã học xong" : "⭕ Đánh dấu đã học";
         let btnClass = isDone ? "da-hoc" : "";
+
+        // --- XỬ LÝ FLASHCARD NẾU LÀ TỪ VỰNG ---
+        let noiDungHienThi = baiHoc.noi_dung;
+        if (baiHoc.loai === 'TuVung') {
+            noiDungHienThi = chuyenDoiBangSangFlashcard(baiHoc.noi_dung);
+        }
 
         const html = `
             <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:20px;">
@@ -155,7 +202,7 @@ document.addEventListener("DOMContentLoaded", function() {
                 <button id="nut-danh-dau" class="btn-action ${btnClass}" onclick="toggleDaHoc('${id}')">${btnText}</button>
             </div>
             <h1 style="color: #e65100; border-bottom: 2px solid #eee; padding-bottom:10px;">${baiHoc.tieu_de}</h1>
-            <div class="noi-dung-bai-hoc">${baiHoc.noi_dung}</div>
+            <div class="noi-dung-bai-hoc">${noiDungHienThi}</div>
             <div class="cau-truc-ngu-phap" style="margin-top:30px; text-align:center;">
                 <p><i>Chúc bạn học tốt! Hãy ghi chép lại nhé.</i></p>
             </div>
@@ -165,7 +212,7 @@ document.addEventListener("DOMContentLoaded", function() {
         window.scrollTo(0, 0);
     }
 
-    // C. HIỂN THỊ DANH SÁCH BÀI TẬP (Trắc nghiệm)
+    // C. HIỂN THỊ BÀI TẬP (Có Xáo trộn đáp án)
     function hienThiDanhSachBoBaiTap() {
         if (!cotNoiDungBt) return; 
 
@@ -183,11 +230,14 @@ document.addEventListener("DOMContentLoaded", function() {
         let html = `<h1>Luyện tập ${capDoDangXem} - ${loaiCanTim}</h1>`;
         
         listBaiTap.forEach((bai, index) => {
+            // --- ÁP DỤNG XÁO TRỘN ĐÁP ÁN ---
+            let luaChonNgauNhien = shuffleArray(bai.lua_chon);
+
             html += `
                 <div class="khoi-cau-hoi">
                     <p class="cau-hoi"><b>Câu ${index + 1}:</b> ${bai.cau_hoi}</p>
                     <div class="dap-an">
-                        ${bai.lua_chon.map(dapAn => 
+                        ${luaChonNgauNhien.map(dapAn => 
                             `<button class="lua-chon" onclick="kiemTraDapAn(this, '${dapAn}', '${bai.dap_an_dung}')">${dapAn}</button>`
                         ).join('')}
                     </div>
@@ -210,7 +260,7 @@ document.addEventListener("DOMContentLoaded", function() {
     }
 
     // ======================================================
-    // 6. LOGIC THI THỬ (FOCUS MODE)
+    // 6. LOGIC THI THỬ
     // ======================================================
     function batDauThi(id) {
         deThiHienTai = KHO_DE_THI.find(dt => dt.id == id);
@@ -259,7 +309,6 @@ document.addEventListener("DOMContentLoaded", function() {
 
         container.innerHTML = html;
         
-        // Sự kiện chọn đáp án thi
         document.querySelectorAll(".lua-chon-thi").forEach(btn => {
             btn.addEventListener("click", function() {
                 this.parentElement.querySelectorAll(".lua-chon-thi").forEach(b => b.classList.remove("selected"));
@@ -291,6 +340,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
     function renderCauHoi(bai, index) {
         let textDoc = bai.cau_hoi.replace(/<[^>]*>?/gm, '');
+        // Không shuffle đáp án trong bài thi (để giữ nguyên đề chuẩn)
         return `
             <div class="khoi-cau-hoi" data-id="${bai.id}">
                 <p class="cau-hoi">
@@ -329,10 +379,9 @@ document.addEventListener("DOMContentLoaded", function() {
     }
 
     // ======================================================
-    // 7. SỰ KIỆN CLICK & GLOBAL HELPERS
+    // 7. SỰ KIỆN & GLOBAL HELPERS
     // ======================================================
     
-    // Click trong vùng nội dung
     if (cotNoiDung) cotNoiDung.addEventListener("click", (e) => { 
         if (e.target.closest(".link-bai-hoc")) { e.preventDefault(); hienThiChiTietBaiHoc(e.target.closest(".link-bai-hoc").dataset.id); }
         if (e.target.id == "nut-quay-lai") veGiaoDien();
@@ -341,7 +390,6 @@ document.addEventListener("DOMContentLoaded", function() {
         if (e.target.closest(".link-de-thi")) { e.preventDefault(); batDauThi(e.target.closest(".link-de-thi").dataset.id); }
     });
 
-    // Helper Functions (Gắn vào window để gọi từ HTML)
     window.switchMode = (m) => { modeBangChuCai = m; hienThiBangChuCai(); };
 
     window.playSound = (text) => {
@@ -424,7 +472,7 @@ document.addEventListener("DOMContentLoaded", function() {
     }
 
     // ======================================================
-    // 9. CÁC TIỆN ÍCH KHÁC (Đồng hồ đếm ngược, Dịch nhanh)
+    // 9. CÁC TIỆN ÍCH KHÁC
     // ======================================================
     function khoiTaoDongHoDemNguoc() {
         if (sessionStorage.getItem("an_dong_ho") === "true") return;

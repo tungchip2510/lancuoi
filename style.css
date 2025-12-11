@@ -607,3 +607,17 @@ body.che-do-tap-trung .content-thi {
         max-height: 300px; /* Bài đọc ngắn lại */
     }
 }
+
+/* Fix icon loa bị to */
+.kana-card svg.volume-icon {
+    width: 24px !important;
+    height: 24px !important;
+}
+.fas.fa-volume-up {
+    font-size: 16px;
+    color: #999;
+}
+.fas.fa-volume-up:hover {
+    color: #ff5722;
+    transform: scale(1.2);
+}

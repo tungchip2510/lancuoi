@@ -409,3 +409,52 @@ window.kiemTraDapAn = function(btn, chon, dung) {
         window.open(`https://translate.google.com/?sl=ja&tl=vi&text=${encodeURIComponent(window.getSelection().toString())}`, '_blank');
     };
 });
+
+
+// --- 7. CHỨC NĂNG TÌM KIẾM ---
+const formTimKiem = document.querySelector(".form-tim-kiem");
+if (formTimKiem) {
+    formTimKiem.addEventListener("submit", function(e) {
+        e.preventDefault(); // Chặn load lại trang
+        const input = this.querySelector("input");
+        const tuKhoa = input.value.trim().toLowerCase();
+        
+        if (!tuKhoa) return alert("Vui lòng nhập từ khóa!");
+
+        // Tìm trong KHO_BAI_HOC
+        const ketQua = KHO_BAI_HOC.filter(bai => 
+            bai.tieu_de.toLowerCase().includes(tuKhoa) || 
+            bai.noi_dung.toLowerCase().includes(tuKhoa)
+        );
+
+        // Chuyển hướng sang trang bài học và hiển thị kết quả
+        // Lưu kết quả vào sessionStorage để trang bai-hoc.html đọc được
+        sessionStorage.setItem("tu_khoa_tim_kiem", tuKhoa);
+        window.location.href = "bai-hoc.html";
+    });
+}
+
+// Logic nhận kết quả tìm kiếm (Dán vào app.js, phần DOMContentLoaded)
+// Kiểm tra nếu đang ở trang bài học và có từ khóa tìm kiếm
+if (window.location.pathname.includes("bai-hoc.html")) {
+    const tuKhoa = sessionStorage.getItem("tu_khoa_tim_kiem");
+    if (tuKhoa && cotNoiDung) {
+        const ketQua = KHO_BAI_HOC.filter(bai => 
+            bai.tieu_de.toLowerCase().includes(tuKhoa)
+        );
+        
+        let html = `<h1>Kết quả tìm kiếm: "${tuKhoa}"</h1><div class="grid-container">`;
+        if (ketQua.length === 0) {
+            html += `<p>Không tìm thấy bài học nào phù hợp.</p>`;
+        } else {
+            ketQua.forEach(item => {
+                html += `<a href="#" class="link-bai-hoc card-item" data-id="${item.id}"><h3>${item.tieu_de}</h3></a>`;
+            });
+        }
+        html += `</div><button class="btn-back" onclick="window.location.reload(); sessionStorage.removeItem('tu_khoa_tim_kiem')">Xóa tìm kiếm</button>`;
+        cotNoiDung.innerHTML = html;
+        
+        // Xóa session để không hiện lại khi F5
+        sessionStorage.removeItem("tu_khoa_tim_kiem");
+    }
+}

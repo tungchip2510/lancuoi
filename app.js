@@ -1,6 +1,8 @@
 document.addEventListener("DOMContentLoaded", function() {
 
-    // 1. CẤU HÌNH
+    // ======================================================
+    // 1. CẤU HÌNH & KHỞI TẠO BIẾN
+    // ======================================================
     const SO_ITEM_MOI_TRANG = 9; 
     const SO_CAU_MOI_BO = 5;
     const NGAY_THI = new Date("2025-12-07T00:00:00").getTime(); 
@@ -8,7 +10,9 @@ document.addEventListener("DOMContentLoaded", function() {
     let trangHienTai = 1, capDoDangXem = "", loaiDangXem = "", modeBangChuCai = 'hiragana';
     let boDemGio, thoiGianConLai = 0, deThiHienTai = {}, diemSo = 0;
 
-    // 2. UI & EVENT
+    // ======================================================
+    // 2. UI & EVENT (GIAO DIỆN & SỰ KIỆN)
+    // ======================================================
     const cotNoiDung = document.querySelector(".content");
     const cotNoiDungBt = document.querySelector(".content-bt");
     const cotNoiDungThi = document.querySelector(".content-thi");
@@ -18,7 +22,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
     if (hamburgerBtn) hamburgerBtn.addEventListener("click", () => menuList.classList.toggle("mobile-menu-open"));
 
-    // Tô màu menu
+    // Tô màu menu hiện tại
     let currentUrl = window.location.pathname.split("/").pop() || "index.html";
     document.querySelectorAll(".menu-chinh a").forEach(link => {
         if(link.getAttribute("href") === currentUrl) {
@@ -26,7 +30,9 @@ document.addEventListener("DOMContentLoaded", function() {
         }
     });
 
-    // 3. QUẢN LÝ THÀNH VIÊN
+    // ======================================================
+    // 3. QUẢN LÝ THÀNH VIÊN (LOGIN/LOGOUT)
+    // ======================================================
     const khungDangKy = document.getElementById("khung-dang-ky");
     const khungChaoMung = document.getElementById("khung-chao-mung");
     const spanTen = document.getElementById("ten-nguoi-dung");
@@ -56,7 +62,9 @@ document.addEventListener("DOMContentLoaded", function() {
         });
     }
 
-    // 4. ĐIỀU HƯỚNG
+    // ======================================================
+    // 4. ĐIỀU HƯỚNG (SIDEBAR MENU)
+    // ======================================================
     if (sidebar) {
         sidebar.addEventListener("click", (e) => {
             if (e.target.closest("[data-loai='bang-chu-cai']")) {
@@ -81,58 +89,108 @@ document.addEventListener("DOMContentLoaded", function() {
         else if (loaiDangXem === "de-thi" && cotNoiDungThi) hienThiDanhSach("DE_THI");
     }
 
-    // 5. HIỂN THỊ NỘI DUNG
+    // ======================================================
+    // 5. HIỂN THỊ NỘI DUNG (CORE LOGIC)
+    // ======================================================
 
+    // A. HIỂN THỊ DANH SÁCH BÀI HỌC / ĐỀ THI
     function hienThiDanhSach(type) {
         let data = (type === "BAI_HOC") ? KHO_BAI_HOC : KHO_DE_THI;
         let container = (type === "BAI_HOC") ? cotNoiDung : cotNoiDungThi;
         
-        // Lọc theo cấp độ trước (ví dụ N5)
+        // 1. Lọc theo cấp độ (N5, N4...)
         let list = data.filter(i => i.cap_do == capDoDangXem);
 
-        // --- SỬA LỖI TẠI ĐÂY ---
-        // Nếu là BÀI HỌC thì phải lọc tiếp theo loại (Từ vựng hay Ngữ pháp)
+        // 2. Lọc theo loại (Nếu là bài học)
         if (type === "BAI_HOC") { 
-            // Phải có dấu ngoặc nhọn { } bao quanh khối lệnh này
             let loaiCanTim = loaiDangXem.split('-').pop(); 
             list = list.filter(i => i.loai == loaiCanTim);
         }
-        // ------------------------
 
+        // 3. Lấy danh sách đã học từ LocalStorage
+        let dsDaHoc = JSON.parse(localStorage.getItem("bai_da_hoc")) || [];
+
+        // 4. Render HTML
         let html = `<h1>Danh sách ${capDoDangXem}</h1><div class="grid-container">`;
         list.forEach(item => {
             let cls = (type === "DE_THI") ? "link-de-thi card-item" : "link-bai-hoc card-item";
-            html += `<a href="#" class="${cls}" data-id="${item.id}"><h3>${item.tieu_de}</h3></a>`;
+            
+            // Icon check xanh nếu đã học
+            let checkIcon = (type === "BAI_HOC" && dsDaHoc.includes(item.id)) 
+                ? '<i class="fas fa-check-circle" style="color:green; position:absolute; top:10px; right:10px; font-size: 1.2em;"></i>' 
+                : '';
+
+            html += `<a href="#" class="${cls}" data-id="${item.id}">
+                        ${checkIcon}
+                        <h3>${item.tieu_de}</h3>
+                     </a>`;
         });
         html += `</div>`;
         
         if(container) container.innerHTML = html;
     }
-    function hienThiDanhSach(type) {
-        let data = (type === "BAI_HOC") ? KHO_BAI_HOC : KHO_DE_THI;
-        let container = (type === "BAI_HOC") ? cotNoiDung : cotNoiDungThi;
-        
-        // Lọc theo cấp độ trước (ví dụ N5)
-        let list = data.filter(i => i.cap_do == capDoDangXem);
 
-        // --- SỬA LỖI TẠI ĐÂY ---
-        // Nếu là BÀI HỌC thì phải lọc tiếp theo loại (Từ vựng hay Ngữ pháp)
-        if (type === "BAI_HOC") { 
-            // Phải có dấu ngoặc nhọn { } bao quanh khối lệnh này
-            let loaiCanTim = loaiDangXem.split('-').pop(); 
-            list = list.filter(i => i.loai == loaiCanTim);
-        }
-        // ------------------------
+    // B. HIỂN THỊ CHI TIẾT BÀI HỌC (Có nút Đánh dấu đã học)
+    function hienThiChiTietBaiHoc(id) {
+        const baiHoc = KHO_BAI_HOC.find(b => b.id == id);
+        if (!baiHoc) return;
 
-        let html = `<h1>Danh sách ${capDoDangXem}</h1><div class="grid-container">`;
-        list.forEach(item => {
-            let cls = (type === "DE_THI") ? "link-de-thi card-item" : "link-bai-hoc card-item";
-            html += `<a href="#" class="${cls}" data-id="${item.id}"><h3>${item.tieu_de}</h3></a>`;
-        });
-        html += `</div>`;
+        // Kiểm tra trạng thái đã học
+        let dsDaHoc = JSON.parse(localStorage.getItem("bai_da_hoc")) || [];
+        let isDone = dsDaHoc.includes(id);
+        let btnText = isDone ? "✅ Đã học xong" : "⭕ Đánh dấu đã học";
+        let btnClass = isDone ? "da-hoc" : "";
+
+        const html = `
+            <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:20px;">
+                <button id="nut-quay-lai" class="btn-back" style="margin:0;"><i class="fas fa-arrow-left"></i> Quay lại</button>
+                <button id="nut-danh-dau" class="btn-action ${btnClass}" onclick="toggleDaHoc('${id}')">${btnText}</button>
+            </div>
+            <h1 style="color: #e65100; border-bottom: 2px solid #eee; padding-bottom:10px;">${baiHoc.tieu_de}</h1>
+            <div class="noi-dung-bai-hoc">${baiHoc.noi_dung}</div>
+            <div class="cau-truc-ngu-phap" style="margin-top:30px; text-align:center;">
+                <p><i>Chúc bạn học tốt! Hãy ghi chép lại nhé.</i></p>
+            </div>
+        `;
         
-        if(container) container.innerHTML = html;
+        cotNoiDung.innerHTML = html;
+        window.scrollTo(0, 0);
     }
+
+    // C. HIỂN THỊ DANH SÁCH BÀI TẬP (Trắc nghiệm)
+    function hienThiDanhSachBoBaiTap() {
+        if (!cotNoiDungBt) return; 
+
+        let loaiCanTim = loaiDangXem.split('-').pop(); 
+        
+        let listBaiTap = KHO_BAI_TAP.filter(bt => 
+            bt.cap_do == capDoDangXem && bt.loai == loaiCanTim
+        );
+
+        if (listBaiTap.length === 0) {
+            cotNoiDungBt.innerHTML = `<h3>Chưa có bài tập nào cho mục này (${capDoDangXem} - ${loaiCanTim})</h3>`;
+            return;
+        }
+
+        let html = `<h1>Luyện tập ${capDoDangXem} - ${loaiCanTim}</h1>`;
+        
+        listBaiTap.forEach((bai, index) => {
+            html += `
+                <div class="khoi-cau-hoi">
+                    <p class="cau-hoi"><b>Câu ${index + 1}:</b> ${bai.cau_hoi}</p>
+                    <div class="dap-an">
+                        ${bai.lua_chon.map(dapAn => 
+                            `<button class="lua-chon" onclick="kiemTraDapAn(this, '${dapAn}', '${bai.dap_an_dung}')">${dapAn}</button>`
+                        ).join('')}
+                    </div>
+                    <p class="phan-hoi"></p>
+                </div>
+            `;
+        });
+        cotNoiDungBt.innerHTML = html;
+    }
+
+    // D. BẢNG CHỮ CÁI
     function hienThiBangChuCai() {
         let html = `<div class="alphabet-header"><h1>Bảng chữ cái</h1><div><button class="toggle-btn" onclick="switchMode('hiragana')">Hiragana</button> <button class="toggle-btn" onclick="switchMode('katakana')">Katakana</button></div></div><div class="kana-grid">`;
         KANA_DATA.forEach(k => {
@@ -142,149 +200,17 @@ document.addEventListener("DOMContentLoaded", function() {
         html += `</div>`;
         cotNoiDung.innerHTML = html;
     }
-    window.switchMode = (m) => { modeBangChuCai = m; hienThiBangChuCai(); };
 
-function hienThiChiTietBaiHoc(id) {
-    // 1. Tìm bài học trong kho dữ liệu
-    const baiHoc = KHO_BAI_HOC.find(b => b.id == id);
-    
-    if (!baiHoc) {
-        alert("Không tìm thấy dữ liệu bài học!");
-        return;
-    }
-function hienThiChiTietBaiHoc(id) {
-    const baiHoc = KHO_BAI_HOC.find(b => b.id == id);
-    if (!baiHoc) return;
-
-    // Kiểm tra xem bài này đã học chưa
-    let dsDaHoc = JSON.parse(localStorage.getItem("bai_da_hoc")) || [];
-    let isDone = dsDaHoc.includes(id);
-    let btnText = isDone ? "✅ Đã học xong" : "⭕ Đánh dấu đã học";
-    let btnClass = isDone ? "da-hoc" : "";
-
-    const html = `
-        <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:20px;">
-            <button id="nut-quay-lai" class="btn-back" style="margin:0;"><i class="fas fa-arrow-left"></i> Quay lại</button>
-            <button id="nut-danh-dau" class="btn-action ${btnClass}" onclick="toggleDaHoc('${id}')">${btnText}</button>
-        </div>
-        <h1 style="color: #e65100; border-bottom: 2px solid #eee; padding-bottom:10px;">${baiHoc.tieu_de}</h1>
-        <div class="noi-dung-bai-hoc">${baiHoc.noi_dung}</div>
-    `;
-    
-    cotNoiDung.innerHTML = html;
-    window.scrollTo(0, 0);
-}
-
-// Hàm xử lý lưu trạng thái
-window.toggleDaHoc = function(id) {
-    let dsDaHoc = JSON.parse(localStorage.getItem("bai_da_hoc")) || [];
-    const btn = document.getElementById("nut-danh-dau");
-
-    if (dsDaHoc.includes(id)) {
-        // Nếu đã học rồi thì bỏ đánh dấu
-        dsDaHoc = dsDaHoc.filter(i => i !== id);
-        btn.innerText = "⭕ Đánh dấu đã học";
-        btn.classList.remove("da-hoc");
-    } else {
-        // Chưa học thì thêm vào
-        dsDaHoc.push(id);
-        btn.innerText = "✅ Đã học xong";
-        btn.classList.add("da-hoc");
-    }
-    localStorage.setItem("bai_da_hoc", JSON.stringify(dsDaHoc));
-};
-    // 2. Render giao diện chi tiết
-    // Lưu ý: Thêm nút Quay lại có id="nut-quay-lai" để bắt sự kiện click bên dưới
-    const html = `
-        <button id="nut-quay-lai" class="btn-back" style="margin-bottom: 20px;">
-            <i class="fas fa-arrow-left"></i> Quay lại danh sách
-        </button>
-        <h1 style="color: #e65100; border-bottom: 2px solid #eee; padding-bottom:10px;">
-            ${baiHoc.tieu_de}
-        </h1>
-        <div class="noi-dung-bai-hoc">
-            ${baiHoc.noi_dung}
-        </div>
-        <div class="cau-truc-ngu-phap" style="margin-top:30px; text-align:center;">
-            <p><i>Chúc bạn học tốt! Hãy ghi chép lại nhé.</i></p>
-        </div>
-    `;
-
-    // 3. Đẩy vào container và cuộn lên đầu
-    cotNoiDung.innerHTML = html;
-    window.scrollTo(0, 0);
-}
-
-function hienThiDanhSachBoBaiTap() {
-    if (!cotNoiDungBt) return; // Nếu không phải trang bài tập thì thoát
-
-    // Lọc bài tập theo cấp độ và loại (TuVung/NguPhap)
-    // data-loai="bai-tap-TuVung" -> lấy chữ "TuVung"
-    let loaiCanTim = loaiDangXem.split('-').pop(); 
-    
-    let listBaiTap = KHO_BAI_TAP.filter(bt => 
-        bt.cap_do == capDoDangXem && bt.loai == loaiCanTim
-    );
-
-    if (listBaiTap.length === 0) {
-        cotNoiDungBt.innerHTML = `<h3>Chưa có bài tập nào cho mục này (${capDoDangXem} - ${loaiCanTim})</h3>`;
-        return;
-    }
-
-    // Render danh sách câu hỏi để luyện tập
-    let html = `<h1>Luyện tập ${capDoDangXem} - ${loaiCanTim}</h1>`;
-    
-    listBaiTap.forEach((bai, index) => {
-        html += `
-            <div class="khoi-cau-hoi">
-                <p class="cau-hoi"><b>Câu ${index + 1}:</b> ${bai.cau_hoi}</p>
-                <div class="dap-an">
-                    ${bai.lua_chon.map(dapAn => 
-                        `<button class="lua-chon" onclick="kiemTraDapAn(this, '${dapAn}', '${bai.dap_an_dung}')">${dapAn}</button>`
-                    ).join('')}
-                </div>
-                <p class="phan-hoi"></p>
-            </div>
-        `;
-    });
-
-    cotNoiDungBt.innerHTML = html;
-}
-
-// Hàm phụ trợ để kiểm tra đúng sai ngay lập tức (Interactive)
-window.kiemTraDapAn = function(btn, chon, dung) {
-    let parent = btn.parentElement;
-    let phanHoi = parent.nextElementSibling; // thẻ p.phan-hoi
-
-    // Reset màu các nút cũ
-    let siblings = parent.querySelectorAll(".lua-chon");
-    siblings.forEach(b => {
-        b.disabled = true; // Khóa không cho chọn lại
-        if(b.innerText == dung) b.classList.add("dung"); // Hiện đáp án đúng
-    });
-
-    if (chon === dung) {
-        btn.classList.add("dung");
-        phanHoi.innerText = "Chính xác! 🎉";
-        phanHoi.className = "phan-hoi dung";
-    } else {
-        btn.classList.add("sai");
-        phanHoi.innerText = `Sai rồi! Đáp án đúng là: ${dung}`;
-        phanHoi.className = "phan-hoi sai";
-    }
-}
-
-    // --- 6. LOGIC THI THỬ (FOCUS MODE) ---
+    // ======================================================
+    // 6. LOGIC THI THỬ (FOCUS MODE)
+    // ======================================================
     function batDauThi(id) {
         deThiHienTai = KHO_DE_THI.find(dt => dt.id == id);
         if(!deThiHienTai) return alert("Lỗi: Không tìm thấy đề thi!");
 
-        // KÍCH HOẠT CHẾ ĐỘ TẬP TRUNG (Ẩn Menu, Sidebar)
         document.body.classList.add("che-do-tap-trung");
-
         thoiGianConLai = (deThiHienTai.cap_do === "N1") ? 10200 : 3600; 
 
-        // Header dính (Sticky)
         cotNoiDungThi.innerHTML = `
             <div class="thi-header-sticky">
                 <button id="nut-thoat-thi" class="btn-back" style="background:#555; color:white; margin:0;">&larr; Thoát</button>
@@ -305,7 +231,6 @@ window.kiemTraDapAn = function(btn, chon, dung) {
             let bai = KHO_BAI_TAP.find(b => b.id == idCau);
             if(!bai) return;
 
-            // Xử lý Bài đọc nhóm (Chia cột)
             if(bai.loai === "DocHieu_Nhom") {
                 if(bai.huong_dan) html += `<div class="huong-dan-mondai">${bai.huong_dan}</div>`;
                 html += `
@@ -316,13 +241,9 @@ window.kiemTraDapAn = function(btn, chon, dung) {
                         </div>
                         <div class="danh-sach-cau-hoi-con">
                 `;
-                bai.ds_cau_hoi_con.forEach(con => {
-                    html += renderCauHoi(con, cauSo++);
-                });
+                bai.ds_cau_hoi_con.forEach(con => { html += renderCauHoi(con, cauSo++); });
                 html += `</div></div>`;
-            } 
-            // Xử lý Câu lẻ
-            else {
+            } else {
                 if(bai.huong_dan) html += `<div class="huong-dan-mondai">${bai.huong_dan}</div>`;
                 html += renderCauHoi(bai, cauSo++);
             }
@@ -330,7 +251,7 @@ window.kiemTraDapAn = function(btn, chon, dung) {
 
         container.innerHTML = html;
         
-        // Sự kiện chọn đáp án
+        // Sự kiện chọn đáp án thi
         document.querySelectorAll(".lua-chon-thi").forEach(btn => {
             btn.addEventListener("click", function() {
                 this.parentElement.querySelectorAll(".lua-chon-thi").forEach(b => b.classList.remove("selected"));
@@ -338,17 +259,15 @@ window.kiemTraDapAn = function(btn, chon, dung) {
             });
         });
 
-        // Nộp bài & Thoát
         document.getElementById("nut-nop-bai").addEventListener("click", ketThucThi);
         document.getElementById("nut-thoat-thi").addEventListener("click", () => {
             if(confirm("Thoát bài thi? Kết quả sẽ không được lưu.")) {
-                document.body.classList.remove("che-do-tap-trung"); // Hủy chế độ tập trung
+                document.body.classList.remove("che-do-tap-trung");
                 clearInterval(boDemGio);
                 veGiaoDien();
             }
         });
 
-        // Đồng hồ
         clearInterval(boDemGio);
         boDemGio = setInterval(() => {
             thoiGianConLai--;
@@ -401,7 +320,11 @@ window.kiemTraDapAn = function(btn, chon, dung) {
         window.scrollTo(0,0);
     }
 
-    // --- CLICK EVENT LISTENER ---
+    // ======================================================
+    // 7. SỰ KIỆN CLICK & GLOBAL HELPERS
+    // ======================================================
+    
+    // Click trong vùng nội dung
     if (cotNoiDung) cotNoiDung.addEventListener("click", (e) => { 
         if (e.target.closest(".link-bai-hoc")) { e.preventDefault(); hienThiChiTietBaiHoc(e.target.closest(".link-bai-hoc").dataset.id); }
         if (e.target.id == "nut-quay-lai") veGiaoDien();
@@ -410,7 +333,9 @@ window.kiemTraDapAn = function(btn, chon, dung) {
         if (e.target.closest(".link-de-thi")) { e.preventDefault(); batDauThi(e.target.closest(".link-de-thi").dataset.id); }
     });
 
-    // --- TIỆN ÍCH ---
+    // Helper Functions (Gắn vào window để gọi từ HTML)
+    window.switchMode = (m) => { modeBangChuCai = m; hienThiBangChuCai(); };
+
     window.playSound = (text) => {
         if('speechSynthesis' in window) {
             window.speechSynthesis.cancel();
@@ -418,8 +343,81 @@ window.kiemTraDapAn = function(btn, chon, dung) {
             u.lang = 'ja-JP'; window.speechSynthesis.speak(u);
         }
     };
-    
-    // Đồng hồ Mèo
+
+    window.toggleDaHoc = function(id) {
+        let dsDaHoc = JSON.parse(localStorage.getItem("bai_da_hoc")) || [];
+        const btn = document.getElementById("nut-danh-dau");
+
+        if (dsDaHoc.includes(id)) {
+            dsDaHoc = dsDaHoc.filter(i => i !== id);
+            if(btn) { btn.innerText = "⭕ Đánh dấu đã học"; btn.classList.remove("da-hoc"); }
+        } else {
+            dsDaHoc.push(id);
+            if(btn) { btn.innerText = "✅ Đã học xong"; btn.classList.add("da-hoc"); }
+        }
+        localStorage.setItem("bai_da_hoc", JSON.stringify(dsDaHoc));
+    };
+
+    window.kiemTraDapAn = function(btn, chon, dung) {
+        let parent = btn.parentElement;
+        let phanHoi = parent.nextElementSibling; 
+        let siblings = parent.querySelectorAll(".lua-chon");
+        siblings.forEach(b => {
+            b.disabled = true; 
+            if(b.innerText == dung) b.classList.add("dung"); 
+        });
+        if (chon === dung) {
+            btn.classList.add("dung");
+            phanHoi.innerText = "Chính xác! 🎉";
+            phanHoi.className = "phan-hoi dung";
+        } else {
+            btn.classList.add("sai");
+            phanHoi.innerText = `Sai rồi! Đáp án đúng là: ${dung}`;
+            phanHoi.className = "phan-hoi sai";
+        }
+    };
+
+    // ======================================================
+    // 8. TÍNH NĂNG TÌM KIẾM
+    // ======================================================
+    const formTimKiem = document.querySelector(".form-tim-kiem");
+    if (formTimKiem) {
+        formTimKiem.addEventListener("submit", function(e) {
+            e.preventDefault();
+            const input = this.querySelector("input");
+            const tuKhoa = input.value.trim().toLowerCase();
+            if (!tuKhoa) return alert("Vui lòng nhập từ khóa!");
+            sessionStorage.setItem("tu_khoa_tim_kiem", tuKhoa);
+            window.location.href = "bai-hoc.html";
+        });
+    }
+
+    if (window.location.pathname.includes("bai-hoc.html") && cotNoiDung) {
+        const tuKhoa = sessionStorage.getItem("tu_khoa_tim_kiem");
+        if (tuKhoa) {
+            const ketQua = KHO_BAI_HOC.filter(bai => 
+                bai.tieu_de.toLowerCase().includes(tuKhoa)
+            );
+            
+            let html = `<h1>Kết quả tìm kiếm: "${tuKhoa}"</h1><div class="grid-container">`;
+            if (ketQua.length === 0) {
+                html += `<p>Không tìm thấy bài học nào phù hợp.</p>`;
+            } else {
+                ketQua.forEach(item => {
+                    let dsDaHoc = JSON.parse(localStorage.getItem("bai_da_hoc")) || [];
+                    let checkIcon = dsDaHoc.includes(item.id) ? '<i class="fas fa-check-circle" style="color:green; position:absolute; top:10px; right:10px; font-size:1.2em;"></i>' : '';
+                    html += `<a href="#" class="link-bai-hoc card-item" data-id="${item.id}">${checkIcon}<h3>${item.tieu_de}</h3></a>`;
+                });
+            }
+            html += `</div><div style="text-align:center; margin-top:20px;"><button class="btn-back" onclick="window.location.reload(); sessionStorage.removeItem('tu_khoa_tim_kiem')">Xóa tìm kiếm</button></div>`;
+            cotNoiDung.innerHTML = html;
+            sessionStorage.removeItem("tu_khoa_tim_kiem");
+        }
+    }
+
+    // ======================================================
+    // 9. CÁC TIỆN ÍCH KHÁC (Đồng hồ đếm ngược, Dịch nhanh)
+    // ======================================================
     function khoiTaoDongHoDemNguoc() {
         if (sessionStorage.getItem("an_dong_ho") === "true") return;
         const html = `<div id="khung-dem-nguoc"><div class="nut-tat-countdown">x</div><div>Còn <b id="cd-ngay">0</b> ngày</div></div>`;
@@ -433,7 +431,6 @@ window.kiemTraDapAn = function(btn, chon, dung) {
     }
     khoiTaoDongHoDemNguoc();
 
-    // Dịch nhanh
     let btnDich = document.createElement("div"); btnDich.id = "nut-dich-nhanh"; btnDich.innerHTML = "Dịch"; document.body.appendChild(btnDich);
     document.addEventListener("mouseup", () => {
         let s = window.getSelection().toString().trim();
@@ -448,67 +445,5 @@ window.kiemTraDapAn = function(btn, chon, dung) {
         e.preventDefault();
         window.open(`https://translate.google.com/?sl=ja&tl=vi&text=${encodeURIComponent(window.getSelection().toString())}`, '_blank');
     };
-// Trong hàm hienThiDanhSach, sửa đoạn loop:
-let dsDaHoc = JSON.parse(localStorage.getItem("bai_da_hoc")) || [];
 
-list.forEach(item => {
-    let cls = (type === "DE_THI") ? "link-de-thi card-item" : "link-bai-hoc card-item";
-    // Thêm icon nếu đã học
-    let checkIcon = dsDaHoc.includes(item.id) ? '<i class="fas fa-check-circle" style="color:green; position:absolute; top:10px; right:10px;"></i>' : '';
-    
-    html += `<a href="#" class="${cls}" data-id="${item.id}">
-                ${checkIcon}
-                <h3>${item.tieu_de}</h3>
-             </a>`;
 });
-    
-});
-
-
-// --- 7. CHỨC NĂNG TÌM KIẾM ---
-const formTimKiem = document.querySelector(".form-tim-kiem");
-if (formTimKiem) {
-    formTimKiem.addEventListener("submit", function(e) {
-        e.preventDefault(); // Chặn load lại trang
-        const input = this.querySelector("input");
-        const tuKhoa = input.value.trim().toLowerCase();
-        
-        if (!tuKhoa) return alert("Vui lòng nhập từ khóa!");
-
-        // Tìm trong KHO_BAI_HOC
-        const ketQua = KHO_BAI_HOC.filter(bai => 
-            bai.tieu_de.toLowerCase().includes(tuKhoa) || 
-            bai.noi_dung.toLowerCase().includes(tuKhoa)
-        );
-
-        // Chuyển hướng sang trang bài học và hiển thị kết quả
-        // Lưu kết quả vào sessionStorage để trang bai-hoc.html đọc được
-        sessionStorage.setItem("tu_khoa_tim_kiem", tuKhoa);
-        window.location.href = "bai-hoc.html";
-    });
-}
-
-// Logic nhận kết quả tìm kiếm (Dán vào app.js, phần DOMContentLoaded)
-// Kiểm tra nếu đang ở trang bài học và có từ khóa tìm kiếm
-if (window.location.pathname.includes("bai-hoc.html")) {
-    const tuKhoa = sessionStorage.getItem("tu_khoa_tim_kiem");
-    if (tuKhoa && cotNoiDung) {
-        const ketQua = KHO_BAI_HOC.filter(bai => 
-            bai.tieu_de.toLowerCase().includes(tuKhoa)
-        );
-        
-        let html = `<h1>Kết quả tìm kiếm: "${tuKhoa}"</h1><div class="grid-container">`;
-        if (ketQua.length === 0) {
-            html += `<p>Không tìm thấy bài học nào phù hợp.</p>`;
-        } else {
-            ketQua.forEach(item => {
-                html += `<a href="#" class="link-bai-hoc card-item" data-id="${item.id}"><h3>${item.tieu_de}</h3></a>`;
-            });
-        }
-        html += `</div><button class="btn-back" onclick="window.location.reload(); sessionStorage.removeItem('tu_khoa_tim_kiem')">Xóa tìm kiếm</button>`;
-        cotNoiDung.innerHTML = html;
-        
-        // Xóa session để không hiện lại khi F5
-        sessionStorage.removeItem("tu_khoa_tim_kiem");
-    }
-}

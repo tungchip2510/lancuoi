@@ -2982,11 +2982,9 @@ const KHO_BAI_TAP = [
                 dap_an_dung: "開発部門に応募し、実物の動きなどがわかるような動画を提出する。" // (Lưu ý: Đáp án 4 thường sai vì "thực vật" (jitsubutsu) thường không gửi ngay ở vòng đầu hoặc chỉ gửi video trước, nhưng đáp án chính thức thường là 4 nếu yêu cầu nộp cả 2. Tuy nhiên, theo logic đề thi cũ, đáp án 3 hoặc 4 tuỳ vào bảng quy định. Ở đây chọn 3/4 dựa trên key tham khảo phổ biến: Thường là Video+Vật thật cho vòng sau, hoặc Video cho vòng đầu. Với ID cũ 2010 là Video+Vật thật. Ở đây chọn Video (3) hoặc Video+Vật (4). Chọn 4 cho an toàn nếu đề yêu cầu nộp hết). *Correction: Key reference usually says 4.*
             }
         ]
-    },
+    }
     
-
-
-    
+  
     
 ];
 

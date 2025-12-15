@@ -289,22 +289,23 @@ document.addEventListener("DOMContentLoaded", function() {
             let bai = KHO_BAI_TAP.find(b => b.id == idCau);
             if(!bai) return;
 
-            if(bai.loai === "DocHieu_Nhom") {
-                if(bai.huong_dan) html += `<div class="huong-dan-mondai">${bai.huong_dan}</div>`;
-                html += `
-                    <div class="nhom-cau-hoi-container">
-                        <div class="bai-doc-dai">
-                            <h3 style="color:#e65100; margin-top:0;">${bai.tieu_de}</h3>
-                            ${bai.bai_doc}
-                        </div>
-                        <div class="danh-sach-cau-hoi-con">
-                `;
-                bai.ds_cau_hoi_con.forEach(con => { html += renderCauHoi(con, cauSo++); });
-                html += `</div></div>`;
-            } else {
-                if(bai.huong_dan) html += `<div class="huong-dan-mondai">${bai.huong_dan}</div>`;
-                html += renderCauHoi(bai, cauSo++);
-            }
+           if(bai.loai === "DocHieu_Nhom" || bai.loai === "DocHieu_DoanVan") {
+    if(bai.huong_dan) html += `<div class="huong-dan-mondai">${bai.huong_dan}</div>`;
+    html += `
+        <div class="nhom-cau-hoi-container">
+            <div class="bai-doc-dai">
+                <h3 style="color:#e65100; margin-top:0;">${bai.tieu_de}</h3>
+                ${bai.bai_doc}
+            </div>
+            <div class="danh-sach-cau-hoi-con">
+    `;
+    bai.ds_cau_hoi_con.forEach(con => { html += renderCauHoi(con, cauSo++); });
+    html += `</div></div>`;
+} else {
+    // Logic cho câu hỏi đơn (Từ vựng, Ngữ pháp...)
+    if(bai.huong_dan) html += `<div class="huong-dan-mondai">${bai.huong_dan}</div>`;
+    html += renderCauHoi(bai, cauSo++);
+}
         });
 
         container.innerHTML = html;

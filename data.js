@@ -2482,8 +2482,8 @@ const KHO_BAI_TAP = [
         ]
     },
 
-    // ======================================================
-    // N1 - THÁNG 7/2011 - MONDAI 13 (TÌM KIẾM THÔNG TIN)
+// ======================================================
+    // N1 - THÁNG 7/2011 - MONDAI 13 (TÌM KIẾM THÔNG TIN) - DẠNG BẢNG
     // ======================================================
     {
         id: "n1_2011_07_m13",
@@ -2492,20 +2492,87 @@ const KHO_BAI_TAP = [
         tieu_de: "Mondai 13: Thông tin việc làm thêm (アルバイト情報)",
         bai_doc: `
             <div style="background:#fff; padding:20px; border:1px solid #999; border-radius:8px; font-family: 'Hiragino Kaku Gothic Pro', 'Meiryo', sans-serif;">
-                <h3 style="text-align:center; margin-bottom:20px;">アルバイト情報 7月号</h3>
-                <div style="background:#f9f9f9; padding:15px; border-radius:5px; font-size: 0.9em; line-height: 1.6;">
-                    <ul style="list-style-type: none; padding-left: 0;">
-                        <li><b>① 中国料理店スタッフ:</b> 食器洗い等。時給800円。水曜定休 10:00-14:00。週3回以上。</li>
-                        <li><b>② 日本そば屋スタッフ:</b> 接客等。時給900円。月曜定休 10:00-21:00。週2回以上。</li>
-                        <li><b>③ 居酒屋スタッフ:</b> 接客等。時給900円。毎日 17:00-23:00。週2回以上（1回は必ず23:00まで）。20歳以上。</li>
-                        <li><b>④ コンビニ店員:</b> 販売等。時給800円(～22時)、950円(22時～)。毎日 (1)8-13 (2)15-21 (3)24-6。長期できる人。</li>
-                        <li><b>⑤ スーパー店員:</b> 生鮮食品加工等。時給850円。水曜定休 9:00-20:00。週1、2回でもOK。</li>
-                        <li><b>⑥ 食品工場製造スタッフ:</b> 果物の皮むき等。時給800円(～22時)、1000円(22時～)。毎日 (1)8-17 (2)17-24。週1日～、1回4時間以上。長期。</li>
-                        <li><b>⑦ 新製品宣伝スタッフ:</b> 試飲販売。時給1000円。7月の土・日曜 9:00-18:00のうち3時間以上。7月中に2日以上。</li>
-                        <li><b>⑧ 引っ越しアシスタント:</b> 荷物運び。時給950円。毎日 原則9:00-17:00。1日だけでも可。</li>
-                        <li><b>⑨ 試験監督補助:</b> 試験監督助手。日給6000円。7月25日(土) 8:30-17:00。大学生。</li>
-                        <li><b>⑩ 塾講師(英語):</b> 補習授業。時給2000円。火・木・土曜 16:00-20:00。受験指導経験者、長期のみ。</li>
-                    </ul>
+                <h3 style="text-align:center; margin-bottom:20px; color:#e65100;">アルバイト情報 7月号</h3>
+                <div style="overflow-x:auto;">
+                    <table style="width:100%; border-collapse: collapse; font-size: 0.9em; line-height: 1.4;" border="1">
+                        <tr style="background:#ffe0b2; text-align:center;">
+                            <th style="padding:8px;">No.</th>
+                            <th style="padding:8px;">職種 (Công việc)</th>
+                            <th style="padding:8px;">時給 (Lương giờ)</th>
+                            <th style="padding:8px;">勤務時間・休日 (Thời gian/Ngày nghỉ)</th>
+                            <th style="padding:8px;">条件 (Điều kiện)</th>
+                        </tr>
+                        <tr>
+                            <td style="text-align:center;">①</td>
+                            <td><b>中国料理店スタッフ</b><br>(Rửa bát...)</td>
+                            <td>800円</td>
+                            <td>10:00-14:00<br><span style="color:red;">水曜定休</span></td>
+                            <td>週3回以上</td>
+                        </tr>
+                        <tr>
+                            <td style="text-align:center;">②</td>
+                            <td><b>日本そば屋スタッフ</b><br>(Tiếp khách...)</td>
+                            <td>900円</td>
+                            <td>10:00-21:00<br><span style="color:red;">月曜定休</span></td>
+                            <td>週2回以上</td>
+                        </tr>
+                        <tr>
+                            <td style="text-align:center;">③</td>
+                            <td><b>居酒屋スタッフ</b><br>(Tiếp khách...)</td>
+                            <td>900円</td>
+                            <td>17:00-23:00<br>毎日</td>
+                            <td>週2回以上<br>(1回は必ず23:00まで)<br>20歳以上</td>
+                        </tr>
+                        <tr>
+                            <td style="text-align:center;">④</td>
+                            <td><b>コンビニ店員</b><br>(Bán hàng...)</td>
+                            <td>800円 (~22時)<br>950円 (22時~)</td>
+                            <td>(1) 8-13<br>(2) 15-21<br>(3) 24-6<br>毎日</td>
+                            <td>長期できる人</td>
+                        </tr>
+                        <tr>
+                            <td style="text-align:center;">⑤</td>
+                            <td><b>スーパー店員</b><br>(Chế biến thực phẩm...)</td>
+                            <td>850円</td>
+                            <td>9:00-20:00<br><span style="color:red;">水曜定休</span></td>
+                            <td>週1、2回でもOK</td>
+                        </tr>
+                        <tr>
+                            <td style="text-align:center;">⑥</td>
+                            <td><b>食品工場製造スタッフ</b><br>(Gọt vỏ...)</td>
+                            <td>800円 (~22時)<br>1000円 (22時~)</td>
+                            <td>(1) 8-17<br>(2) 17-24<br>毎日</td>
+                            <td>週1日～<br>1回4時間以上<br>長期</td>
+                        </tr>
+                        <tr>
+                            <td style="text-align:center;">⑦</td>
+                            <td><b>新製品宣伝スタッフ</b><br>(Bán hàng dùng thử)</td>
+                            <td>1000円</td>
+                            <td>9:00-18:00 (trong đó 3h+)<br>7月の土・日曜</td>
+                            <td>7月中に2日以上</td>
+                        </tr>
+                        <tr>
+                            <td style="text-align:center;">⑧</td>
+                            <td><b>引っ越しアシスタント</b><br>(Vận chuyển)</td>
+                            <td>950円</td>
+                            <td>原則 9:00-17:00<br>毎日</td>
+                            <td>1日だけでも可</td>
+                        </tr>
+                        <tr>
+                            <td style="text-align:center;">⑨</td>
+                            <td><b>試験監督補助</b><br>(Trợ lý giám thị)</td>
+                            <td>日給 6000円</td>
+                            <td>8:30-17:00<br>7月25日(土)のみ</td>
+                            <td>大学生</td>
+                        </tr>
+                        <tr>
+                            <td style="text-align:center;">⑩</td>
+                            <td><b>塾講師(英語)</b><br>(Dạy bổ túc)</td>
+                            <td>2000円</td>
+                            <td>16:00-20:00<br>火・木・土曜</td>
+                            <td>受験指導経験者<br>長期のみ</td>
+                        </tr>
+                    </table>
                 </div>
             </div>
         `,
@@ -2513,23 +2580,13 @@ const KHO_BAI_TAP = [
             {
                 id: "n1_2011_07_69",
                 cau_hoi: "<b>69. 留学生のリーさんは、毎週3回ぐらい店でアルバイトをしたいと考えている。リーさんは平日の午後3時から9時までの間しか働けないが、同じ時間仕事をした場合、一番給料が多いのはどの仕事か。</b>",
-                lua_chon: [
-                    "① 中国料理店スタッフ",
-                    "② 日本そば屋スタッフ",
-                    "③ 居酒屋スタッフ",
-                    "④ コンビニ店員"
-                ],
+                lua_chon: ["① 中国料理店スタッフ", "② 日本そば屋スタッフ", "③ 居酒屋スタッフ", "④ コンビニ店員"],
                 dap_an_dung: "② 日本そば屋スタッフ"
             },
             {
                 id: "n1_2011_07_70",
                 cau_hoi: "<b>70. 大学生の山田さんは夏休みの旅行の費用が少し足りないので、7月に1日か2日だけアルバイトをしたいと考えている。山田さんが応募できる仕事はいくつあるか。</b>",
-                lua_chon: [
-                    "1つ",
-                    "2つ",
-                    "3つ",
-                    "4つ"
-                ],
+                lua_chon: ["1つ", "2つ", "3つ", "4つ"],
                 dap_an_dung: "3つ"
             }
         ]

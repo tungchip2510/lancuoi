@@ -3200,7 +3200,7 @@ const KHO_DE_THI = [
             
             "n1_201007_m12", // Mondai 12
             
-            n1_2011_12_m13 // Mondai 13
+            "n1_2010_12_m13" // Mondai 13
         ]
     },
     {

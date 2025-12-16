@@ -1142,143 +1142,98 @@ const KHO_BAI_TAP = [
     ]
   },
 // ======================================================
-    // N1 - THÁNG 12/2010 - MONDAI 13 (TÌM KIẾM THÔNG TIN) - HỌC BỔNG
+    // N1 - THÁNG 7/2010 - MONDAI 13 (TÌM KIẾM THÔNG TIN)
     // ======================================================
     {
-        id: "n1_2010_12_m13",
+        id: "n1_2010_07_m13",
         cap_do: "N1",
         loai: "DocHieu_Nhom",
-        tieu_de: "Mondai 13: 留学生向けの奨学金募集 (Học bổng du học sinh)",
+        tieu_de: "Mondai 13: Cuộc thi Mỹ thuật Mùa thu Kiyomori",
         bai_doc: `
             <div style="background:#fff; padding:20px; border:1px solid #999; border-radius:8px; font-family: 'Hiragino Kaku Gothic Pro', 'Meiryo', sans-serif; font-size: 0.95em; line-height: 1.6; color:#333;">
                 
-                <div style="border: 2px solid #555; padding: 15px;">
-                    <div style="text-align:center; font-weight:bold; margin-bottom:15px; border-bottom: 1px dashed #ccc; padding-bottom:10px;">
-                        财団法人　日本留学生奨学財団<br>
-                        <span style="font-size:1.2em; color:#0056b3;">2011年度　外国人留学生奨学生募集要項</span>
-                    </div>
+                <div style="text-align:center; font-weight:bold; margin-bottom:15px; border-bottom: 2px solid #e65100; padding-bottom:10px;">
+                    <span style="font-size:1.4em; color:#e65100;">清森市 秋の美術コンクール作品募集</span><br>
+                    (Tuyển tác phẩm Cuộc thi Mỹ thuật Mùa thu TP. Kiyomori)
+                </div>
 
-                    <div style="margin-bottom: 10px;">
-                        <b>1. 募集人員：</b> 30名
-                    </div>
+                <div style="margin-bottom: 15px; background:#fff8e1; padding:10px; border-radius:5px;">
+                    <b>募集期間：</b> 2010年11月1日 ～ 11月30日<br>
+                    <b>部門：</b> 絵画部門 (Hội họa)、写真部門 (Nhiếp ảnh)<br>
+                    <b>審査員：</b> 山田太郎（日本アート協会会長）、山本花子（画家）、川上次郎（写真家）
+                </div>
 
-                    <div style="margin-bottom: 10px;">
-                        <b>2. 奨学金の支給額・支給方法等</b>
-                        <div style="padding-left: 15px;">
-                            ① <b>支給額：</b><br>
-                            　大学院修士課程（博士前期課程） 月額 100,000円<br>
-                            　大学院博士課程（博士後期課程） 月額 120,000円<br>
-                            ② <b>支給期間：</b> 在籍する大学院の正規の修学期間で、最長3年間<br>
-                            ③ <b>支給方法：</b> 毎月一回決まった日に、受給者本人名義の銀行口座に直接振り込む
-                        </div>
-                    </div>
+                <div style="margin-bottom: 15px;">
+                    <b style="color:#0056b3;">■ 応募規定 (Quy định ứng tuyển)</b>
+                    <ul style="padding-left: 20px; margin-top: 5px;">
+                        <li>清森市内の秋を題材にしたもの。(Chủ đề: Mùa thu trong TP Kiyomori)</li>
+                        <li>絵画部門に出品する作品は、イラスト、水彩画、油絵、どれでも可。</li>
+                        <li>写真部門に出品する写真は、フィルム写真、デジタル写真、どちらも可。</li>
+                        <li style="color:red;">※ 応募作品は各部門1点に限ります。(Mỗi bộ môn chỉ 1 tác phẩm)</li>
+                        <li style="color:red;">※ 作品の制作年は問わないが、未発表のものに限ります。（他のコンクールに入賞していたり、出版物や展示会などで公表されたりしていないものであること。）</li>
+                    </ul>
+                </div>
 
-                    <div style="margin-bottom: 10px;">
-                        <b>3. 応募資格</b>
-                        <div style="padding-left: 15px;">
-                            ① <b>国籍・ビザについて：</b> 日本国籍を有しない者で、「留学」の在留資格で日本に入国した者<br>
-                            ② <b>対象：</b><br>
-                            　・日本の大学院に正規生として在籍（修士課程または博士課程）している者<br>
-                            　・2011年4月1日現在、満35歳未満の者<br>
-                            　・前年度の学業成績係数が3.0以上の者<br>
-                            　・他の奨学金を受けていない者（ただし月額5万円以下は可）
-                        </div>
-                    </div>
+                <div style="margin-bottom: 15px;">
+                    <b style="color:#0056b3;">■ 応募方法・応募先</b><br>
+                    　郵送、または持参。ただし、郵送中の事故について、市は責任を負いません。<br>
+                    　指定の応募用紙を作品裏側に添付のこと。応募用紙は市役所の窓口で、または市のホームページ (http://www.kiyomori-shi.jp) から入手可能。<br>
+                    　<b>応募先：</b> 清森市商業観光課観光係（〒951-0022 清森市清森2-8、TEL 084-874-8524）
+                </div>
 
-                    <div style="margin-bottom: 10px;">
-                        <b>4. 応募方法</b>
-                        <div style="padding-left: 15px;">
-                            ① <b>提出書類：</b> 奨学金申請書、成績証明書、在学証明書（または合格通知書の写し）、指導教授の推薦書、健康診断書、外国人登録証明書の写し<br>
-                            　<span style="color:red;">※ 研究計画書（3000字以内）、書式は自由</span><br>
-                            ② <b>応募締め切り：</b> 2010年7月31日必着<br>
-                            　なお、申請者が直接応募するのではなく、<span style="color:red; font-weight:bold; text-decoration:underline;">必ず所属の大学院を通じて応募すること</span>
-                        </div>
-                    </div>
+                <div style="margin-bottom: 15px;">
+                    <b style="color:#0056b3;">■ 賞</b>
+                    <ul style="padding-left: 20px; margin-top: 5px;">
+                        <li>最優秀賞： 各部門1点 （賞状と副賞・デジタル一眼レフカメラ）</li>
+                        <li>優秀賞： 各部門2点 （賞状と副賞・清森ホテルのペア宿泊券）</li>
+                        <li>清森賞： 各部門20点以内 （賞状と副賞・図書カード5千円分）</li>
+                    </ul>
+                </div>
 
-                    <div style="margin-bottom: 10px;">
-                        <b>5. 選考方法</b><br>
-                        　応募書類、面接を総合的に判断して決定する
-                    </div>
+                <div style="margin-bottom: 15px; border: 1px dashed #555; padding:10px;">
+                    <b style="color:#e65100;">■ 審査結果</b><br>
+                    　清森市のホームページ上に<span style="color:red; font-weight:bold;">1月15日</span>に発表します。入賞者には1月中に結果を郵送します。<span style="text-decoration:underline;">電話および窓口での問い合わせには応じられません。</span>
+                </div>
 
-                    <div style="margin-bottom: 10px;">
-                        <b>6. 決定通知</b><br>
-                        　2010年9月10日までに所属の大学院を通じ、書面で通知する
-                    </div>
+                <div style="margin-bottom: 10px;">
+                    <b style="color:#0056b3;">■ 表彰式</b><br>
+                    　2011年2月下旬（予定）。最優秀賞と優秀賞の方には、表彰式で賞状および副賞をお渡しします。
+                </div>
 
-                    <div>
-                        <b>7. 問い合わせ先</b><br>
-                        　日本留学生奨学財団<br>
-                        　http://www.ryugaku.or.jp/
-                    </div>
+                <div style="font-size:0.9em; color:#666;">
+                    <b>注意事項：</b><br>
+                    ※ 入賞作品は、1年を限度に主催者がお預かりして広報活動などに使用し、1年後にお返しします。<br>
+                    ※ 上記の応募規定を守っていなかった場合には入賞が取り消されることがあります。<br>
+                    ＜主催＞ 清森市　＜協賛＞ 昭和デザイン株式会社、山手百貨店、新東京鉄道、清森ホテル
                 </div>
             </div>
         `,
         ds_cau_hoi_con: [
             {
-                id: "n1_2010_12_70",
-                cau_hoi: `
-                    <b>70. 日本の大学・大学院に在学している次の学生のうち、この奨学金に応募できるのは誰か。</b>
-                    <div style="margin-top:10px; overflow-x:auto;">
-                        <table style="width:100%; border-collapse: collapse; font-size:0.85em; background:white;" border="1">
-                            <tr style="background:#eee;">
-                                <th style="padding:5px;">名前</th>
-                                <th style="padding:5px;">国籍</th>
-                                <th style="padding:5px;">2010年4月時点の<br>在籍年次</th>
-                                <th style="padding:5px;">専攻</th>
-                                <th style="padding:5px;">成績</th>
-                                <th style="padding:5px;">他の奨学金の<br>受給予定</th>
-                            </tr>
-                            <tr>
-                                <td style="padding:5px;">ソムシリー</td>
-                                <td style="padding:5px;">タイ</td>
-                                <td style="padding:5px;">修士1年</td>
-                                <td style="padding:5px;">電子工学</td>
-                                <td style="padding:5px;">3.0</td>
-                                <td style="padding:5px;">有</td>
-                            </tr>
-                            <tr>
-                                <td style="padding:5px;">ワン</td>
-                                <td style="padding:5px;">中国</td>
-                                <td style="padding:5px;">博士2年</td>
-                                <td style="padding:5px;">農学</td>
-                                <td style="padding:5px;">2.9</td>
-                                <td style="padding:5px;">無</td>
-                            </tr>
-                            <tr>
-                                <td style="padding:5px;">アフマド</td>
-                                <td style="padding:5px;">エジプト</td>
-                                <td style="padding:5px;">修士1年</td>
-                                <td style="padding:5px;">法学</td>
-                                <td style="padding:5px;">2.8</td>
-                                <td style="padding:5px;">有</td>
-                            </tr>
-                            <tr>
-                                <td style="padding:5px;">ジョン</td>
-                                <td style="padding:5px;">アメリカ</td>
-                                <td style="padding:5px;">学部4年</td>
-                                <td style="padding:5px;">理学</td>
-                                <td style="padding:5px;">3.0</td>
-                                <td style="padding:5px;">無</td>
-                            </tr>
-                        </table>
-                    </div>
-                `,
-                lua_chon: ["ソムシリーさん", "ワンさん", "アフマドさん", "ジョンさん"],
-                dap_an_dung: "ソムシリーさん" // (Wang & Ahmad loại vì điểm < 3.0, John loại vì là Đại học/Gakubu. Somsri đủ điểm và là thạc sĩ, "Có" học bổng khác nhưng có thể < 5man nên là ứng viên duy nhất khả thi)
+                id: "n1_2010_07_70",
+                cau_hoi: "<b>70. 高木さんが制作した以下の作品のうち、応募できるものはどれか。</b>",
+                lua_chon: [
+                    "清森高校に通っていたとき入賞した秋の風景画", // (Đã từng nhận giải -> Vi phạm quy định chưa công bố)
+                    "清森市にある清森温泉の紅葉の油絵とイラスト", // (2 tranh trong cùng 1 bộ môn Hội họa -> Vi phạm quy định mỗi bộ môn 1 điểm)
+                    "清森市にある清森公園で撮った春の木々の写真", // (Mùa xuân -> Vi phạm chủ đề Mùa thu)
+                    "去年清森市で行われた秋祭りの写真と水彩画" // (Mùa thu + 1 Ảnh (Bộ môn Ảnh) + 1 Tranh nước (Bộ môn Hội họa) -> Hợp lệ)
+                ],
+                dap_an_dung: "去年清森市で行われた秋祭りの写真と水彩画"
             },
             {
-                id: "n1_2010_12_71",
-                cau_hoi: "<b>71. キムさんは、2010年4月現在、日本の大学院の修士課程2年生で農学を専攻している。2011年度には博士課程に進学予定である。キムさんが、この奨学金に応募する場合、応募時に必ずしなければならないのは、次のどれか。</b>",
+                id: "n1_2010_07_71",
+                cau_hoi: "<b>71. 入賞したかどうかを知るには、高木さんはどうしたらよいか。</b>",
                 lua_chon: [
-                    "ホームページから研究計画書の様式をダウンロードする。",
-                    "博士課程進学が決定していることを証明する書類をもらう。",
-                    "出身大学の指導教授の推薦書を取り寄せる。",
-                    "応募書類を大学院の事務所に提出する。"
+                    "1月中旬に清森市のホームページを見る。", // (Sửa từ 11月中旬 thành 1月中旬 cho khớp bài đọc: 1月15日)
+                    "1月中旬に直接、観光係に電話して聞く。", // (Cấm điện thoại)
+                    "2月下旬に市役所の窓口に問い合わせる。", // (Cấm hỏi tại quầy)
+                    "2月下旬に届く予定の通知を待つ。" // (Thông báo gửi trong tháng 1, không phải cuối tháng 2)
                 ],
-                dap_an_dung: "応募書類を大学院の事務所に提出する。" // (Mục 4.2: 必ず所属の大学院を通じて応募すること)
+                dap_an_dung: "1月中旬に清森市のホームページを見る。"
             }
         ]
     },
+// Dấu đóng mảng KHO_BAI_TAP
 // Dấu đóng mảng KHO_BAI_TAP
  // Dấu đóng mảng cuối cùng    // ======================================================
     // N1 THÁNG 12/2010 (CẬP NHẬT MỚI NHẤT)

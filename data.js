@@ -1141,11 +1141,129 @@ const KHO_BAI_TAP = [
       }
     ]
   },
-
-
-    { id: "n1_2010_70", cap_do: "N1", loai: "DocHieu", tieu_de: "N1 - Đọc hiểu (Mondai 13)", cau_hoi: `<div style='text-align:center; margin-bottom:15px;'><img src="images/doc-hieu-2010-7-1.jpg" alt="Mondai 13" style="max-width:100%;"></div><b>70. 高木さんが制作した以下の作品のうち、応募できるものはどれか。</b>`, lua_chon: ["清森高校に通っていたとき入賞した秋の風景画", "清森市にある清森温泉の紅葉の油絵とイラスト", "清森市にある清森公園で撮った春の木々の写真", "去年清森市で行われた秋祭りの写真と水彩画"], dap_an_dung: "去年清森市で行われた秋祭りの写真と水彩画" },
-    { id: "n1_2010_71", cap_do: "N1", loai: "DocHieu", tieu_de: "N1 - Đọc hiểu (Mondai 13)", cau_hoi: `<div style='text-align:center; margin-bottom:15px;'><img src="images/doc-hieu-2010-7-2.jpg" alt="Mondai 13-2" style="max-width:100%;"></div><b>71. 入賞したかどうかを知るには、高木さんはどうしたらよいか。</b>`, lua_chon: ["1月中旬に清森市のホームページを見る。", "1月中旬に直接、観光係に電話して聞く。", "2月下旬に市役所の窓口に問い合わせる。", "2月下旬に届く予定の通知を待つ。"], dap_an_dung: "1月中旬に清森市のホームページを見る。" },
+// ======================================================
+    // N1 - THÁNG 12/2011 - MONDAI 13 (TÌM KIẾM THÔNG TIN) - FULL
     // ======================================================
+    {
+        id: "n1_2011_12_m13",
+        cap_do: "N1",
+        loai: "DocHieu_Nhom",
+        tieu_de: "Mondai 13: Cuộc thi Thiết bị & Dụng cụ 2012 (Full)",
+        bai_doc: `
+            <div style="background:#fff; padding:20px; border:1px solid #999; border-radius:8px; font-family: 'Hiragino Kaku Gothic Pro', 'Meiryo', sans-serif; font-size: 0.95em; line-height: 1.6; color:#333;">
+                
+                <div style="border: 2px solid #555; padding: 15px; margin-bottom: 20px;">
+                    <div style="text-align:center; font-weight:bold; margin-bottom:15px; border-bottom: 1px dashed #ccc; padding-bottom:10px;">
+                        生活便利化協会<br>
+                        <span style="font-size:1.2em; color:#0056b3;">2012 「生活を便利にする機器・道具」コンテスト</span><br>
+                        募集案内
+                    </div>
+
+                    <div style="margin-bottom: 10px;">
+                        <b style="color:#e65100;">1. 部門・参加資格</b>
+                        <div style="padding-left: 15px;">
+                            <b>① 開発部門</b><br>
+                            　企業、高校生以上の一般市民を対象に、生活を便利にするオリジナルな機器を募集します。<br>
+                            <b>② アイデア部門 （特定課題と自由課題）</b><br>
+                            　中学生以上の一般市民を対象に、便利な道具のアイデアを募集します。<br>
+                            　・特定課題：片手で簡単に操作できる道具のアイデア<br>
+                            　・自由課題：「生活を便利にする道具」に関するアイデアで、特定課題に該当しないものなら何でもかまいません。
+                        </div>
+                    </div>
+
+                    <div style="margin-bottom: 10px;">
+                        <b style="color:#e65100;">2. 応募</b>
+                        <div style="padding-left: 15px;">
+                            <b>① 応募方法</b><br>
+                            　開発部門の応募には、機器の実物の動きや使い方がわかるような<span style="color:red; font-weight:bold;">動画</span>が必要です。<br>
+                            　アイデア部門の応募には、アイデアが具体的にイメージできるような<span style="color:red; font-weight:bold;">イラスト</span>が必要です。応募はすべて生活便利化協会のホームページ (http://www.benrika.com/) から行ってください。<br>
+                            　応募フォームに必要事項を記入の上、必要なものを添付して送信してください。応募フォームに添付できないものは郵送してください（送付先はホームページ参照）。<br>
+                            <b>② 応募期間</b>　2012年6月15日——7月15日
+                        </div>
+                    </div>
+
+                    <div style="margin-bottom: 10px;">
+                        <b style="color:#e65100;">3. 選考方法</b>
+                        <div style="padding-left: 15px;">
+                            ○ <b>開発部門</b>は、独創性のほか、実用性、有効性、コストパフォーマンスを基準に審査します。<br>
+                            　・一次審査は実物の動画を含めた書類審査、二次審査は実物を使ってデモンストレーションです。<br>
+                            ○ <b>アイデア部門</b>は、着目点、独創性、実現可能性、夢があるかどうかを基準に審査します。<br>
+                            　・一次審査はイラストを含めた書類審査、二次審査は模型および書類審査です。
+                        </div>
+                    </div>
+
+                    <div>
+                        <b style="color:#e65100;">4. 発表・表彰</b><br>
+                        　2012年8月にホームページ上で入賞作品を公表し、応募者にも結果を通知します。<br>
+                        　開発部門の入賞作品は、「2012 生活便利化フォーラム東京」で表彰・展示され、デモンストレーションも行われます。アイデア部門の入賞作品は、同フォーラムで表彰され、試作品が作成されます。
+                    </div>
+                </div>
+
+                <div style="background:#f0f8ff; padding:15px; border:1px solid #b0c4de; border-radius:5px;">
+                    <h4 style="margin-top:0; color:#0056b3;">■ 応募者データ（Q69・Q70参考）</h4>
+                    <table style="width:100%; border-collapse: collapse; font-size:0.9em; background:white;" border="1">
+                        <tr style="background:#eee;">
+                            <th style="padding:5px;">名前</th>
+                            <th style="padding:5px;">職業</th>
+                            <th style="padding:5px;">応募作品</th>
+                            <th style="padding:5px;">提出可能なもの</th>
+                        </tr>
+                        <tr>
+                            <td style="padding:5px;">山田</td>
+                            <td style="padding:5px;">小学生</td>
+                            <td style="padding:5px;">帽子のようにかぶれる雨傘</td>
+                            <td style="padding:5px;">試作品とイラスト</td>
+                        </tr>
+                        <tr>
+                            <td style="padding:5px;">鈴木</td>
+                            <td style="padding:5px;">高校教師</td>
+                            <td style="padding:5px;">片手で簡単に開けられる缶切り</td>
+                            <td style="padding:5px;">アイデアのメモ</td>
+                        </tr>
+                        <tr>
+                            <td style="padding:5px;">チェン</td>
+                            <td style="padding:5px;">会社員</td>
+                            <td style="padding:5px;">ふたがあけやすくこぼれにくい水筒</td>
+                            <td style="padding:5px;">試作品</td>
+                        </tr>
+                        <tr>
+                            <td style="padding:5px;">川村</td>
+                            <td style="padding:5px;">大学生</td>
+                            <td style="padding:5px;">片手で楽に入力できるキーボード</td>
+                            <td style="padding:5px;">イラスト</td>
+                        </tr>
+                        <tr>
+                            <td style="padding:5px;">前川</td>
+                            <td style="padding:5px;">主婦</td>
+                            <td style="padding:5px;">小さい子供を乗せたまま階段をスムーズに上り下りできるベビーカー</td>
+                            <td style="padding:5px;">実物</td>
+                        </tr>
+                    </table>
+                </div>
+
+            </div>
+        `,
+        ds_cau_hoi_con: [
+            {
+                id: "n1_2011_12_69",
+                cau_hoi: "<b>69. 次の四人のうち、現段階でアイデア部門の特定課題の応募条件を満たしているのは誰か。</b>",
+                lua_chon: ["山田さん", "鈴木さん", "チェンさん", "川村さん"],
+                dap_an_dung: "川村さん"
+            },
+            {
+                id: "n1_2011_12_70",
+                cau_hoi: "<b>70. 前川さんは、小さい子供を乗せたまま階段をスムーズに上り下りできる仕組みを持ったベビーカーを試作した。このベビーカーの実物を見て審査してもらいたいと思っているが、前川さんはどの部門に応募するのが適切か。また、応募の段階で必ず提出しなければならないものは何か。</b>",
+                lua_chon: [
+                    "アイデア部門の自由課題に応募し、作品のイラストを提出する。",
+                    "アイデア部門の自由課題に応募し、模型とイラストを提出する。",
+                    "開発部門に応募し、実物の動きなどがわかるような動画を提出する。",
+                    "開発部門に応募し、実物の動きなどを記録した動画と実物を提出する。"
+                ],
+                dap_an_dung: "開発部門に応募し、実物の動きなどがわかるような動画を提出する。"
+            }
+        ]
+    }
+]; // Dấu đóng mảng cuối cùng    // ======================================================
     // N1 THÁNG 12/2010 (CẬP NHẬT MỚI NHẤT)
     // ======================================================
     
@@ -3082,7 +3200,7 @@ const KHO_DE_THI = [
             
             "n1_201007_m12", // Mondai 12
             
-            "n1_201007_70", "n1_201007_71" // Mondai 13
+            n1_2011_12_m13 // Mondai 13
         ]
     },
     {

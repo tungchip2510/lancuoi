@@ -3172,8 +3172,8 @@ const KHO_DE_THI = [
             
             "n1_201007_m12", // Mondai 12
             
-            "n1_2010_12_m13" // Mondai 13
-        ]
+            "n1_2010_07_m13" // Mondai 13
+                  ]
     },
     {
         id: "n1_de_2010_12", cap_do: "N1", tieu_de: "Đề thi thử N1 - Tháng 12/2010 (Full)",

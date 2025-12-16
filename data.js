@@ -1774,81 +1774,145 @@ const KHO_BAI_TAP = [
         ]
     },
 
-    // ======================================================
+// ======================================================
     // N1 - THÁNG 12/2010 - MONDAI 13 (TÌM KIẾM THÔNG TIN)
     // ======================================================
     {
         id: "n1_2010_12_m13",
         cap_do: "N1",
         loai: "DocHieu_Nhom",
-        tieu_de: "Mondai 13: Cuộc thi Ý tưởng và Dụng cụ",
+        tieu_de: "Mondai 13: 留学生向けの奨学金募集 (Học bổng du học sinh)",
         bai_doc: `
-            <div style="background:#fff; padding:20px; border:1px solid #999; border-radius:8px; font-family: 'Hiragino Kaku Gothic Pro', 'Meiryo', sans-serif;">
-                <h3 style="text-align:center; margin-bottom:20px;">「機器・道具コンテスト」案内</h3>
-                <div style="background:#f5f5f5; padding:15px; border-radius:5px;">
-                    <p><b>■応募状況と内容（表）</b></p>
-                    <ul>
-                        <li><b>1. 山田（小学生）</b>
-                            <ul>
-                                <li>内容：帽子のようにかぶれる雨傘</li>
-                                <li>提出物：<span style="color:red;">試作品とイラスト</span></li>
-                            </ul>
-                        </li>
-                        <li><b>2. 鈴木（高校教師）</b>
-                            <ul>
-                                <li>内容：片手で簡単に開けられる缶切り</li>
-                                <li>提出物：<span style="color:red;">アイデアのメモ</span></li>
-                            </ul>
-                        </li>
-                        <li><b>3. チェン（会社員）</b>
-                            <ul>
-                                <li>内容：ふたがあけやすくこぼれにくい水筒</li>
-                                <li>提出物：<span style="color:red;">試作品</span></li>
-                            </ul>
-                        </li>
-                        <li><b>4. 川村（大学生）</b>
-                            <ul>
-                                <li>内容：片手で楽に入力できるキーボード</li>
-                                <li>提出物：<span style="color:red;">イラスト</span></li>
-                            </ul>
-                        </li>
-                        <li><b>5. 前川（主婦）</b> (※設問70に登場)
-                            <ul>
-                                <li>内容：小さい子供を乗せたまま階段をスムーズに上り下りできるベビーカー</li>
-                                <li>希望：実物を見て審査してもらいたい</li>
-                            </ul>
-                        </li>
-                    </ul>
+            <div style="background:#fff; padding:20px; border:1px solid #999; border-radius:8px; font-family: 'Hiragino Kaku Gothic Pro', 'Meiryo', sans-serif; font-size: 0.95em; line-height: 1.6; color:#333;">
+                
+                <div style="border: 2px solid #555; padding: 15px;">
+                    <div style="text-align:center; font-weight:bold; margin-bottom:15px; border-bottom: 1px dashed #ccc; padding-bottom:10px;">
+                        財団法人　日本留学生奨学財団<br>
+                        <span style="font-size:1.2em; color:#0056b3;">2011年度　外国人留学生奨学生募集要項</span>
+                    </div>
+
+                    <div style="margin-bottom: 10px;">
+                        <b>1. 募集人員：</b> 30名
+                    </div>
+
+                    <div style="margin-bottom: 10px;">
+                        <b>2. 奨学金の支給額・支給方法等</b>
+                        <div style="padding-left: 15px;">
+                            ① <b>支給額：</b><br>
+                            　大学院修士課程（博士前期課程） 月額 100,000円<br>
+                            　大学院博士課程（博士後期課程） 月額 120,000円<br>
+                            ② <b>支給期間：</b> 在籍する大学院の正規の修学期間で、最長3年間<br>
+                            ③ <b>支給方法：</b> 毎月一回決まった日に、受給者本人名義の銀行口座に直接振り込む
+                        </div>
+                    </div>
+
+                    <div style="margin-bottom: 10px;">
+                        <b>3. 応募資格</b>
+                        <div style="padding-left: 15px;">
+                            ① <b>国籍・ビザについて：</b> 日本国籍を有しない者で、「留学」の在留資格で日本に入国した者<br>
+                            ② <b>対象：</b><br>
+                            　・日本の大学院に正規生として在籍（修士課程または博士課程）している者<br>
+                            　・2011年4月1日現在、満35歳未満の者<br>
+                            　・前年度の学業成績係数が3.0以上の者<br>
+                            　・他の奨学金を受けていない者（ただし月額5万円以下は可）
+                        </div>
+                    </div>
+
+                    <div style="margin-bottom: 10px;">
+                        <b>4. 応募方法</b>
+                        <div style="padding-left: 15px;">
+                            ① <b>提出書類：</b> 奨学金申請書、成績証明書、在学証明書（または合格通知書の写し）、指導教授の推薦書、健康診断書、外国人登録証明書の写し<br>
+                            　<span style="color:red;">※ 研究計画書（3000字以内）、書式は自由</span><br>
+                            ② <b>応募締め切り：</b> 2010年7月31日必着<br>
+                            　なお、申請者が直接応募するのではなく、<span style="color:red; font-weight:bold; text-decoration:underline;">必ず所属の大学院を通じて応募すること</span>
+                        </div>
+                    </div>
+
+                    <div style="margin-bottom: 10px;">
+                        <b>5. 選考方法</b><br>
+                        　応募書類、面接を総合的に判断して決定する
+                    </div>
+
+                    <div style="margin-bottom: 10px;">
+                        <b>6. 決定通知</b><br>
+                        　2010年9月10日までに所属の大学院を通じ、書面で通知する
+                    </div>
+
+                    <div>
+                        <b>7. 問い合わせ先</b><br>
+                        　日本留学生奨学財団<br>
+                        　http://www.ryugaku.or.jp/
+                    </div>
                 </div>
-                <p style="margin-top:10px; font-size:0.9em; color:#666;">※（注：実際の試験ではここに詳細な応募規定の表があります。設問はその規定に基づいて回答します）</p>
             </div>
         `,
         ds_cau_hoi_con: [
             {
-                id: "n1_2010_12_69",
-                cau_hoi: "<b>69. 次の四人のうち、現段階でアイデア部門の特定課題の応募条件を満たしているのは誰か。</b>",
-                lua_chon: [
-                    "山田さん",
-                    "鈴木さん",
-                    "チェンさん",
-                    "川村さん"
-                ],
-                dap_an_dung: "川村さん"
+                id: "n1_2010_12_70",
+                cau_hoi: `
+                    <b>70. 日本の大学・大学院に在学している次の学生のうち、この奨学金に応募できるのは誰か。</b>
+                    <div style="margin-top:10px; overflow-x:auto;">
+                        <table style="width:100%; border-collapse: collapse; font-size:0.85em; background:white;" border="1">
+                            <tr style="background:#eee;">
+                                <th style="padding:5px;">名前</th>
+                                <th style="padding:5px;">国籍</th>
+                                <th style="padding:5px;">2010年4月時点の<br>在籍年次</th>
+                                <th style="padding:5px;">専攻</th>
+                                <th style="padding:5px;">成績</th>
+                                <th style="padding:5px;">他の奨学金の<br>受給予定の有無</th>
+                            </tr>
+                            <tr>
+                                <td style="padding:5px;">ソムシリー</td>
+                                <td style="padding:5px;">タイ</td>
+                                <td style="padding:5px;">修士1年</td>
+                                <td style="padding:5px;">電子工学</td>
+                                <td style="padding:5px;">3.0</td>
+                                <td style="padding:5px;">有</td>
+                            </tr>
+                            <tr>
+                                <td style="padding:5px;">ワン</td>
+                                <td style="padding:5px;">中国</td>
+                                <td style="padding:5px;">博士2年</td>
+                                <td style="padding:5px;">農学</td>
+                                <td style="padding:5px;">2.9</td>
+                                <td style="padding:5px;">無</td>
+                            </tr>
+                            <tr>
+                                <td style="padding:5px;">アフマド</td>
+                                <td style="padding:5px;">エジプト</td>
+                                <td style="padding:5px;">修士1年</td>
+                                <td style="padding:5px;">法学</td>
+                                <td style="padding:5px;">2.8</td>
+                                <td style="padding:5px;">有</td>
+                            </tr>
+                            <tr>
+                                <td style="padding:5px;">ジョン</td>
+                                <td style="padding:5px;">アメリカ</td>
+                                <td style="padding:5px;">学部4年</td>
+                                <td style="padding:5px;">理学</td>
+                                <td style="padding:5px;">3.0</td>
+                                <td style="padding:5px;">無</td>
+                            </tr>
+                        </table>
+                    </div>
+                `,
+                lua_chon: ["ソムシリーさん", "ワンさん", "アフマドさん", "ジョンさん"],
+                dap_an_dung: "ソムシリーさん" // (Wang & Ahmad loại vì điểm < 3.0, John loại vì là Đại học/Gakubu. Somsri đủ điểm và là thạc sĩ, "Có" học bổng khác nhưng có thể < 5man nên là ứng viên duy nhất khả thi)
             },
             {
-                id: "n1_2010_12_70",
-                cau_hoi: "<b>70. 前川さんは、ベビーカーの実物を見て審査してもらいたいと思っているが、どの部門に応募するのが適切か。また、応募の段階で必ず提出しなければならないものは何か。</b>",
+                id: "n1_2010_12_71",
+                cau_hoi: "<b>71. キムさんは、2010年4月現在、日本の大学院の修士課程2年生で農学を専攻している。2011年度には博士課程に進学予定である。キムさんが、この奨学金に応募する場合、応募時に必ずしなければならないのは、次のどれか。</b>",
                 lua_chon: [
-                    "アイデア部門の自由課題に応募し、作品のイラストを提出する。",
-                    "アイデア部門の自由課題に応募し、模型とイラストを提出する。",
-                    "開発部門に応募し、実物の動きなどがわかるような動画を提出する。",
-                    "開発部門に応募し、実物の動きなどを記録した動画と実物を提出する。"
+                    "ホームページから研究計画書の様式をダウンロードする。",
+                    "博士課程進学が決定していることを証明する書類をもらう。",
+                    "出身大学の指導教授の推薦書を取り寄せる。",
+                    "応募書類を大学院の事務所に提出する。"
                 ],
-                dap_an_dung: "開発部門に応募し、実物の動きなどがわかるような動画を提出する。"
+                dap_an_dung: "応募書類を大学院の事務所に提出する。" // (Mục 4.2: 必ず所属の大学院を通じて応募すること)
             }
         ]
     },
-
+ // <--- DẤU ĐÓNG MẢNG CUỐI CÙNG
 
 
     // ======================================================

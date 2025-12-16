@@ -6021,6 +6021,96 @@ const KHO_BAI_TAP = [
             }
         ]
     },
+
+    // ======================================================
+    // N1 - THÁNG 12/2013 - MONDAI 13 (TÌM KIẾM THÔNG TIN)
+    // ======================================================
+    {
+        id: "n1_2013_12_m13",
+        cap_do: "N1",
+        loai: "DocHieu_Nhom",
+        tieu_de: "Mondai 13: Tuyển người sử dụng Nông trại công dân (市民農園)",
+        bai_doc: `
+            <div style="background:#fff; padding:20px; border:1px solid #999; border-radius:8px; font-family: 'Hiragino Kaku Gothic Pro', 'Meiryo', sans-serif; font-size: 0.95em; line-height: 1.6; color:#333;">
+                <h3 style="text-align:center; color:#2e7d32; border-bottom: 2px solid #2e7d32; padding-bottom:10px;">原口市市民農園　利用者募集案内</h3>
+                
+                <p>　市民農園は、小面積の土地を利用して野菜や花作りを楽しむための貸し農園です。野菜や花作りに興味はあるけれど育てる場所がないといった方々は、市民農園を利用してみませんか。</p>
+                
+                <div style="margin-bottom:15px; background:#f1f8e9; padding:10px; border-radius:5px;">
+                    <b>「対象者」</b>　原口市内にお住まいの人または市内にお勤めの人<br>
+                    <b>「利用期間」</b>　2014年4月～2015年3月（最長3年間の継続利用が可能）
+                </div>
+
+                <div style="margin-bottom:15px;">
+                    <b>「農園の場所・特徴・料金」</b>　今回募集する農園は以下の4か所です。
+                    <div style="overflow-x:auto; margin-top:10px;">
+                        <table style="width:100%; border-collapse: collapse; font-size:0.9em;" border="1">
+                            <tr style="background:#c8e6c9; text-align:center;">
+                                <th style="padding:5px;">番号</th>
+                                <th style="padding:5px;">場所</th>
+                                <th style="padding:5px;">特徴 (Hướng dẫn / Dụng cụ / Loại rau)</th>
+                                <th style="padding:5px;">料金／年</th>
+                            </tr>
+                            <tr>
+                                <td style="text-align:center;">①</td>
+                                <td>原口市<br>東山</td>
+                                <td><b>指導を受けながら</b>、共同で楽しく野菜や花の栽培ができます（<span style="color:red;">栽培する野菜や花は、農園によってきめられています</span>）。必要な種、苗、<b>農具などは準備してあります</b>。</td>
+                                <td style="text-align:center;">8000 円</td>
+                            </tr>
+                            <tr>
+                                <td style="text-align:center;">②</td>
+                                <td>原口市<br>西川</td>
+                                <td>10m²を個人で借りて、<b>気軽に野菜や花の栽培が楽しめます</b>（Tự do）。必要に応じて<b>栽培指導をうけられます</b>。種、苗などは各自で準備してください。<b>農具は貸し出します</b>。</td>
+                                <td style="text-align:center;">5000 円</td>
+                            </tr>
+                            <tr>
+                                <td style="text-align:center;">③</td>
+                                <td>原口市<br>三田</td>
+                                <td>10m²を個人で借りて、<b>自由に野菜や花の栽培が楽しめます</b>。種、苗、<span style="color:red;">必要な農具は、各自で準備して下さい</span>。</td>
+                                <td style="text-align:center;">3000 円</td>
+                            </tr>
+                            <tr>
+                                <td style="text-align:center;">④</td>
+                                <td>原口市<br>池沢</td>
+                                <td>50m²以上を個人で借りて、<b>じっくり野菜や花の栽培が楽しめます</b>。種、苗、<span style="color:red;">必要な農具は、各自で準備して下さい</span>。農業用大型機械の貸し出しを行っております。</td>
+                                <td style="text-align:center;">5000 円</td>
+                            </tr>
+                        </table>
+                    </div>
+                    <p style="font-size:0.9em; margin-top:5px;">
+                        ※ ①②③は市街地に近く、比較的利用しやすい場所にあります。④は豊かな自然に囲まれた郊外にあります。<br>
+                        ※ <span style="text-decoration:underline;">③④では栽培指導は行っていません</span>。
+                    </p>
+                </div>
+
+                <div style="border:1px dashed #666; padding:10px;">
+                    <b>「応募方法」</b>　往復はがきに、1.利用を希望する農園の場所、2.利用者の名前、住所、電話番号を記入し、市役所市民課市民農園係宛に送ってください。<span style="color:red;">希望者が多い場合は抽選になります</span>。<br>
+                    <b>「応募締切」</b>　2014年3月2日（当日消印有効）<br>
+                    <b>「問い合わせ先」</b>　原口市役所市民課市民農園係　電話：031 (389) 6930
+                </div>
+            </div>
+        `,
+        ds_cau_hoi_con: [
+            {
+                id: "n1_2013_12_69",
+                cau_hoi: "<b>69. ムディさんは、市民農園を借りたいと考えている。作る野菜は自分で決めたいが、農作業の経験がないので作り方を教えてほしいと思っている。ムディさんはどの農園を借りたらよいか。</b>",
+                lua_chon: ["①", "②", "③", "④"],
+                dap_an_dung: "②" // (① Rau bị quy định sẵn (loại). ③④ Không có hướng dẫn (loại). ② Tự do + Có hướng dẫn => Chọn).
+            },
+            {
+                id: "n1_2013_12_70",
+                cau_hoi: "<b>70. 原口市の市民農園を借りる際に、留意しなければならないことはどれか。</b>",
+                lua_chon: [
+                    "原口市に住んでいる人しか借りることができない。",
+                    "同じ農園を3年以上連続して借りなければならない。",
+                    "自分で農具を準備しなければならない農園がある。",
+                    "早く応募しないと希望の農園が借りられないことがある。"
+                ],
+                dap_an_dung: "自分で農具を準備しなければならない農園がある。" // (③ và ④ yêu cầu tự chuẩn bị nông cụ).
+            }
+        ]
+    },
+
     
     
 ]; // <--- Đừng quên dấu đóng mảng và chấm phẩy ở cuối cùng nhé!
@@ -6244,7 +6334,8 @@ const KHO_DE_THI = [
             "n1_2013_12_m9_1", "n1_2013_12_m9_2", "n1_2013_12_m9_3",
             "n1_2013_12_m10",
             "n1_2013_12_m11",
-            "n1_2013_12_m12"
+            "n1_2013_12_m12",
+            "n1_2013_12_m13"
         ]
     }
     

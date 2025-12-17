@@ -7470,7 +7470,7 @@ const KHO_BAI_TAP = [
                 // Vậy đáp án 1 là chính xác.
             }
         ]
-    }
+    },
 
 
     

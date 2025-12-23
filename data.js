@@ -8025,65 +8025,81 @@ const KHO_BAI_TAP = [
         ]
     },
 
-    // ======================================================
-    // N1 - THÁNG 7/2015 - MONDAI 13 (TÌM KIẾM THÔNG TIN)
+// ======================================================
+    // N1 - THÁNG 7/2015 - MONDAI 13 (TÌM KIẾM THÔNG TIN) - FULL
     // ======================================================
     {
         id: "n1_2015_07_m13",
         cap_do: "N1",
         loai: "DocHieu_Nhom",
-        tieu_de: "Mondai 13: Tuyển độc giả kiểm định báo Yamakawa",
+        tieu_de: "Mondai 13: Độc giả kiểm định báo Yamakawa",
         bai_doc: `
             <div style="background:#fff; padding:20px; border:1px solid #999; border-radius:8px; font-family: 'Hiragino Kaku Gothic Pro', 'Meiryo', sans-serif; font-size: 0.95em; line-height: 1.6; color:#333;">
                 <h3 style="text-align:center; color:#1a237e; border-bottom: 2px solid #1a237e; padding-bottom:10px;">やまかわ新聞の読者モニター募集</h3>
-                <p>紙面に掲載された記事や広告に関するアンケートにお答え下さい。</p>
+                <p style="text-align:center;">紙面に掲載された記事や広告に関するアンケートにお答え下さい。</p>
                 
                 <div style="background:#e8eaf6; padding:15px; border-radius:5px; margin-bottom:15px;">
-                    <h4 style="margin-top:0;">■ 募集概要</h4>
-                    <ul style="padding-left:20px;">
-                        <li><b>モニター契約期間：</b> 2016年4月から2017年3月まで</li>
-                        <li><b>応募条件：</b> 以下の5条件をすべて満たしている方
-                            <ol>
-                                <li>関東1都3県（東京都・神奈川県・千葉県・埼玉県）にお住まいの方</li>
-                                <li>やまかわ新聞を朝・夕刊ともに自宅で購読中の方</li>
-                                <li>2016年4月2日時点で20歳以上の方</li>
-                                <li>新聞・マスコミ・広告関係の職業に従事されていない方</li>
-                                <li>インターネットに接続できるパソコン等をお持ちの方</li>
-                            </ol>
-                        </li>
-                        <li style="color:red;">※ 過去に「やまかわ新聞読者モニター」をされた方は応募できません。</li>
-                        <li><b>募集人数：</b> 300人</li>
-                        <li><b>締め切り：</b> 2016年2月1日（月）</li>
-                    </ul>
+                    <h4 style="margin-top:0;">【募集概要】</h4>
+                    <p><b>モニター契約期間：</b> 2016年4月から2017年3月まで</p>
+                    <p><b>応募条件：</b> 1～5の条件をすべて満たしている方</p>
+                    <ol style="padding-left:25px;">
+                        <li>モニター契約期間中、以下にお住まいの方<br>関東1都3県（東京都・神奈川県・千葉県・埼玉県）</li>
+                        <li>やまかわ新聞を朝・夕刊ともに自宅で購読中の方</li>
+                        <li>2016年4月2日時点で20歳以上の方</li>
+                        <li>新聞・マスコミ・広告関係の職業に従事されていない方</li>
+                        <li>インターネットに接続できるパソコン等をお持ちの方</li>
+                    </ol>
+                    <p style="color:red; font-weight:bold;">※ 過去に「やまかわ新聞読者モニター」をされた方は、応募できません。</p>
+                    <p><b>募集人数：</b> 300人<br>
+                    <b>締め切り：</b> 2016年2月1日（月）<br>
+                    <b>応募方法：</b> はがきに「読者モニター希望」の旨と住所、氏名、年齢、性別、職業、メールアドレスをご記入の上、ご送付ください。<br>
+                    <b>結果通知：</b> 3月下旬までにメールでご連絡します。</p>
                 </div>
 
-                <div style="background:#f9f9f9; padding:15px; border-radius:5px;">
-                    <h4 style="margin-top:0;">■ アンケート内容</h4>
-                    <p><b>実施回数：</b> 月2、3回程度<br>
+                <div style="background:#f9f9f9; padding:15px; border-radius:5px; margin-bottom:15px;">
+                    <h4 style="margin-top:0;">【アンケート内容】</h4>
+                    <p><b>内容：</b> 紙面に掲載された記事や広告についての評価など<br>
+                    <b>実施回数：</b> 月2、3回程度<br>
                     <b>謝礼：</b> 回答1回につき図書カード500円分（任期終了時にまとめて発送）</p>
                     <p><b>手順：</b><br>
-                    1. 実施1週間前にメールで「お知らせ」が届きます。<br>
-                    2. 実施当日にウェブサイトから回答してください。</p>
-                    <p style="font-size:0.9em; border:1px solid #ccc; padding:10px;">
-                        <b>留意点：</b><br>
-                        ・実施前1週間分の紙面を保管しておいてください。<br>
-                        ・回答可能時間は、当日午前7時から24時間です。<br>
-                        ・選択式の箇所が未入力であった場合、回答は受け付けられません。
-                    </p>
+                    1. アンケート実施1週間前にメールで「実施のお知らせ」が届きます。<br>
+                    2. アンケート実施当日にウェブサイトのアンケート回答ページにアクセスして回答してください。</p>
+                </div>
+
+                <div style="border:1px solid #ccc; padding:15px; border-radius:5px;">
+                    <h4 style="margin-top:0;">【留意点】</h4>
+                    <ul style="padding-left:20px;">
+                        <li>アンケート実施前1週間分の紙面を保管しておいてください。アンケートはその中から当社指定の記事や広告について答えていただきます。</li>
+                        <li>回答可能時間は、アンケート実施当日の午前7時から24時間です。</li>
+                        <li>回答形式には自由記述式と選択式があります。自由記述式の箇所は空欄でも構いませんが、<b>選択式の箇所が未入力であった場合、回答は受け付けられません</b>。</li>
+                    </ul>
                 </div>
             </div>
         `,
         ds_cau_hoi_con: [
             {
                 id: "n1_2015_07_69",
-                cau_hoi: "<b>69. 応募条件をすべて満たしているのは誰か。</b>",
-                lua_chon: [
-                    "水野さん（22歳、神奈川県在住、朝刊のみ購読）",
-                    "ソウさん（24歳、埼玉県在住、広告代理店勤務）",
-                    "チョウさん（27歳、東京都在住、旅行会社勤務、朝夕刊購読）",
-                    "山田さん（32歳、千葉県在住、8月に愛知県へ転出予定）"
-                ],
-                dap_an_dung: "チョウさん（27歳、東京都在住、旅行会社勤務、朝夕刊購読）" // (Mizuno loại vì chỉ đọc sáng, Sou loại vì làm QC, Yamada loại vì sắp chuyển nhà khỏi khu vực quy định)
+                cau_hoi: `
+                    <b>69. 次の4人は、読者モニターに応募しようと思っている。全員インターネットを使えるパソコンを持っており、過去にモニターに応募したことはない。応募条件をすべて満たしているのは誰か。</b>
+                    <div style="overflow-x:auto; margin-top:10px;">
+                        <table style="width:100%; border-collapse: collapse; font-size:0.9em; background:white;" border="1">
+                            <tr style="background:#eee; text-align:center;">
+                                <th style="padding:5px;"></th>
+                                <th style="padding:5px;">名前</th>
+                                <th style="padding:5px;">職業</th>
+                                <th style="padding:5px;">年齢 (2016年4月2日時点)</th>
+                                <th style="padding:5px;">モニター契約期間中の居住地</th>
+                                <th style="padding:5px;">購読中のやまかわ新聞</th>
+                            </tr>
+                            <tr><td style="text-align:center;">1</td><td>水野さん</td><td>大学生</td><td>22歳</td><td>神奈川県</td><td>朝刊のみ</td></tr>
+                            <tr><td style="text-align:center;">2</td><td>ソウさん</td><td>広告代理店社員</td><td>24歳</td><td>埼玉県</td><td>朝刊と夕刊</td></tr>
+                            <tr><td style="text-align:center;">3</td><td>チョウさん</td><td>旅行会社社員</td><td>27歳</td><td>東京都</td><td>朝刊と夕刊</td></tr>
+                            <tr><td style="text-align:center;">4</td><td>山田さん</td><td>銀行員</td><td>32歳</td><td>千葉県 (2016年8月愛知県へ転出予定)</td><td>朝刊と夕刊</td></tr>
+                        </table>
+                    </div>
+                `,
+                lua_chon: ["水野さん", "ソウさん", "チョウさん", "山田さん"],
+                dap_an_dung: "チョウさん" // (Loại 1: thiếu 夕刊, Loại 2: làm ngành 広告, Loại 4: chuyển nhà khỏi vùng 1都3県 vào tháng 8)
             },
             {
                 id: "n1_2015_07_70",
@@ -8094,7 +8110,7 @@ const KHO_BAI_TAP = [
                     "「実施のお知らせ」を受信してから24時間以内に回答する。",
                     "回答形式を問わず、すべての質問に回答する。"
                 ],
-                dap_an_dung: "指定時間内に所定의 웹사이트를 통해 답변한다." // (Đáp án đúng dựa trên quy định về thời gian (7h-24h cùng ngày) và web)
+                dap_an_dung: "指定時間内に所定のウェブサイトを通じて回答する。" // (Dựa vào thời gian 7h-24h ngày thực hiện và trả lời qua web)
             }
         ]
     },

@@ -15,46 +15,6 @@ document.addEventListener("DOMContentLoaded", function() {
         return newArray;
     }
 
-    // Hàm chuyển đổi bảng HTML sang giao diện Flashcard
-    function chuyenDoiBangSangFlashcard(htmlString) {
-        let div = document.createElement('div');
-        div.innerHTML = htmlString;
-
-        let table = div.querySelector('table');
-        if (!table) return htmlString; 
-
-        let rows = table.querySelectorAll('tbody tr');
-        if (rows.length === 0) return htmlString;
-
-        let cardHtml = `<h3 class="tieu-de-phu">Flashcard Từ Vựng (Bấm vào thẻ để lật)</h3><div class="flashcard-grid">`;
-
-        rows.forEach(row => {
-            let cols = row.querySelectorAll('td');
-            // Giả định: [0]Kana, [1]Romaji, [2]Nghĩa
-            if (cols.length >= 3) {
-                let nhat = cols[0].innerText;
-                let romaji = cols[1].innerText;
-                let viet = cols[2].innerText;
-                
-                cardHtml += `
-                    <div class="flashcard" onclick="this.classList.toggle('flipped')">
-                        <div class="flashcard-inner">
-                            <div class="flashcard-front">
-                                <div class="fc-main">${nhat}</div>
-                                <div class="fc-sub">${romaji}</div>
-                                <i class="fas fa-sync-alt" style="position:absolute; bottom:10px; color:#ccc; font-size:12px;"></i>
-                            </div>
-                            <div class="flashcard-back">
-                                ${viet}
-                            </div>
-                        </div>
-                    </div>
-                `;
-            }
-        });
-        cardHtml += `</div>`;
-        return htmlString.replace(/<table.*<\/table>/s, cardHtml); 
-    }
 
     // ======================================================
     // 1. CẤU HÌNH & KHỞI TẠO BIẾN
@@ -180,38 +140,94 @@ document.addEventListener("DOMContentLoaded", function() {
         if(container) container.innerHTML = html;
     }
 
-    // B. HIỂN THỊ CHI TIẾT BÀI HỌC (Có Flashcard)
-    function hienThiChiTietBaiHoc(id) {
-        const baiHoc = KHO_BAI_HOC.find(b => b.id == id);
-        if (!baiHoc) return;
+   // B. HIỂN THỊ CHI TIẾT BÀI HỌC (PHIÊN BẢN MỚI: BẢNG + FLASHCARD)
+function hienThiChiTietBaiHoc(id) {
+    const baiHoc = KHO_BAI_HOC.find(b => b.id == id);
+    if (!baiHoc) return;
 
-        let dsDaHoc = JSON.parse(localStorage.getItem("bai_da_hoc")) || [];
-        let isDone = dsDaHoc.includes(id);
-        let btnText = isDone ? "✅ Đã học xong" : "⭕ Đánh dấu đã học";
-        let btnClass = isDone ? "da-hoc" : "";
+    let dsDaHoc = JSON.parse(localStorage.getItem("bai_da_hoc")) || [];
+    let isDone = dsDaHoc.includes(id);
+    let btnText = isDone ? "✅ Đã học xong" : "⭕ Đánh dấu đã học";
+    let btnClass = isDone ? "da-hoc" : "";
 
-        // --- XỬ LÝ FLASHCARD NẾU LÀ TỪ VỰNG ---
-        let noiDungHienThi = baiHoc.noi_dung;
-        if (baiHoc.loai === 'TuVung') {
-            noiDungHienThi = chuyenDoiBangSangFlashcard(baiHoc.noi_dung);
+    // 1. Lấy nội dung gốc (Bảng) để hiển thị phần trên
+    let noiDungGoc = baiHoc.noi_dung;
+    let phanFlashcard = "";
+
+    // 2. Logic tạo Flashcard mới (Nằm ngay tại đây)
+    if (baiHoc.loai === 'TuVung') {
+        let divAo = document.createElement('div');
+        divAo.innerHTML = noiDungGoc;
+        let rows = divAo.querySelectorAll('table tbody tr');
+
+        if (rows.length > 0) {
+            phanFlashcard = `
+                <div class="flashcard-container">
+                    <div class="flashcard-title"><i class="fas fa-layer-group"></i> Luyện tập qua Thẻ (Flashcard)</div>
+                    <div class="flashcard-grid">
+            `;
+
+            rows.forEach(row => {
+                let cols = row.querySelectorAll('td');
+                // Kiểm tra xem có đủ dữ liệu không để tạo thẻ
+                if (cols.length >= 2) {
+                    // Lấy cột 1 (Kanji/Kana) - Lọc bỏ các thẻ span để lấy text sạch
+                    let cot1 = cols[0].innerHTML; 
+                    let tuVungChinh = cols[0].querySelector('.tu-vung-lon') ? cols[0].querySelector('.tu-vung-lon').innerText : cols[0].innerText;
+                    
+                    // Lấy phần cách đọc (Romaji/Kana)
+                    let tempDiv = document.createElement('div');
+                    tempDiv.innerHTML = cot1;
+                    if(tempDiv.querySelector('.tu-vung-lon')) tempDiv.querySelector('.tu-vung-lon').remove();
+                    let phuAm = tempDiv.innerText.replace(/[()]/g, '').trim(); 
+
+                    // Lấy cột 2 (Nghĩa tiếng Việt)
+                    let nghia = cols[1].innerText;
+
+                    // Tạo HTML cho từng thẻ
+                    phanFlashcard += `
+                        <div class="card-flip" onclick="this.classList.toggle('is-flipped')">
+                            <div class="card-inner">
+                                <div class="card-front">
+                                    <div class="card-main-text">${tuVungChinh}</div>
+                                    <div class="card-sub-text">${phuAm}</div>
+                                    <div class="icon-flip"><i class="fas fa-sync"></i> Lật</div>
+                                </div>
+                                <div class="card-back">
+                                    ${nghia}
+                                </div>
+                            </div>
+                        </div>
+                    `;
+                }
+            });
+            phanFlashcard += `</div></div>`;
         }
-
-        const html = `
-            <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:20px;">
-                <button id="nut-quay-lai" class="btn-back" style="margin:0;"><i class="fas fa-arrow-left"></i> Quay lại</button>
-                <button id="nut-danh-dau" class="btn-action ${btnClass}" onclick="toggleDaHoc('${id}')">${btnText}</button>
-            </div>
-            <h1 style="color: #e65100; border-bottom: 2px solid #eee; padding-bottom:10px;">${baiHoc.tieu_de}</h1>
-            <div class="noi-dung-bai-hoc">${noiDungHienThi}</div>
-            <div class="cau-truc-ngu-phap" style="margin-top:30px; text-align:center;">
-                <p><i>Chúc bạn học tốt! Hãy ghi chép lại nhé.</i></p>
-            </div>
-        `;
-        
-        cotNoiDung.innerHTML = html;
-        window.scrollTo(0, 0);
     }
 
+    // 3. Ghép giao diện: Bảng ở trên, Flashcard ở dưới
+    const html = `
+        <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:20px;">
+            <button id="nut-quay-lai" class="btn-back" style="margin:0;"><i class="fas fa-arrow-left"></i> Quay lại</button>
+            <button id="nut-danh-dau" class="btn-action ${btnClass}" onclick="toggleDaHoc('${id}')">${btnText}</button>
+        </div>
+        
+        <h1 style="color: #e65100; border-bottom: 2px solid #eee; padding-bottom:10px;">${baiHoc.tieu_de}</h1>
+        
+        <div class="noi-dung-bai-hoc">
+            ${noiDungGoc}
+        </div>
+
+        ${phanFlashcard}
+
+        <div class="cau-truc-ngu-phap" style="margin-top:30px; text-align:center;">
+            <p><i>💡 Mẹo: Bấm vào thẻ để lật xem nghĩa. Học thuộc bảng ở trên rồi xuống đây kiểm tra trí nhớ nhé!</i></p>
+        </div>
+    `;
+    
+    cotNoiDung.innerHTML = html;
+    window.scrollTo(0, 0);
+}
     // C. HIỂN THỊ BÀI TẬP (Có Xáo trộn đáp án)
     function hienThiDanhSachBoBaiTap() {
         if (!cotNoiDungBt) return; 

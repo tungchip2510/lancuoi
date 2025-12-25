@@ -21,56 +21,307 @@ const KHO_BAI_HOC = [
     
     // --- MÔ-ĐUN 1: GIỚI THIỆU & CƠ BẢN VỀ DANH TỪ ---
 
-    // BÀI 1: TÔI LÀ...
+   // ======================================================
+    // MÔ-ĐUN 1: LÀM QUEN & CƠ BẢN (BÀI 1 - 5)
+    // ======================================================
+
+    // --- BÀI 1: TÔI LÀ... ---
     { 
         id: "n5_tv_1", cap_do: "N5", loai: "TuVung", tieu_de: "BÀI 1: TÔI LÀ... - Từ vựng", 
-        noi_dung: `<h3 class="tieu-de-phu">Từ vựng (Vocabulary)</h3><table class="bang-tu-vung"><thead><tr><th>Hán tự/Kana</th><th>Romaji</th><th>Nghĩa Việt</th><th>Ghi chú</th></tr></thead><tbody><tr><td>わたし</td><td>watashi</td><td>Tôi</td><td>Dùng cho cả nam và nữ</td></tr><tr><td>あなた</td><td>anata</td><td>Bạn, Anh/Chị</td><td>Nên dùng tên + さん</td></tr><tr><td>あのひと</td><td>ano hito</td><td>Người đó, Vị đó</td><td>Lịch sự: あのかた</td></tr><tr><td>〜さん</td><td>~san</td><td>Ông/Bà/Anh/Chị</td><td>Hậu tố chỉ người</td></tr><tr><td>せんせい</td><td>sensei</td><td>Giáo viên</td><td>Không dùng cho mình</td></tr><tr><td>がくせい</td><td>gakusei</td><td>Học sinh, Sinh viên</td><td></td></tr><tr><td>かいしゃいん</td><td>kaishain</td><td>Nhân viên công ty</td><td></td></tr><tr><td>しゃいん</td><td>shain</td><td>Nhân viên</td><td>Kèm tên công ty</td></tr><tr><td>エンジニア</td><td>enjinia</td><td>Kỹ sư</td><td></td></tr><tr><td>ベトナム</td><td>Betonamu</td><td>Việt Nam</td><td></td></tr><tr><td>アメリカ</td><td>Amerika</td><td>Mỹ</td><td></td></tr><tr><td>〜ご</td><td>~go</td><td>Tiếng (ngôn ngữ)</td><td>VD: Nihon-go</td></tr></tbody></table>` 
+        noi_dung: `
+            <h3 class="tieu-de-phu">Từ vựng (Vocabulary)</h3>
+            <table class="bang-tu-vung">
+                <thead>
+                    <tr><th style="width: 25%;">Từ vựng</th><th style="width: 20%;">Nghĩa Việt</th><th>Ví dụ / Ghi chú</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td><span class="tu-vung-lon">わたし</span><br>(watashi)</td><td><strong>Tôi</strong></td><td><span class="highlight">わたし</span>は学生です。<br><em>(Tôi là sinh viên)</em></td></tr>
+                    <tr><td><span class="tu-vung-lon">あなた</span><br>(anata)</td><td><strong>Bạn / Anh / Chị</strong></td><td><span class="highlight">あなた</span>は先生ですか。<br><em>(Bạn có phải là giáo viên không?)</em></td></tr>
+                    <tr><td><span class="tu-vung-lon">先生</span><br>(せんせい)</td><td><strong>Giáo viên</strong></td><td>あの人は<span class="highlight">先生</span>です。<br><em>(Người kia là giáo viên)</em> - *Không dùng cho mình</td></tr>
+                    <tr><td><span class="tu-vung-lon">学生</span><br>(がくせい)</td><td><strong>Học sinh / SV</strong></td><td>ベトナムの<span class="highlight">学生</span>。<br><em>(Sinh viên Việt Nam)</em></td></tr>
+                    <tr><td><span class="tu-vung-lon">会社員</span><br>(かいしゃいん)</td><td><strong>Nhân viên cty</strong></td><td>IMCの<span class="highlight">会社員</span>。<br><em>(Nhân viên công ty IMC)</em></td></tr>
+                    <tr><td><span class="tu-vung-lon">～人</span><br>(～じん)</td><td><strong>Người (nước)</strong></td><td>ベトナム<span class="highlight">人</span> / アメリカ<span class="highlight">人</span>。<br><em>(Người VN / Người Mỹ)</em></td></tr>
+                </tbody>
+            </table>` 
     },
     { 
         id: "n5_np_1", cap_do: "N5", loai: "NguPhap", tieu_de: "BÀI 1: TÔI LÀ... - Ngữ pháp", 
-        noi_dung: `<h3 class="tieu-de-phu">Ngữ pháp (Grammar)</h3><table class="bang-tu-vung"><thead><tr><th>Cấu trúc</th><th>Giải thích & Cách dùng</th><th>Ví dụ Thực hành</th></tr></thead><tbody><tr><td>1. N1 は N2 です</td><td>Khẳng định: N1 là N2. は (wa) là trợ từ chủ đề.</td><td>わたし は ホアン です。</td></tr><tr><td>2. N1 は N2 じゃありません</td><td>Phủ định: N1 không phải là N2.</td><td>わたし は せんせい じゃありません。</td></tr><tr><td>3. N1 は N2 ですか</td><td>Nghi vấn: N1 có phải là N2 không? Thêm か.</td><td>あなた は ベトナム人 ですか。</td></tr><tr><td>4. N1 も N2 です</td><td>Cũng là: Dùng も thay cho は.</td><td>リーさん も がくせい です。</td></tr><tr><td>5. N1 の N2</td><td>Sở hữu: N2 của N1.</td><td>FPT の しゃいん。</td></tr></tbody></table>` 
+        noi_dung: `
+            <h3 class="tieu-de-phu">Ngữ pháp (Grammar)</h3>
+            <table class="bang-tu-vung">
+                <thead><tr><th style="width: 35%;">Cấu trúc & Ý nghĩa</th><th>Ví dụ Trực quan</th></tr></thead>
+                <tbody>
+                    <tr>
+                        <td style="vertical-align: top;">
+                            <div class="cau-truc-box"><strong>1. Cấu trúc:</strong> <span class="ct-noi-bat">N1 は N2 です</span></div><br>
+                            <strong>Ý nghĩa:</strong> N1 là N2.<br>
+                            <strong>Giải thích:</strong> Khẳng định danh tính, nghề nghiệp, quốc tịch.
+                        </td>
+                        <td style="vertical-align: top; text-align: left;">
+                            <div class="vi-du-container"><div class="ngu-canh-tag">📌 Giới thiệu tên</div><p class="cau-nhat">わたし は ホアン です。</p><p class="cau-viet"><em>(Tôi là Hoàng.)</em></p></div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="vertical-align: top;">
+                            <div class="cau-truc-box"><strong>2. Cấu trúc:</strong> <span class="ct-noi-bat">N1 は N2 じゃありません</span></div><br>
+                            <strong>Ý nghĩa:</strong> N1 không phải là N2.<br>
+                            <strong>Lưu ý:</strong> Văn viết dùng "dewa arimasen".
+                        </td>
+                        <td style="vertical-align: top; text-align: left;">
+                            <div class="vi-du-container"><div class="ngu-canh-tag">📌 Phủ định nghề nghiệp</div><p class="cau-nhat">わたし は 先生 じゃありません。</p><p class="cau-viet"><em>(Tôi không phải là giáo viên.)</em></p></div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="vertical-align: top;">
+                            <div class="cau-truc-box"><strong>3. Cấu trúc:</strong> <span class="ct-noi-bat">N1 は N2 ですか</span></div><br>
+                            <strong>Ý nghĩa:</strong> N1 có phải là N2 không?<br>
+                            <strong>Cách dùng:</strong> Câu hỏi xác nhận (Yes/No).
+                        </td>
+                        <td style="vertical-align: top; text-align: left;">
+                            <div class="vi-du-container"><div class="ngu-canh-tag">📌 Hỏi quốc tịch</div><p class="cau-nhat">あなた は ベトナム人 ですか。</p><p class="cau-viet"><em>(Bạn là người Việt Nam phải không?)</em></p></div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="vertical-align: top;">
+                            <div class="cau-truc-box"><strong>4. Cấu trúc:</strong> <span class="ct-noi-bat">N1 も N2 です</span></div><br>
+                            <strong>Ý nghĩa:</strong> N1 cũng là N2.<br>
+                            <strong>Cách dùng:</strong> Khi N1 có cùng thông tin với người trước đó.
+                        </td>
+                        <td style="vertical-align: top; text-align: left;">
+                            <div class="vi-du-container"><div class="ngu-canh-tag">📌 Đồng tình</div><p class="cau-nhat">リーさん も 学生 です。</p><p class="cau-viet"><em>(Ly cũng là sinh viên.)</em></p></div>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>` 
     },
 
-    // BÀI 2: CÁI NÀY LÀ GÌ?
+    // --- BÀI 2: CÁI NÀY LÀ GÌ? ---
     { 
         id: "n5_tv_2", cap_do: "N5", loai: "TuVung", tieu_de: "BÀI 2: CÁI NÀY LÀ GÌ? - Từ vựng", 
-        noi_dung: `<h3 class="tieu-de-phu">Từ vựng (Vocabulary)</h3><table class="bang-tu-vung"><thead><tr><th>Hán tự/Kana</th><th>Romaji</th><th>Nghĩa Việt</th><th>Ghi chú</th></tr></thead><tbody><tr><td>これ</td><td>kore</td><td>Cái này</td><td>Vật gần người nói</td></tr><tr><td>それ</td><td>sore</td><td>Cái đó</td><td>Vật gần người nghe</td></tr><tr><td>あれ</td><td>are</td><td>Cái kia</td><td>Vật xa cả hai</td></tr><tr><td>この〜</td><td>kono</td><td>~ này</td><td>Bổ nghĩa cho N</td></tr><tr><td>その〜</td><td>sono</td><td>~ đó</td><td>Bổ nghĩa cho N</td></tr><tr><td>あの〜</td><td>ano</td><td>~ kia</td><td>Bổ nghĩa cho N</td></tr><tr><td>ほん</td><td>hon</td><td>Sách</td><td></td></tr><tr><td>ざっし</td><td>zasshi</td><td>Tạp chí</td><td></td></tr><tr><td>かぎ</td><td>kagi</td><td>Chìa khóa</td><td></td></tr><tr><td>とけい</td><td>tokei</td><td>Đồng hồ</td><td></td></tr><tr><td>じどうしゃ</td><td>jidousha</td><td>Xe ô tô</td><td></td></tr><tr><td>いくら</td><td>ikura</td><td>Bao nhiêu tiền</td><td></td></tr><tr><td>なん</td><td>nan</td><td>Cái gì</td><td>Dùng trước です/ですか</td></tr><tr><td>なんの N</td><td>nan no N</td><td>N gì</td><td>Dùng trước の</td></tr></tbody></table>` 
+        noi_dung: `
+            <h3 class="tieu-de-phu">Từ vựng (Vocabulary)</h3>
+            <table class="bang-tu-vung">
+                <thead><tr><th style="width: 25%;">Từ vựng</th><th style="width: 20%;">Nghĩa Việt</th><th>Ví dụ / Ghi chú</th></tr></thead>
+                <tbody>
+                    <tr><td><span class="tu-vung-lon">これ / それ / あれ</span></td><td><strong>Cái này/đó/kia</strong></td><td><span class="highlight">これ</span>は本です。<br><em>(Đây là quyển sách)</em> - Đứng một mình.</td></tr>
+                    <tr><td><span class="tu-vung-lon">この / その / あの</span></td><td><strong>~ này/đó/kia</strong></td><td><span class="highlight">この</span>本。<br><em>(Quyển sách này)</em> - Phải đi kèm N.</td></tr>
+                    <tr><td><span class="tu-vung-lon">本</span><br>(ほん)</td><td><strong>Sách</strong></td><td>日本語の<span class="highlight">本</span>。<br><em>(Sách tiếng Nhật)</em></td></tr>
+                    <tr><td><span class="tu-vung-lon">時計</span><br>(とけい)</td><td><strong>Đồng hồ</strong></td><td>高い<span class="highlight">時計</span>。<br><em>(Đồng hồ đắt tiền)</em></td></tr>
+                    <tr><td><span class="tu-vung-lon">鍵</span><br>(かぎ)</td><td><strong>Chìa khóa</strong></td><td>車の<span class="highlight">鍵</span>。<br><em>(Chìa khóa xe)</em></td></tr>
+                    <tr><td><span class="tu-vung-lon">何</span><br>(なん)</td><td><strong>Cái gì</strong></td><td>これは<span class="highlight">何</span>ですか。<br><em>(Cái này là cái gì?)</em></td></tr>
+                </tbody>
+            </table>` 
     },
     { 
         id: "n5_np_2", cap_do: "N5", loai: "NguPhap", tieu_de: "BÀI 2: CÁI NÀY LÀ GÌ? - Ngữ pháp", 
-        noi_dung: `<h3 class="tieu-de-phu">Ngữ pháp (Grammar)</h3><table class="bang-tu-vung"><thead><tr><th>Cấu trúc</th><th>Giải thích</th><th>Ví dụ</th></tr></thead><tbody><tr><td>1. これ/それ/あれ は N です</td><td>Chỉ định từ làm chủ ngữ. Không cần N đi kèm.</td><td>これ は じどうしゃ です。</td></tr><tr><td>2. この/その/あの N は S です</td><td>Bổ nghĩa cho danh từ. Phải có N đi kèm.</td><td>この ほん は わたし の です。</td></tr><tr><td>3. S は なん ですか</td><td>Hỏi cái gì. Dùng なん (nani/nan).</td><td>それ は なん ですか。</td></tr><tr><td>4. N1 は N2 の N3 です</td><td>Sở hữu/Thuộc tính chi tiết.</td><td>この とけい は ドイツ の カメラ の です。</td></tr><tr><td>5. そうです / そうじゃありません</td><td>Trả lời xác nhận ngắn gọn.</td><td>はい、そうです。 / いいえ、そうじゃありません。</td></tr></tbody></table>` 
+        noi_dung: `
+            <h3 class="tieu-de-phu">Ngữ pháp (Grammar)</h3>
+            <table class="bang-tu-vung">
+                <thead><tr><th style="width: 35%;">Cấu trúc & Ý nghĩa</th><th>Ví dụ Trực quan</th></tr></thead>
+                <tbody>
+                    <tr>
+                        <td style="vertical-align: top;">
+                            <div class="cau-truc-box"><strong>1. Cấu trúc:</strong> <span class="ct-noi-bat">これ/それ/あれ は N です</span></div><br>
+                            <strong>Ý nghĩa:</strong> Cái này/đó/kia là N.<br>
+                            <strong>Cách dùng:</strong> Chỉ định vật. "Kore" (gần tôi), "Sore" (gần bạn), "Are" (xa cả hai).
+                        </td>
+                        <td style="vertical-align: top; text-align: left;">
+                            <div class="vi-du-container"><div class="ngu-canh-tag">📌 Giới thiệu vật</div><p class="cau-nhat">これ は 自動車 です。</p><p class="cau-viet"><em>(Cái này là ô tô.)</em></p></div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="vertical-align: top;">
+                            <div class="cau-truc-box"><strong>2. Cấu trúc:</strong> <span class="ct-noi-bat">この/その/あの N は ～ です</span></div><br>
+                            <strong>Ý nghĩa:</strong> Cái N này/đó/kia thì...<br>
+                            <strong>Lưu ý:</strong> Bắt buộc có Danh từ đi ngay sau.
+                        </td>
+                        <td style="vertical-align: top; text-align: left;">
+                            <div class="vi-du-container"><div class="ngu-canh-tag">📌 Xác định sở hữu</div><p class="cau-nhat">この 本 は わたし の です。</p><p class="cau-viet"><em>(Quyển sách này là của tôi.)</em></p></div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="vertical-align: top;">
+                            <div class="cau-truc-box"><strong>3. Cấu trúc:</strong> <span class="ct-noi-bat">S は 何 ですか</span></div><br>
+                            <strong>Ý nghĩa:</strong> S là cái gì vậy?
+                        </td>
+                        <td style="vertical-align: top; text-align: left;">
+                            <div class="vi-du-container"><div class="ngu-canh-tag">📌 Hỏi tên vật</div><p class="cau-nhat">それ は 何 ですか。</p><p class="cau-viet"><em>(Cái đó là cái gì vậy?)</em></p></div>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>` 
     },
 
-    // BÀI 3: ĐỊA ĐIỂM & VỊ TRÍ
+    // --- BÀI 3: ĐỊA ĐIỂM & VỊ TRÍ ---
     { 
         id: "n5_tv_3", cap_do: "N5", loai: "TuVung", tieu_de: "BÀI 3: ĐỊA ĐIỂM - Từ vựng", 
-        noi_dung: `<h3 class="tieu-de-phu">Từ vựng (Vocabulary)</h3><table class="bang-tu-vung"><thead><tr><th>Hán tự/Kana</th><th>Romaji</th><th>Nghĩa Việt</th><th>Ghi chú</th></tr></thead><tbody><tr><td>ここ</td><td>koko</td><td>Chỗ này, Đây</td><td>Gần người nói</td></tr><tr><td>そこ</td><td>soko</td><td>Chỗ đó, Đó</td><td>Gần người nghe</td></tr><tr><td>あそこ</td><td>asoko</td><td>Chỗ kia, Kia</td><td>Xa cả hai</td></tr><tr><td>どこ</td><td>doko</td><td>Ở đâu</td><td>Từ hỏi</td></tr><tr><td>うえ</td><td>ue</td><td>Trên</td><td></td></tr><tr><td>した</td><td>shita</td><td>Dưới</td><td></td></tr><tr><td>なか</td><td>naka</td><td>Trong</td><td></td></tr><tr><td>そと</td><td>soto</td><td>Ngoài</td><td></td></tr><tr><td>まえ</td><td>mae</td><td>Trước</td><td></td></tr><tr><td>うしろ</td><td>ushiro</td><td>Sau</td><td></td></tr><tr><td>みぎ</td><td>migi</td><td>Bên phải</td><td></td></tr><tr><td>ひだり</td><td>hidari</td><td>Bên trái</td><td></td></tr><tr><td>となり</td><td>tonari</td><td>Bên cạnh</td><td></td></tr><tr><td>ちかく</td><td>chikaku</td><td>Gần</td><td></td></tr><tr><td>としょかん</td><td>toshokan</td><td>Thư viện</td><td></td></tr><tr><td>うけつけ</td><td>uketsuke</td><td>Quầy lễ tân</td><td></td></tr></tbody></table>` 
+        noi_dung: `
+            <h3 class="tieu-de-phu">Từ vựng (Vocabulary)</h3>
+            <table class="bang-tu-vung">
+                <thead><tr><th style="width: 25%;">Từ vựng</th><th style="width: 20%;">Nghĩa Việt</th><th>Ví dụ / Ghi chú</th></tr></thead>
+                <tbody>
+                    <tr><td><span class="tu-vung-lon">ここ / そこ / あそこ</span></td><td><strong>Chỗ này/đó/kia</strong></td><td><span class="highlight">ここ</span>は教室です。<br><em>(Đây là lớp học)</em></td></tr>
+                    <tr><td><span class="tu-vung-lon">どこ</span><br>(doko)</td><td><strong>Ở đâu</strong></td><td>トイレは<span class="highlight">どこ</span>ですか。<br><em>(Nhà vệ sinh ở đâu?)</em></td></tr>
+                    <tr><td><span class="tu-vung-lon">上 / 下</span><br>(うえ / した)</td><td><strong>Trên / Dưới</strong></td><td>つくえの<span class="highlight">上</span>。<br><em>(Trên bàn)</em></td></tr>
+                    <tr><td><span class="tu-vung-lon">中 / 外</span><br>(なか / そと)</td><td><strong>Trong / Ngoài</strong></td><td>はこの<span class="highlight">中</span>。<br><em>(Trong hộp)</em></td></tr>
+                    <tr><td><span class="tu-vung-lon">図書館</span><br>(としょかん)</td><td><strong>Thư viện</strong></td><td><span class="highlight">図書館</span>で本を読みます。<br><em>(Đọc sách ở thư viện)</em></td></tr>
+                </tbody>
+            </table>` 
     },
     { 
         id: "n5_np_3", cap_do: "N5", loai: "NguPhap", tieu_de: "BÀI 3: ĐỊA ĐIỂM - Ngữ pháp", 
-        noi_dung: `<h3 class="tieu-de-phu">Ngữ pháp (Grammar)</h3><table class="bang-tu-vung"><thead><tr><th>Cấu trúc</th><th>Giải thích & Cách dùng</th><th>Ví dụ Thực hành</th></tr></thead><tbody><tr><td>1. N1 は どこ ですか</td><td>Hỏi địa điểm của N1.</td><td>トイレ は どこ ですか。</td></tr><tr><td>2. N1 は N2 です</td><td>Khẳng định vị trí: N1 ở N2.</td><td>会議室 は ３階 です。</td></tr><tr><td>3. N1 は N2 の N3 です</td><td>Vị trí chi tiết (trên, dưới...).</td><td>本 は つくえ の うえ です。</td></tr><tr><td>4. お国 は どちら ですか</td><td>Hỏi lịch sự về quốc tịch/nơi chốn.</td><td>お国 は どちら ですか。</td></tr></tbody></table>` 
+        noi_dung: `
+            <h3 class="tieu-de-phu">Ngữ pháp (Grammar)</h3>
+            <table class="bang-tu-vung">
+                <thead><tr><th style="width: 35%;">Cấu trúc & Ý nghĩa</th><th>Ví dụ Trực quan</th></tr></thead>
+                <tbody>
+                    <tr>
+                        <td style="vertical-align: top;">
+                            <div class="cau-truc-box"><strong>1. Cấu trúc:</strong> <span class="ct-noi-bat">N1 は どこ ですか</span></div><br>
+                            <strong>Ý nghĩa:</strong> N1 ở đâu?<br>
+                            <strong>Cách dùng:</strong> Hỏi vị trí của người, vật hoặc địa điểm.
+                        </td>
+                        <td style="vertical-align: top; text-align: left;">
+                            <div class="vi-du-container"><div class="ngu-canh-tag">📌 Tìm địa điểm</div><p class="cau-nhat">トイレ は どこ ですか。</p><p class="cau-viet"><em>(Nhà vệ sinh ở đâu vậy?)</em></p></div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="vertical-align: top;">
+                            <div class="cau-truc-box"><strong>2. Cấu trúc:</strong> <span class="ct-noi-bat">N1 は N2(địa điểm) です</span></div><br>
+                            <strong>Ý nghĩa:</strong> N1 ở N2.<br>
+                            <strong>Giải thích:</strong> Chỉ sự tồn tại của N1 tại N2.
+                        </td>
+                        <td style="vertical-align: top; text-align: left;">
+                            <div class="vi-du-container"><div class="ngu-canh-tag">📌 Chỉ dẫn</div><p class="cau-nhat">会議室 は ３階 です。</p><p class="cau-viet"><em>(Phòng họp ở tầng 3.)</em></p></div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="vertical-align: top;">
+                            <div class="cau-truc-box"><strong>3. Cấu trúc:</strong> <span class="ct-noi-bat">N1 の N2(vị trí)</span></div><br>
+                            <strong>Ý nghĩa:</strong> Bên trên/dưới/trong... của N1.<br>
+                            <strong>Ví dụ:</strong> 机の上 (Trên bàn).
+                        </td>
+                        <td style="vertical-align: top; text-align: left;">
+                            <div class="vi-du-container"><div class="ngu-canh-tag">📌 Miêu tả vị trí</div><p class="cau-nhat">本 は 机 の 上 です。</p><p class="cau-viet"><em>(Sách ở trên bàn.)</em></p></div>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>` 
     },
 
-    // BÀI 4: THỜI GIAN & NGÀY THÁNG
+    // --- BÀI 4: THỜI GIAN & GIỜ GIẤC ---
     { 
         id: "n5_tv_4", cap_do: "N5", loai: "TuVung", tieu_de: "BÀI 4: THỜI GIAN - Từ vựng", 
-        noi_dung: `<h3 class="tieu-de-phu">Từ vựng (Vocabulary)</h3><table class="bang-tu-vung"><thead><tr><th>Hán tự/Kana</th><th>Romaji</th><th>Nghĩa Việt</th><th>Ghi chú</th></tr></thead><tbody><tr><td>いま</td><td>ima</td><td>Bây giờ</td><td></td></tr><tr><td>〜じ</td><td>~ji</td><td>Mấy giờ</td><td>VD: いちじ (1 giờ)</td></tr><tr><td>〜ふん / ぷん</td><td>~fun / pun</td><td>Mấy phút</td><td>Biến âm: 1,3,4,6,8,10</td></tr><tr><td>はん</td><td>han</td><td>Rưỡi (30 phút)</td><td>VD: いちじはん</td></tr><tr><td>ごぜん</td><td>gozen</td><td>Sáng, AM</td><td></td></tr><tr><td>ごご</td><td>gogo</td><td>Chiều, PM</td><td></td></tr><tr><td>なんじ</td><td>nanji</td><td>Mấy giờ</td><td></td></tr><tr><td>なんぷん</td><td>nanpun</td><td>Mấy phút</td><td></td></tr><tr><td>やすみ</td><td>yasumi</td><td>Ngày nghỉ</td><td></td></tr><tr><td>しごと</td><td>shigoto</td><td>Công việc</td><td></td></tr><tr><td>テスト</td><td>tesuto</td><td>Bài kiểm tra</td><td></td></tr><tr><td>ばんごう</td><td>bangō</td><td>Số (điện thoại)</td><td></td></tr><tr><td>なんばん</td><td>nanban</td><td>Số mấy</td><td></td></tr></tbody></table>` 
+        noi_dung: `
+            <h3 class="tieu-de-phu">Từ vựng (Vocabulary)</h3>
+            <table class="bang-tu-vung">
+                <thead><tr><th style="width: 25%;">Từ vựng</th><th style="width: 20%;">Nghĩa Việt</th><th>Ví dụ / Ghi chú</th></tr></thead>
+                <tbody>
+                    <tr><td><span class="tu-vung-lon">今</span><br>(いま)</td><td><strong>Bây giờ</strong></td><td><span class="highlight">今</span>、何時ですか。<br><em>(Bây giờ là mấy giờ?)</em></td></tr>
+                    <tr><td><span class="tu-vung-lon">～時</span><br>(～じ)</td><td><strong>～ Giờ</strong></td><td>1<span class="highlight">時</span> (いちじ) - 1 giờ.</td></tr>
+                    <tr><td><span class="tu-vung-lon">～分</span><br>(～ふん/ぷん)</td><td><strong>～ Phút</strong></td><td>5<span class="highlight">分</span> (ごふん) / 10<span class="highlight">分</span> (じゅっぷん).</td></tr>
+                    <tr><td><span class="tu-vung-lon">午前 / 午後</span><br>(ごぜん/ごご)</td><td><strong>Sáng / Chiều</strong></td><td><span class="highlight">午前</span>9時。<br><em>(9 giờ sáng)</em></td></tr>
+                    <tr><td><span class="tu-vung-lon">休み</span><br>(やすみ)</td><td><strong>Nghỉ ngơi</strong></td><td>明日は<span class="highlight">休み</span>です。<br><em>(Ngày mai là ngày nghỉ)</em></td></tr>
+                </tbody>
+            </table>` 
     },
     { 
         id: "n5_np_4", cap_do: "N5", loai: "NguPhap", tieu_de: "BÀI 4: THỜI GIAN - Ngữ pháp", 
-        noi_dung: `<h3 class="tieu-de-phu">Ngữ pháp (Grammar)</h3><table class="bang-tu-vung"><thead><tr><th>Cấu trúc</th><th>Giải thích & Cách dùng</th><th>Ví dụ Thực hành</th></tr></thead><tbody><tr><td>1. いま、なんじですか</td><td>Hỏi giờ hiện tại.</td><td>ごぜん ９時半 です。</td></tr><tr><td>2. N1 は N2 です</td><td>Thời gian kết thúc (với yasumi/shigoto).</td><td>銀行 は ３時 まで です。</td></tr><tr><td>3. N から N まで</td><td>Từ... đến... (Thời gian/Địa điểm).</td><td>９時 から ５時 まで はたらきます。</td></tr><tr><td>4. N1 と N2</td><td>Liệt kê đầy đủ (Và).</td><td>土曜日 と 日曜日 です。</td></tr><tr><td>5. N1 は N2 ですね</td><td>Xác nhận thông tin (Nhỉ/Đúng không).</td><td>会議 は １０時 です ね。</td></tr></tbody></table>` 
+        noi_dung: `
+            <h3 class="tieu-de-phu">Ngữ pháp (Grammar)</h3>
+            <table class="bang-tu-vung">
+                <thead><tr><th style="width: 35%;">Cấu trúc & Ý nghĩa</th><th>Ví dụ Trực quan</th></tr></thead>
+                <tbody>
+                    <tr>
+                        <td style="vertical-align: top;">
+                            <div class="cau-truc-box"><strong>1. Cấu trúc:</strong> <span class="ct-noi-bat">今、何時ですか</span></div><br>
+                            <strong>Ý nghĩa:</strong> Bây giờ là mấy giờ?
+                        </td>
+                        <td style="vertical-align: top; text-align: left;">
+                            <div class="vi-du-container"><div class="ngu-canh-tag">📌 Hỏi giờ</div><p class="cau-nhat">今、午前 ９時半 です。</p><p class="cau-viet"><em>(Bây giờ là 9 rưỡi sáng.)</em></p></div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="vertical-align: top;">
+                            <div class="cau-truc-box"><strong>2. Cấu trúc:</strong> <span class="ct-noi-bat">N1 から N2 まで</span></div><br>
+                            <strong>Ý nghĩa:</strong> Từ N1 đến N2.<br>
+                            <strong>Cách dùng:</strong> Dùng cho thời gian (giờ, ngày) hoặc khoảng cách.
+                        </td>
+                        <td style="vertical-align: top; text-align: left;">
+                            <div class="vi-du-container"><div class="ngu-canh-tag">📌 Thời gian làm việc</div><p class="cau-nhat">９時 から ５時 まで 働きます。</p><p class="cau-viet"><em>(Tôi làm việc từ 9h đến 5h.)</em></p></div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="vertical-align: top;">
+                            <div class="cau-truc-box"><strong>3. Cấu trúc:</strong> <span class="ct-noi-bat">N1 と N2</span></div><br>
+                            <strong>Ý nghĩa:</strong> N1 và N2.<br>
+                            <strong>Cách dùng:</strong> Nối 2 danh từ.
+                        </td>
+                        <td style="vertical-align: top; text-align: left;">
+                            <div class="vi-du-container"><div class="ngu-canh-tag">📌 Liệt kê ngày nghỉ</div><p class="cau-nhat">休みは 土曜日 と 日曜日 です。</p><p class="cau-viet"><em>(Ngày nghỉ là thứ 7 và chủ nhật.)</em></p></div>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>` 
     },
 
-    // BÀI 5: CHỦ THỂ & ĐỐI TƯỢNG (Gà/Wo)
+    // --- BÀI 5: ĐI ĐÂU? VỀ ĐÂU? (ĐỘNG TỪ DI CHUYỂN) ---
     { 
-        id: "n5_tv_5", cap_do: "N5", loai: "TuVung", tieu_de: "BÀI 5: CÓ/THÍCH - Từ vựng", 
-        noi_dung: `<h3 class="tieu-de-phu">Từ vựng (Vocabulary)</h3><table class="bang-tu-vung"><thead><tr><th>Hán tự/Kana</th><th>Romaji</th><th>Nghĩa Việt</th><th>Ghi chú</th></tr></thead><tbody><tr><td>わかります</td><td>wakarimasu</td><td>Hiểu</td><td></td></tr><tr><td>あります</td><td>arimasu</td><td>Có (vật vô tri/cây)</td><td></td></tr><tr><td>います</td><td>imasu</td><td>Có (người/động vật)</td><td></td></tr><tr><td>すき (な)</td><td>suki</td><td>Thích</td><td>Tính từ Na</td></tr><tr><td>きらい (な)</td><td>kirai</td><td>Ghét, Không thích</td><td>Tính từ Na</td></tr><tr><td>じょうず (な)</td><td>jōzu</td><td>Giỏi</td><td>Không dùng cho mình</td></tr><tr><td>へた (な)</td><td>heta</td><td>Dở, Kém</td><td>Tính từ Na</td></tr><tr><td>おんなのひと</td><td>onna no hito</td><td>Phụ nữ</td><td></td></tr><tr><td>おとこのひと</td><td>otoko no hito</td><td>Đàn ông</td><td></td></tr><tr><td>こども</td><td>kodomo</td><td>Trẻ con</td><td></td></tr><tr><td>くだもの</td><td>kudamono</td><td>Trái cây</td><td></td></tr><tr><td>パン</td><td>pan</td><td>Bánh mì</td><td></td></tr></tbody></table>` 
+        id: "n5_tv_5", cap_do: "N5", loai: "TuVung", tieu_de: "BÀI 5: ĐI, ĐẾN, VỀ - Từ vựng", 
+        noi_dung: `
+            <h3 class="tieu-de-phu">Từ vựng (Vocabulary)</h3>
+            <table class="bang-tu-vung">
+                <thead><tr><th style="width: 25%;">Từ vựng</th><th style="width: 20%;">Nghĩa Việt</th><th>Ví dụ / Ghi chú</th></tr></thead>
+                <tbody>
+                    <tr><td><span class="tu-vung-lon">行きます</span><br>(いきます)</td><td><strong>Đi</strong></td><td>学校へ<span class="highlight">行きます</span>。<br><em>(Đi đến trường)</em></td></tr>
+                    <tr><td><span class="tu-vung-lon">来ます</span><br>(きます)</td><td><strong>Đến</strong></td><td>日本へ<span class="highlight">来ました</span>。<br><em>(Đã đến Nhật)</em></td></tr>
+                    <tr><td><span class="tu-vung-lon">帰ります</span><br>(かえります)</td><td><strong>Về</strong></td><td>うちへ<span class="highlight">帰ります</span>。<br><em>(Về nhà)</em></td></tr>
+                    <tr><td><span class="tu-vung-lon">学校</span><br>(がっこう)</td><td><strong>Trường học</strong></td><td>日本語の<span class="highlight">学校</span>。<br><em>(Trường tiếng Nhật)</em></td></tr>
+                    <tr><td><span class="tu-vung-lon">駅</span><br>(えき)</td><td><strong>Nhà ga</strong></td><td>東京<span class="highlight">駅</span>。<br><em>(Ga Tokyo)</em></td></tr>
+                    <tr><td><span class="tu-vung-lon">飛行機</span><br>(ひこうき)</td><td><strong>Máy bay</strong></td><td><span class="highlight">飛行機</span>で行きます。<br><em>(Đi bằng máy bay)</em></td></tr>
+                </tbody>
+            </table>` 
     },
     { 
-        id: "n5_np_5", cap_do: "N5", loai: "NguPhap", tieu_de: "BÀI 5: CÓ/THÍCH - Ngữ pháp", 
-        noi_dung: `<h3 class="tieu-de-phu">Ngữ pháp (Grammar)</h3><table class="bang-tu-vung"><thead><tr><th>Cấu trúc</th><th>Giải thích & Cách dùng</th><th>Ví dụ Thực hành</th></tr></thead><tbody><tr><td>1. N が あります/います</td><td>Sự tồn tại. が chỉ chủ thể.</td><td>私 は 車 が あります。</td></tr><tr><td>2. N が すき/きらい...</td><td>Đối tượng của cảm xúc/năng lực. Dùng が.</td><td>わたし は おんがく が すき です。</td></tr><tr><td>3. どんな N</td><td>Hỏi về tính chất/loại của N.</td><td>どんな スポーツ が 好きですか。</td></tr><tr><td>4. あまり + Phủ Định</td><td>Không... lắm (Mức độ).</td><td>あまり 好き じゃありません。</td></tr><tr><td>5. ぜんぜん + Phủ Định</td><td>Hoàn toàn không (Mức độ mạnh).</td><td>おかねが ぜんぜん ありません。</td></tr></tbody></table>` 
+        id: "n5_np_5", cap_do: "N5", loai: "NguPhap", tieu_de: "BÀI 5: ĐI, ĐẾN, VỀ - Ngữ pháp", 
+        noi_dung: `
+            <h3 class="tieu-de-phu">Ngữ pháp (Grammar)</h3>
+            <table class="bang-tu-vung">
+                <thead><tr><th style="width: 35%;">Cấu trúc & Ý nghĩa</th><th>Ví dụ Trực quan</th></tr></thead>
+                <tbody>
+                    <tr>
+                        <td style="vertical-align: top;">
+                            <div class="cau-truc-box"><strong>1. Cấu trúc:</strong> <span class="ct-noi-bat">N(địa điểm) へ 行きます/来ます/帰ります</span></div><br>
+                            <strong>Ý nghĩa:</strong> Đi/Đến/Về N.<br>
+                            <strong>Lưu ý:</strong> Trợ từ へ đọc là "e".
+                        </td>
+                        <td style="vertical-align: top; text-align: left;">
+                            <div class="vi-du-container"><div class="ngu-canh-tag">📌 Di chuyển</div><p class="cau-nhat">私 は スーパー へ 行きます。</p><p class="cau-viet"><em>(Tôi đi siêu thị.)</em></p></div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="vertical-align: top;">
+                            <div class="cau-truc-box"><strong>2. Cấu trúc:</strong> <span class="ct-noi-bat">N(phương tiện) で V</span></div><br>
+                            <strong>Ý nghĩa:</strong> Đi bằng phương tiện gì.<br>
+                            <strong>Ngoại lệ:</strong> Đi bộ dùng "aruite" (không có で).
+                        </td>
+                        <td style="vertical-align: top; text-align: left;">
+                            <div class="vi-du-container"><div class="ngu-canh-tag">📌 Phương tiện</div><p class="cau-nhat">バス で 会社へ 行きます。</p><p class="cau-viet"><em>(Tôi đi đến công ty bằng xe buýt.)</em></p></div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="vertical-align: top;">
+                            <div class="cau-truc-box"><strong>3. Cấu trúc:</strong> <span class="ct-noi-bat">N(người) と V</span></div><br>
+                            <strong>Ý nghĩa:</strong> Làm gì cùng với ai.<br>
+                            <strong>Lưu ý:</strong> Một mình là "hitori de".
+                        </td>
+                        <td style="vertical-align: top; text-align: left;">
+                            <div class="vi-du-container"><div class="ngu-canh-tag">📌 Đồng hành</div><p class="cau-nhat">友達 と 日本へ 来ました。</p><p class="cau-viet"><em>(Tôi đã đến Nhật cùng bạn bè.)</em></p></div>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>` 
     },
-
     // --- MÔ-ĐUN 2: ĐỘNG TỪ & HÀNH ĐỘNG ---
 
     // BÀI 6: ĐỘNG TỪ THỂ MASU

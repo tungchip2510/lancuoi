@@ -706,3 +706,22 @@ body.che-do-tap-trung .content-thi {
     font-weight: bold;
     font-size: 1.2em;
 }
+
+/* CSS làm đẹp cho nội dung bài học mới */
+.tu-vung-lon { font-size: 1.2em; font-weight: bold; color: #2c3e50; }
+.highlight { color: #e74c3c; font-weight: bold; }
+.cau-truc-box { background-color: #e8f6f3; padding: 5px; border-left: 3px solid #1abc9c; border-radius: 4px; }
+.ct-noi-bat { color: #d35400; font-weight: bold; font-size: 1.1em; }
+.vi-du-container { margin-bottom: 5px; }
+.ngu-canh-tag { 
+    display: inline-block; 
+    background-color: #f39c12; 
+    color: white; 
+    font-size: 0.85em; 
+    padding: 2px 8px; 
+    border-radius: 10px; 
+    margin-bottom: 5px; 
+}
+.cau-nhat { font-weight: bold; color: #2980b9; margin: 2px 0; }
+.cau-viet { color: #7f8c8d; font-size: 0.95em; }
+}

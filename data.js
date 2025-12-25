@@ -538,6 +538,289 @@ const KHO_BAI_HOC = [
                 </tbody>
             </table>` 
     },
+
+
+
+    
+
+// ======================================================
+    // MÔ-ĐUN: DỰ ĐỊNH & KẾ HOẠCH (N4 - BÀI 31)
+    // ======================================================
+
+    // --- PHẦN 1: TỪ VỰNG (25 TỪ) ---
+    { 
+        id: "n4_tv_31", 
+        cap_do: "N4", 
+        loai: "TuVung", 
+        tieu_de: "BÀI 31: DỰ ĐỊNH & KẾ HOẠCH - Từ vựng", 
+        noi_dung: `
+            <h3 class="tieu-de-phu">Từ vựng (Vocabulary)</h3>
+            <table class="bang-tu-vung">
+                <thead>
+                    <tr>
+                        <th style="width: 15%;">Từ vựng<br>(Kanji/Kana)</th>
+                        <th style="width: 20%;">Nghĩa Việt</th>
+                        <th>Ví dụ Minh họa</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><span class="tu-vung-lon">準備</span><br>(じゅんび)</td>
+                        <td><strong>Chuẩn bị</strong></td>
+                        <td>引越しの<span class="highlight">準備</span>はもう終わりましたか。<br><em>(Việc chuẩn bị chuyển nhà đã xong chưa?)</em></td>
+                    </tr>
+                    <tr>
+                        <td><span class="tu-vung-lon">意見</span><br>(いけん)</td>
+                        <td><strong>Ý kiến</strong></td>
+                        <td>会議で自分の<span class="highlight">意見</span>をはっきり言います。<br><em>(Nói rõ ý kiến của bản thân tại cuộc họp)</em></td>
+                    </tr>
+                    <tr>
+                        <td><span class="tu-vung-lon">特別な</span><br>(とくべつな)</td>
+                        <td><strong>Đặc biệt</strong></td>
+                        <td>彼女の誕生日に<span class="highlight">特別な</span>プレゼントをあげたいです。<br><em>(Tôi muốn tặng một món quà đặc biệt vào sinh nhật cô ấy)</em></td>
+                    </tr>
+                    <tr>
+                        <td><span class="tu-vung-lon">反対</span><br>(はんたい)</td>
+                        <td><strong>Phản đối</strong></td>
+                        <td>家族に留学を<span class="highlight">反対</span>されました。<br><em>(Tôi bị gia đình phản đối việc đi du học)</em></td>
+                    </tr>
+                    <tr>
+                        <td><span class="tu-vung-lon">賛成</span><br>(さんせい)</td>
+                        <td><strong>Tán thành</strong></td>
+                        <td>私はあなたの意見に<span class="highlight">賛成</span>です。<br><em>(Tôi tán thành với ý kiến của bạn)</em></td>
+                    </tr>
+                    <tr>
+                        <td><span class="tu-vung-lon">注意</span><br>(ちゅうい)</td>
+                        <td><strong>Chú ý / Nhắc nhở</strong></td>
+                        <td>健康に<span class="highlight">注意</span>して生活してください。<br><em>(Hãy chú ý đến sức khỏe trong cuộc sống hàng ngày)</em></td>
+                    </tr>
+                    <tr>
+                        <td><span class="tu-vung-lon">連絡</span><br>(れんらく)</td>
+                        <td><strong>Liên lạc</strong></td>
+                        <td>会社に電話で<span class="highlight">連絡</span>します。<br><em>(Liên lạc với công ty bằng điện thoại)</em></td>
+                    </tr>
+                    <tr>
+                        <td><span class="tu-vung-lon">相談</span><br>(そうだん)</td>
+                        <td><strong>Thảo luận</strong></td>
+                        <td>進路について先生に<span class="highlight">相談</span>しました。<br><em>(Đã thảo luận với thầy giáo về con đường sự nghiệp)</em></td>
+                    </tr>
+                    <tr>
+                        <td><span class="tu-vung-lon">無理な</span><br>(むりな)</td>
+                        <td><strong>Quá sức / Vô lý</strong></td>
+                        <td><span class="highlight">無理な</span>ダイエットは体に悪いです。<br><em>(Giảm cân quá sức sẽ có hại cho cơ thể)</em></td>
+                    </tr>
+                    <tr>
+                        <td><span class="tu-vung-lon">一生懸命</span><br>(いっしょうけんめい)</td>
+                        <td><strong>Hết sức mình</strong></td>
+                        <td>N4に合格するために<span class="highlight">一生懸命</span>勉強します。<br><em>(Học hết sức mình để đỗ N4)</em></td>
+                    </tr>
+                    <tr>
+                        <td><span class="tu-vung-lon">予定</span><br>(よてい)</td>
+                        <td><strong>Kế hoạch</strong></td>
+                        <td>今日の午後の<span class="highlight">予定</span>を教えてください。<br><em>(Hãy cho tôi biết kế hoạch chiều nay)</em></td>
+                    </tr>
+                    <tr>
+                        <td><span class="tu-vung-lon">成功</span><br>(せいこう)</td>
+                        <td><strong>Thành công</strong></td>
+                        <td>実験に<span class="highlight">成功</span>しました。<br><em>(Đã thành công trong cuộc thí nghiệm)</em></td>
+                    </tr>
+                    <tr>
+                        <td><span class="tu-vung-lon">失敗</span><br>(しっぱい)</td>
+                        <td><strong>Thất bại</strong></td>
+                        <td>テストに<span class="highlight">失敗</span>してしまいました。<br><em>(Tôi đã thất bại/làm hỏng bài kiểm tra)</em></td>
+                    </tr>
+                    <tr>
+                        <td><span class="tu-vung-lon">経験</span><br>(けいけん)</td>
+                        <td><strong>Kinh nghiệm</strong></td>
+                        <td>日本でいろいろな<span class="highlight">経験</span>をしたいです。<br><em>(Tôi muốn có nhiều kinh nghiệm tại Nhật Bản)</em></td>
+                    </tr>
+                    <tr>
+                        <td><span class="tu-vung-lon">経済</span><br>(けいざい)</td>
+                        <td><strong>Kinh tế</strong></td>
+                        <td>大学で<span class="highlight">経済</span>を専門に勉強しています。<br><em>(Tôi đang học chuyên ngành kinh tế tại đại học)</em></td>
+                    </tr>
+                    <tr>
+                        <td><span class="tu-vung-lon">翻訳</span><br>(ほんやく)</td>
+                        <td><strong>Biên dịch (viết)</strong></td>
+                        <td>日本の小説をベトナム語に<span class="highlight">翻訳</span>します。<br><em>(Dịch tiểu thuyết Nhật sang tiếng Việt)</em></td>
+                    </tr>
+                    <tr>
+                        <td><span class="tu-vung-lon">通訳</span><br>(つうやく)</td>
+                        <td><strong>Thông dịch (nói)</strong></td>
+                        <td>観光客の<span class="highlight">通訳</span>の仕事をしています。<br><em>(Tôi đang làm công việc thông dịch cho khách du lịch)</em></td>
+                    </tr>
+                    <tr>
+                        <td><span class="tu-vung-lon">習慣</span><br>(しゅうかん)</td>
+                        <td><strong>Tập quán / Thói quen</strong></td>
+                        <td>早寝早起きはいい<span class="highlight">習慣</span>です。<br><em>(Ngủ sớm dậy sớm là một thói quen tốt)</em></td>
+                    </tr>
+                    <tr>
+                        <td><span class="tu-vung-lon">理由</span><br>(りゆう)</td>
+                        <td><strong>Lý do</strong></td>
+                        <td>遅刻した<span class="highlight">理由</span>を説明してください。<br><em>(Hãy giải thích lý do đi muộn)</em></td>
+                    </tr>
+                    <tr>
+                        <td><span class="tu-vung-lon">国際</span><br>(こくさい)</td>
+                        <td><strong>Quốc tế</strong></td>
+                        <td>これは<span class="highlight">国際</span>的な問題です。<br><em>(Đây là một vấn đề mang tính quốc tế)</em></td>
+                    </tr>
+                    <tr>
+                        <td><span class="tu-vung-lon">専門</span><br>(せんもん)</td>
+                        <td><strong>Chuyên môn</strong></td>
+                        <td>私の<span class="highlight">専門</span>はコンピューターです。<br><em>(Chuyên môn của tôi là máy tính)</em></td>
+                    </tr>
+                    <tr>
+                        <td><span class="tu-vung-lon">機会</span><br>(きかい)</td>
+                        <td><strong>Cơ hội</strong></td>
+                        <td>日本人と話す<span class="highlight">機会</span>が少ないです。<br><em>(Ít có cơ hội nói chuyện với người Nhật)</em></td>
+                    </tr>
+                    <tr>
+                        <td><span class="tu-vung-lon">適当な</span><br>(てきとうな)</td>
+                        <td><strong>Thích hợp / Vừa phải</strong></td>
+                        <td><span class="highlight">適当な</span>野菜を切って鍋に入れてください。<br><em>(Thái rau thích hợp rồi cho vào nồi)</em></td>
+                    </tr>
+                    <tr>
+                        <td><span class="tu-vung-lon">複雑な</span><br>(ふくざつな)</td>
+                        <td><strong>Phức tạp</strong></td>
+                        <td>この機械の使い方は<span class="highlight">複雑</span>で難しいです。<br><em>(Cách dùng máy này phức tạp và khó)</em></td>
+                    </tr>
+                    <tr>
+                        <td><span class="tu-vung-lon">簡単</span><br>(かんたん)</td>
+                        <td><strong>Đơn giản</strong></td>
+                        <td>この問題は意外に<span class="highlight">簡単</span>でした。<br><em>(Câu hỏi này đơn giản ngoài dự tính)</em></td>
+                    </tr>
+                </tbody>
+            </table>` 
+    },
+
+    // --- PHẦN 2: NGỮ PHÁP (4 CẤU TRÚC) ---
+    { 
+        id: "n4_np_31", 
+        cap_do: "N4", 
+        loai: "NguPhap", 
+        tieu_de: "BÀI 31: DỰ ĐỊNH & KẾ HOẠCH - Ngữ pháp", 
+        noi_dung: `
+            <h3 class="tieu-de-phu">Ngữ pháp (Grammar)</h3>
+            <table class="bang-tu-vung">
+                <thead>
+                    <tr>
+                        <th style="width: 35%;">Cấu trúc & Ý nghĩa</th>
+                        <th>Ví dụ Trực quan (Ngữ cảnh)</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td style="vertical-align: top;">
+                            <div class="cau-truc-box">
+                                <strong>1. Cấu trúc:</strong><br>
+                                <span class="ct-noi-bat">V-意向形</span> (Thể ý định)<br>
+                            </div>
+                            <br>
+                            <strong>Ý nghĩa:</strong> Ý chí / Dự định / Rủ rê<br><br>
+                            <strong>Cách dùng:</strong><br>
+                            Dùng khi nói về ý định của bản thân cho người nghe hoặc khi rủ rê một cách thân mật (thay cho ~ましょう).
+                        </td>
+                        <td style="vertical-align: top; text-align: left;">
+                            <div class="vi-du-container">
+                                <div class="ngu-canh-tag">📌 Ngữ cảnh: Tự nhủ</div>
+                                <p class="cau-nhat">疲れたなあ。少し休もう。</p>
+                                <p class="cau-viet"><em>(Mệt quá. Nghỉ chút đi thôi - Tự nói với mình)</em></p>
+                            </div>
+                            <hr style="border-top: 1px dashed #ccc; margin: 10px 0;">
+                            <div class="vi-du-container">
+                                <div class="ngu-canh-tag">📌 Ngữ cảnh: Rủ rê bạn bè</div>
+                                <p class="cau-nhat">週末、一緒に海へ行こう！</p>
+                                <p class="cau-viet"><em>(Cuối tuần cùng đi biển đi! - Rủ bạn thân)</em></p>
+                            </div>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td style="vertical-align: top;">
+                            <div class="cau-truc-box">
+                                <strong>2. Cấu trúc:</strong><br>
+                                <span class="ct-noi-bat">V-意向形 + と思っています</span><br>
+                                (to omotteimasu)
+                            </div>
+                            <br>
+                            <strong>Ý nghĩa:</strong> Dự định nảy sinh / Đang định...<br><br>
+                            <strong>Cách dùng:</strong><br>
+                            Diễn tả dự định đã có từ trước và bây giờ vẫn đang giữ ý định đó.
+                        </td>
+                        <td style="vertical-align: top; text-align: left;">
+                            <div class="vi-du-container">
+                                <div class="ngu-canh-tag">📌 Ngữ cảnh: Kế hoạch lâu dài</div>
+                                <p class="cau-nhat">将来、自分の会社を作ろうと思っています。</p>
+                                <p class="cau-viet"><em>(Tôi đang định tương lai sẽ mở công ty riêng)</em></p>
+                            </div>
+                            <hr style="border-top: 1px dashed #ccc; margin: 10px 0;">
+                            <div class="vi-du-container">
+                                <div class="ngu-canh-tag">📌 Ngữ cảnh: Mua sắm</div>
+                                <p class="cau-nhat">週末に新しい靴を買おうと思っています。</p>
+                                <p class="cau-viet"><em>(Tôi đang định cuối tuần sẽ mua giày mới)</em></p>
+                            </div>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td style="vertical-align: top;">
+                            <div class="cau-truc-box">
+                                <strong>3. Cấu trúc:</strong><br>
+                                <span class="ct-noi-bat">V-る / V-ない + つもりです</span><br>
+                                (tsumori desu)
+                            </div>
+                            <br>
+                            <strong>Ý nghĩa:</strong> Ý chí sắt đá / Quyết tâm<br><br>
+                            <strong>Cách dùng:</strong><br>
+                            Thể hiện một quyết tâm mạnh mẽ. "Tôi định làm..." hoặc "Tôi định không làm...".
+                        </td>
+                        <td style="vertical-align: top; text-align: left;">
+                            <div class="vi-du-container">
+                                <div class="ngu-canh-tag">📌 Ngữ cảnh: Quyết tâm</div>
+                                <p class="cau-nhat">来年、日本語能力試験のN3を受けるつもりです。</p>
+                                <p class="cau-viet"><em>(Năm sau tôi định sẽ thi JLPT N3)</em></p>
+                            </div>
+                            <hr style="border-top: 1px dashed #ccc; margin: 10px 0;">
+                            <div class="vi-du-container">
+                                <div class="ngu-canh-tag">📌 Ngữ cảnh: Từ bỏ thói quen xấu</div>
+                                <p class="cau-nhat">健康のために、タバコはもう吸わないつもりです。</p>
+                                <p class="cau-viet"><em>(Vì sức khỏe, tôi định sẽ không hút thuốc nữa)</em></p>
+                            </div>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td style="vertical-align: top;">
+                            <div class="cau-truc-box">
+                                <strong>4. Cấu trúc:</strong><br>
+                                <span class="ct-noi-bat">V-る / N-の + 予定です</span><br>
+                                (yotei desu)
+                            </div>
+                            <br>
+                            <strong>Ý nghĩa:</strong> Kế hoạch cố định<br><br>
+                            <strong>Cách dùng:</strong><br>
+                            Diễn tả kế hoạch đã được ấn định chính thức bởi lịch trình hoặc người khác (khách quan hơn).
+                        </td>
+                        <td style="vertical-align: top; text-align: left;">
+                            <div class="vi-du-container">
+                                <div class="ngu-canh-tag">📌 Ngữ cảnh: Lịch trình</div>
+                                <p class="cau-nhat">出張は１週間ぐらいの予定です。</p>
+                                <p class="cau-viet"><em>(Chuyến công tác dự định kéo dài khoảng 1 tuần)</em></p>
+                            </div>
+                            <hr style="border-top: 1px dashed #ccc; margin: 10px 0;">
+                            <div class="vi-du-container">
+                                <div class="ngu-canh-tag">📌 Ngữ cảnh: Thời gian sự kiện</div>
+                                <p class="cau-nhat">卒業式は１０時に始まる予定です。</p>
+                                <p class="cau-viet"><em>(Lễ tốt nghiệp theo kế hoạch sẽ bắt đầu lúc 10 giờ)</em></p>
+                            </div>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>` 
+    },
+
+
+    
 ];
 // ======================================================
 // 3. KHO BÀI TẬP (NƠI CHỨA CÂU HỎI - GỒM N5, N1 T7, N1 T12)

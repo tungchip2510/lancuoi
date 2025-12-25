@@ -3,7 +3,7 @@ document.addEventListener("DOMContentLoaded", function() {
     // ======================================================
     // 0. HÀM TIỆN ÍCH (Xáo trộn mảng & Chuyển đổi Flashcard)
     // ======================================================
-    
+
     // Hàm xáo trộn đáp án (Fisher-Yates Shuffle)
     function shuffleArray(array) {
         // Tạo một bản sao để không làm hỏng dữ liệu gốc
@@ -15,133 +15,58 @@ document.addEventListener("DOMContentLoaded", function() {
         return newArray;
     }
 
+    // Hàm chuyển đổi bảng HTML sang giao diện Flashcard
+    function chuyenDoiBangSangFlashcard(htmlString) {
+        let div = document.createElement('div');
+        div.innerHTML = htmlString;
+
+        let table = div.querySelector('table');
+        if (!table) return htmlString; 
+
+        let rows = table.querySelectorAll('tbody tr');
+        if (rows.length === 0) return htmlString;
+
+        let cardHtml = `<h3 class="tieu-de-phu">Flashcard Từ Vựng (Bấm vào thẻ để lật)</h3><div class="flashcard-grid">`;
+
+        rows.forEach(row => {
+            let cols = row.querySelectorAll('td');
+            // Giả định: [0]Kana, [1]Romaji, [2]Nghĩa
+            if (cols.length >= 3) {
+                let nhat = cols[0].innerText;
+                let romaji = cols[1].innerText;
+                let viet = cols[2].innerText;
+                
+                cardHtml += `
+                    <div class="flashcard" onclick="this.classList.toggle('flipped')">
+                        <div class="flashcard-inner">
+                            <div class="flashcard-front">
+                                <div class="fc-main">${nhat}</div>
+                                <div class="fc-sub">${romaji}</div>
+                                <i class="fas fa-sync-alt" style="position:absolute; bottom:10px; color:#ccc; font-size:12px;"></i>
+                            </div>
+                            <div class="flashcard-back">
+                                ${viet}
+                            </div>
+                        </div>
+                    </div>
+                `;
+            }
+        });
+        cardHtml += `</div>`;
+        return htmlString.replace(/<table.*<\/table>/s, cardHtml); 
+    }
 
     // ======================================================
     // 1. CẤU HÌNH & KHỞI TẠO BIẾN
-    // ======================================================
-    const SO_ITEM_MOI_TRANG = 9; 
-    const SO_CAU_MOI_BO = 5;
-    const NGAY_THI = new Date("2025-12-07T00:00:00").getTime(); 
-
-    let trangHienTai = 1, capDoDangXem = "", loaiDangXem = "", modeBangChuCai = 'hiragana';
-    let boDemGio, thoiGianConLai = 0, deThiHienTai = {}, diemSo = 0;
-
-    // ======================================================
-    // 2. UI & EVENT
-    // ======================================================
-    const cotNoiDung = document.querySelector(".content");
-    const cotNoiDungBt = document.querySelector(".content-bt");
-    const cotNoiDungThi = document.querySelector(".content-thi");
-    const sidebar = document.querySelector(".sidebar");
-    const hamburgerBtn = document.getElementById("hamburger-btn");
-    const menuList = document.querySelector(".menu-chinh ul");
-
-    if (hamburgerBtn) hamburgerBtn.addEventListener("click", () => menuList.classList.toggle("mobile-menu-open"));
-
-    // Tô màu menu
-    let currentUrl = window.location.pathname.split("/").pop() || "index.html";
-    document.querySelectorAll(".menu-chinh a").forEach(link => {
-        if(link.getAttribute("href") === currentUrl) {
-            link.style.backgroundColor = "#e69500"; link.style.color = "white"; link.style.borderBottom = "none";
-        }
-    });
-
-    // ======================================================
-    // 3. QUẢN LÝ THÀNH VIÊN
-    // ======================================================
-    const khungDangKy = document.getElementById("khung-dang-ky");
-    const khungChaoMung = document.getElementById("khung-chao-mung");
-    const spanTen = document.getElementById("ten-nguoi-dung");
-
-    function checkLogin() {
-        let ten = localStorage.getItem("hocvien_ten");
-        if (ten) {
-            if(khungDangKy) khungDangKy.style.display = "none";
-            if(khungChaoMung) { khungChaoMung.style.display = "block"; spanTen.textContent = ten; }
-        } else {
-            if(khungDangKy) khungDangKy.style.display = "block";
-            if(khungChaoMung) khungChaoMung.style.display = "none";
-        }
-    }
-    checkLogin();
-
-    if(document.getElementById("form-dang-ky")) {
-        document.getElementById("form-dang-ky").addEventListener("submit", (e) => {
-            e.preventDefault();
-            localStorage.setItem("hocvien_ten", document.getElementById("ten").value);
-            alert("Chào mừng bạn!"); checkLogin();
-        });
-    }
-    if(document.getElementById("nut-dang-xuat")) {
-        document.getElementById("nut-dang-xuat").addEventListener("click", () => {
-            if(confirm("Đăng xuất?")) { localStorage.removeItem("hocvien_ten"); checkLogin(); }
-        });
-    }
-
-    // ======================================================
-    // 4. ĐIỀU HƯỚNG
-    // ======================================================
-    if (sidebar) {
-        sidebar.addEventListener("click", (e) => {
-            if (e.target.closest("[data-loai='bang-chu-cai']")) {
-                e.preventDefault(); loaiDangXem = "bang-chu-cai"; veGiaoDien(); return;
-            }
-            if (e.target.closest(".link-cap-1")) {
-                e.preventDefault();
-                e.target.closest(".link-cap-1").parentElement.classList.toggle("active");
-            }
-            if (e.target.classList.contains("link-cap-2")) {
-                e.preventDefault();
-                trangHienTai = 1; capDoDangXem = e.target.dataset.capdo; loaiDangXem = e.target.dataset.loai;
-                veGiaoDien();
-            }
-        });
-    }
-
-    function veGiaoDien() {
-        if (loaiDangXem === "bang-chu-cai") hienThiBangChuCai();
-        else if (loaiDangXem.startsWith("bai-hoc")) hienThiDanhSach("BAI_HOC");
-        else if (loaiDangXem.startsWith("bai-tap")) hienThiDanhSachBoBaiTap();
-        else if (loaiDangXem === "de-thi" && cotNoiDungThi) hienThiDanhSach("DE_THI");
-    }
-
-    // ======================================================
-    // 5. HIỂN THỊ NỘI DUNG
-    // ======================================================
-
-    // A. HIỂN THỊ DANH SÁCH BÀI HỌC / ĐỀ THI
-    function hienThiDanhSach(type) {
-        let data = (type === "BAI_HOC") ? KHO_BAI_HOC : KHO_DE_THI;
-        let container = (type === "BAI_HOC") ? cotNoiDung : cotNoiDungThi;
-        
-        let list = data.filter(i => i.cap_do == capDoDangXem);
-
-        if (type === "BAI_HOC") { 
-            let loaiCanTim = loaiDangXem.split('-').pop(); 
-            list = list.filter(i => i.loai == loaiCanTim);
-        }
-
-        let dsDaHoc = JSON.parse(localStorage.getItem("bai_da_hoc")) || [];
-
-        let html = `<h1>Danh sách ${capDoDangXem}</h1><div class="grid-container">`;
-        list.forEach(item => {
-            let cls = (type === "DE_THI") ? "link-de-thi card-item" : "link-bai-hoc card-item";
-            let checkIcon = (type === "BAI_HOC" && dsDaHoc.includes(item.id)) 
-                ? '<i class="fas fa-check-circle" style="color:green; position:absolute; top:10px; right:10px; font-size: 1.2em;"></i>' 
-                : '';
-
-            html += `<a href="#" class="${cls}" data-id="${item.id}">
-                        ${checkIcon}
-                        <h3>${item.tieu_de}</h3>
-                     </a>`;
-        });
-        html += `</div>`;
-        
+@@ -180,327 +140,383 @@
         if(container) container.innerHTML = html;
     }
 
+    // B. HIỂN THỊ CHI TIẾT BÀI HỌC (Có Flashcard)
+    function hienThiChiTietBaiHoc(id) {
+        const baiHoc = KHO_BAI_HOC.find(b => b.id == id);
+        if (!baiHoc) return;
    // B. HIỂN THỊ CHI TIẾT BÀI HỌC (PHIÊN BẢN MỚI: BẢNG + FLASHCARD)
-// B. HIỂN THỊ CHI TIẾT BÀI HỌC (PHIÊN BẢN 3: BẢNG + FLASHCARD + AUDIO)
 function hienThiChiTietBaiHoc(id) {
     const baiHoc = KHO_BAI_HOC.find(b => b.id == id);
     if (!baiHoc) return;
@@ -151,11 +76,11 @@ function hienThiChiTietBaiHoc(id) {
     let btnText = isDone ? "✅ Đã học xong" : "⭕ Đánh dấu đã học";
     let btnClass = isDone ? "da-hoc" : "";
 
-    // 1. Lấy nội dung gốc (Bảng)
+    // 1. Lấy nội dung gốc (Bảng) để hiển thị phần trên
     let noiDungGoc = baiHoc.noi_dung;
     let phanFlashcard = "";
 
-    // 2. Logic tạo Flashcard
+    // 2. Logic tạo Flashcard mới (Nằm ngay tại đây)
     if (baiHoc.loai === 'TuVung') {
         let divAo = document.createElement('div');
         divAo.innerHTML = noiDungGoc;
@@ -168,10 +93,20 @@ function hienThiChiTietBaiHoc(id) {
                     <div class="flashcard-grid">
             `;
 
+        let dsDaHoc = JSON.parse(localStorage.getItem("bai_da_hoc")) || [];
+        let isDone = dsDaHoc.includes(id);
+        let btnText = isDone ? "✅ Đã học xong" : "⭕ Đánh dấu đã học";
+        let btnClass = isDone ? "da-hoc" : "";
+
+        // --- XỬ LÝ FLASHCARD NẾU LÀ TỪ VỰNG ---
+        let noiDungHienThi = baiHoc.noi_dung;
+        if (baiHoc.loai === 'TuVung') {
+            noiDungHienThi = chuyenDoiBangSangFlashcard(baiHoc.noi_dung);
             rows.forEach(row => {
                 let cols = row.querySelectorAll('td');
+                // Kiểm tra xem có đủ dữ liệu không để tạo thẻ
                 if (cols.length >= 2) {
-                    // Cột 1: Từ vựng chính (Kanji/Từ)
+                    // Lấy cột 1 (Kanji/Kana) - Lọc bỏ các thẻ span để lấy text sạch
                     let cot1 = cols[0].innerHTML; 
                     let tuVungChinh = cols[0].querySelector('.tu-vung-lon') ? cols[0].querySelector('.tu-vung-lon').innerText : cols[0].innerText;
                     
@@ -181,18 +116,14 @@ function hienThiChiTietBaiHoc(id) {
                     if(tempDiv.querySelector('.tu-vung-lon')) tempDiv.querySelector('.tu-vung-lon').remove();
                     let phuAm = tempDiv.innerText.replace(/[()]/g, '').trim(); 
 
-                    // Cột 2: Nghĩa
+                    // Lấy cột 2 (Nghĩa tiếng Việt)
                     let nghia = cols[1].innerText;
 
-                    // --- ĐÂY LÀ PHẦN THAY ĐỔI: THÊM NÚT LOA VÀO HTML ---
+                    // Tạo HTML cho từng thẻ
                     phanFlashcard += `
                         <div class="card-flip" onclick="this.classList.toggle('is-flipped')">
                             <div class="card-inner">
                                 <div class="card-front">
-                                    <div class="btn-loa" onclick="docTuVung(event, '${tuVungChinh}')" title="Nghe phát âm">
-                                        <i class="fas fa-volume-up"></i>
-                                    </div>
-
                                     <div class="card-main-text">${tuVungChinh}</div>
                                     <div class="card-sub-text">${phuAm}</div>
                                     <div class="icon-flip"><i class="fas fa-sync"></i> Lật</div>
@@ -203,37 +134,23 @@ function hienThiChiTietBaiHoc(id) {
                             </div>
                         </div>
                     `;
-                    // ----------------------------------------------------
                 }
             });
             phanFlashcard += `</div></div>`;
         }
     }
 
-    // 3. Ghép giao diện
-    const html = `
-        <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:20px;">
-            <button id="nut-quay-lai" class="btn-back" style="margin:0;"><i class="fas fa-arrow-left"></i> Quay lại</button>
-            <button id="nut-danh-dau" class="btn-action ${btnClass}" onclick="toggleDaHoc('${id}')">${btnText}</button>
-        </div>
-        
-        <h1 style="color: #e65100; border-bottom: 2px solid #eee; padding-bottom:10px;">${baiHoc.tieu_de}</h1>
-        
-        <div class="noi-dung-bai-hoc">
-            ${noiDungGoc}
-        </div>
-
-        ${phanFlashcard}
-
-        <div class="cau-truc-ngu-phap" style="margin-top:30px; text-align:center;">
-            <p><i>💡 Mẹo: Bấm vào <i class="fas fa-volume-up"></i> để nghe, bấm vào thẻ để lật xem nghĩa.</i></p>
-        </div>
-    `;
-    
-    cotNoiDung.innerHTML = html;
-    window.scrollTo(0, 0);
-}
-
+        const html = `
+            <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:20px;">
+                <button id="nut-quay-lai" class="btn-back" style="margin:0;"><i class="fas fa-arrow-left"></i> Quay lại</button>
+                <button id="nut-danh-dau" class="btn-action ${btnClass}" onclick="toggleDaHoc('${id}')">${btnText}</button>
+            </div>
+            <h1 style="color: #e65100; border-bottom: 2px solid #eee; padding-bottom:10px;">${baiHoc.tieu_de}</h1>
+            <div class="noi-dung-bai-hoc">${noiDungHienThi}</div>
+            <div class="cau-truc-ngu-phap" style="margin-top:30px; text-align:center;">
+                <p><i>Chúc bạn học tốt! Hãy ghi chép lại nhé.</i></p>
+            </div>
+        `;
     // 3. Ghép giao diện: Bảng ở trên, Flashcard ở dưới
     const html = `
         <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:20px;">
@@ -241,6 +158,9 @@ function hienThiChiTietBaiHoc(id) {
             <button id="nut-danh-dau" class="btn-action ${btnClass}" onclick="toggleDaHoc('${id}')">${btnText}</button>
         </div>
         
+        cotNoiDung.innerHTML = html;
+        window.scrollTo(0, 0);
+    }
         <h1 style="color: #e65100; border-bottom: 2px solid #eee; padding-bottom:10px;">${baiHoc.tieu_de}</h1>
         
         <div class="noi-dung-bai-hoc">
@@ -262,7 +182,7 @@ function hienThiChiTietBaiHoc(id) {
         if (!cotNoiDungBt) return; 
 
         let loaiCanTim = loaiDangXem.split('-').pop(); 
-        
+
         let listBaiTap = KHO_BAI_TAP.filter(bt => 
             bt.cap_do == capDoDangXem && bt.loai == loaiCanTim
         );
@@ -273,7 +193,7 @@ function hienThiChiTietBaiHoc(id) {
         }
 
         let html = `<h1>Luyện tập ${capDoDangXem} - ${loaiCanTim}</h1>`;
-        
+
         listBaiTap.forEach((bai, index) => {
             // --- ÁP DỤNG XÁO TRỘN ĐÁP ÁN ---
             let luaChonNgauNhien = shuffleArray(bai.lua_chon);
@@ -354,7 +274,7 @@ function hienThiChiTietBaiHoc(id) {
         });
 
         container.innerHTML = html;
-        
+
         document.querySelectorAll(".lua-chon-thi").forEach(btn => {
             btn.addEventListener("click", function() {
                 this.parentElement.querySelectorAll(".lua-chon-thi").forEach(b => b.classList.remove("selected"));
@@ -413,7 +333,7 @@ function hienThiChiTietBaiHoc(id) {
                 else chon.style.backgroundColor = "#f8d7da";
             }
         });
-        
+
         let ketQua = { de: deThiHienTai.tieu_de, diem: diem, tong: total, ngay: new Date().toLocaleString() };
         let ls = JSON.parse(localStorage.getItem("lich_su_thi")) || [];
         ls.push(ketQua);
@@ -427,7 +347,7 @@ function hienThiChiTietBaiHoc(id) {
     // ======================================================
     // 7. SỰ KIỆN & GLOBAL HELPERS
     // ======================================================
-    
+
     if (cotNoiDung) cotNoiDung.addEventListener("click", (e) => { 
         if (e.target.closest(".link-bai-hoc")) { e.preventDefault(); hienThiChiTietBaiHoc(e.target.closest(".link-bai-hoc").dataset.id); }
         if (e.target.id == "nut-quay-lai") veGiaoDien();
@@ -445,11 +365,6 @@ function hienThiChiTietBaiHoc(id) {
             u.lang = 'ja-JP'; window.speechSynthesis.speak(u);
         }
     };
-    // Hàm đọc từ vựng riêng cho Flashcard (Chặn sự kiện lật thẻ)
-window.docTuVung = function(e, text) {
-    e.stopPropagation(); // QUAN TRỌNG: Ngăn không cho thẻ bị lật khi bấm loa
-    playSound(text);     // Gọi hàm đọc có sẵn của bạn
-};
 
     window.toggleDaHoc = function(id) {
         let dsDaHoc = JSON.parse(localStorage.getItem("bai_da_hoc")) || [];
@@ -505,7 +420,7 @@ window.docTuVung = function(e, text) {
             const ketQua = KHO_BAI_HOC.filter(bai => 
                 bai.tieu_de.toLowerCase().includes(tuKhoa)
             );
-            
+
             let html = `<h1>Kết quả tìm kiếm: "${tuKhoa}"</h1><div class="grid-container">`;
             if (ketQua.length === 0) {
                 html += `<p>Không tìm thấy bài học nào phù hợp.</p>`;

@@ -856,3 +856,36 @@ body.che-do-tap-trung .content-thi {
     font-size: 1.1em;
     line-height: 1.4;
 }
+
+
+
+/* =========================================
+   NÚT LOA TRÊN FLASHCARD
+   ========================================= */
+.btn-loa {
+    position: absolute;
+    top: 10px;
+    left: 10px; /* Nằm ở góc trái trên */
+    width: 35px;
+    height: 35px;
+    background-color: #f0f0f0;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--primary-color); /* Màu cam chủ đạo */
+    font-size: 16px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    transition: all 0.2s ease;
+    z-index: 10; /* Đảm bảo nó nổi lên trên cùng */
+}
+
+.btn-loa:hover {
+    transform: scale(1.1); /* Phóng to nhẹ khi di chuột vào */
+    background-color: var(--primary-color);
+    color: white;
+}
+
+.btn-loa:active {
+    transform: scale(0.9); /* Nhấn xuống */
+}
